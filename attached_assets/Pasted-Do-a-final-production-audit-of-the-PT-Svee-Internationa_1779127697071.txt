@@ -1,0 +1,100 @@
+Do a final production audit of the PT Svee International website. Do not redesign or rewrite everything again. Only fix remaining issues.
+
+Check these items carefully:
+
+1. Product pages
+Confirm whether these are real crawlable pages with unique content, not only category filter pages:
+- /products/soybean-meal-soyameal-indonesia
+- /products/rice-ddgs-indonesia
+- /products/rapeseed-meal-canola-meal-indonesia
+- /products/yellow-maize-feed-corn-indonesia
+- /products/corn-grits-maize-grits-india
+- /products/rice-grits-indonesia
+- /products/corn-flour-india
+- /products/rice-flour-india
+- /products/groundnut-kernels-peanuts-india
+- /products/liquid-glucose-india
+
+If these pages do not exist, create them with proper unique human-written content, FAQ, meta title, meta description, CTA, and product-specific schema.
+
+2. Sitemap
+Update sitemap.xml to include all real product detail pages, not only category pages.
+
+3. Origin markets
+Check the homepage origin grid. Keep Myanmar, Vietnam and Australia only if PT Svee actually sources from those markets. If not confirmed, replace with:
+“India”
+“Other Asian origins on requirement”
+“Global origins case by case”
+Do not make fake origin claims.
+
+4. Copy cleanup
+Search the full project and remove/rewrite any remaining AI-style or fake-sounding phrases:
+- seamless
+- unlock
+- world-class
+- global leader
+- most competitive prices
+- guaranteed supply
+- certified suppliers unless verified
+- expanding to Middle East
+- serving the whole world
+
+Keep the site Indonesia-focused.
+
+5. Import wording
+Make sure all import support wording says “coordination/support”, not guaranteed customs clearance.
+Use:
+“Final import clearance depends on product classification, documents, importer status and applicable Indonesian regulations.”
+
+6. Product images
+Confirm product detail pages do not all use the same image. Each product/category must have relevant image and alt text.
+
+7. SEO basics
+Confirm:
+- one H1 per page
+- unique title and meta description per page
+- canonical URLs use https://www.sveeint.com
+- robots.txt points to https://www.sveeint.com/sitemap.xml
+- Organization schema is correct
+- Product schema is added only where relevant
+- FAQ schema matches visible FAQ content
+- breadcrumb schema is valid
+- Open Graph tags are correct
+
+8. LLM files
+Confirm:
+- /llms.txt works
+- /llms-full.txt works
+- both are plain text and crawlable
+- no private supplier names, private client names, pricing, fake claims or internal notes are included
+
+9. Contact details
+Verify footer, contact page, schema and llms files all use the same details:
+PT Svee International / Svee Komoditi
+Ruko Sunter Terrace Blok C No 12
+Jalan Danau Sunter Utara Kav. No. 60
+Jakarta Utara 14350
+INDONESIA
+WhatsApp: +62-815-1055-1111
+Tel: +62-21-65832426
+Emails: info@sveeint.com, ptsvee@gmail.com, lunkad.v@gmail.com
+Website: https://www.sveeint.com
+
+10. Final build check
+Run:
+npm run check
+npm run build
+
+Fix every error and warning that affects production quality.
+
+11. Final buyer check
+Review the site like a real Indonesian feed mill or commodity importer.
+Within 5 seconds, the buyer should understand:
+- PT Svee is based in Indonesia
+- PT Svee helps source from India and other origin markets
+- animal feed ingredients are a main focus
+- soybean meal, rice DDGS, maize grits, rice grits and other products are easy to find
+- WhatsApp/contact is easy to use
+- the website sounds real, not AI-generated
+
+Only finish after all checks pass.

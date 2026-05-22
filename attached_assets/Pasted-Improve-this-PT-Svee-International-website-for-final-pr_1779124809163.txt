@@ -1,0 +1,343 @@
+Improve this PT Svee International website for final production launch.
+
+Do not redesign randomly. Keep the website premium, sober, B2B and trustworthy. The goal is to make PT Svee International look like a serious Indonesia-based import and sourcing broker for agro commodities, especially animal-feed raw materials sourced from India and other global origins.
+
+BUSINESS POSITIONING
+
+PT Svee International is not just a generic exporter or trader.
+
+Position the company as:
+“Indonesia-based agro commodity import and sourcing broker helping Indonesian buyers source agricultural commodities, animal-feed raw materials, grains, oilseeds, pulses, spices and related products from India and other global origins.”
+
+Main audience:
+- Feed mills
+- Animal feed manufacturers
+- Commodity importers
+- Food processors
+- Wholesalers
+- Trading houses
+- Industrial buyers in Indonesia
+
+Main strength:
+We act as a sourcing bridge between Indonesian buyers and Indian/global suppliers. We help with supplier coordination, product availability, specification discussion, documentation support, shipment follow-up and trade communication.
+
+Avoid fake claims. Do not invent certifications, clients, shipment volumes, awards, guaranteed prices or guaranteed quality. Use practical and honest B2B language.
+
+DESIGN DIRECTION
+
+The current design is presentable, but improve it to look more premium and easier to scan.
+
+Keep:
+- Blue/orange brand feeling
+- Professional B2B look
+- Strong hero section
+- WhatsApp/contact CTA
+
+Improve:
+- Reduce excessive dark navy sections
+- Make product and service sections lighter, cleaner and easier to read
+- Use white/warm ivory backgrounds with deep blue, muted orange/gold and dark text
+- Avoid overdesigned AI-looking gradients
+- Avoid too many icons
+- Use real commodity/trade/logistics feeling: grains, feed ingredients, warehouse, port, shipment, documentation, buyer-supplier coordination
+- Make the layout look like a serious commodity sourcing company, not a generic AI-generated landing page
+
+HOMEPAGE COPY
+
+Replace the hero headline with:
+“Agro Commodity Sourcing for Indonesian Buyers”
+
+Replace hero subheadline with:
+“PT Svee International helps Indonesian feed mills, food processors and commodity importers source agricultural products from India and other global origins — with support for supplier coordination, documentation, shipment follow-up and trade communication.”
+
+Primary CTA:
+“Request Product Quote”
+
+Secondary CTA:
+“View Animal Feed Ingredients”
+
+Add a strong trust section:
+“Your sourcing bridge between Indonesia and India”
+Copy:
+“We work with Indonesian buyers who need reliable sourcing support for agro commodities and feed raw materials. Our role is to help buyers check availability, compare origins, coordinate specifications, follow documentation and keep communication clear between buyer and supplier.”
+
+PRODUCT STRUCTURE
+
+Create or reorganize the product categories like this:
+
+1. Animal Feed Ingredients
+This must be the first and most important category.
+
+Include:
+- Soybean Meal
+- Yellow Maize / Feed Corn
+- Corn Grits / Maize Grits
+- Rapeseed Meal / Canola Meal
+- Groundnut Meal / Peanut Cake
+- Rice Bran DOC
+- Wheat Bran
+- Sunflower Meal
+- Palm Kernel Expeller / PKE only if actually handled
+
+2. Grains & Corn Products
+Include:
+- Yellow Maize
+- Corn Grits / Maize Grits
+- Wheat
+- Rice-related products if actually handled
+
+3. Oilseeds & Oilseed Meals
+Include:
+- Soybean
+- Groundnut / Peanut
+- Sesame Seed
+- Rapeseed / Canola
+- Oilseed extraction meals
+
+4. Pulses & Beans
+Include:
+- Green Mung Beans
+- Chickpeas
+- Lentils
+- Yellow Peas
+- Other pulses only if actually handled
+
+5. Indian Spices
+Include:
+- Red Chilli
+- Turmeric
+- Coriander
+- Cumin
+- Black Pepper
+- Other spices only if actually handled
+
+6. Edible Oils
+Include only products actually handled.
+
+7. Fertilizers
+Keep only if this is part of the real business.
+
+IMPORTANT KEYWORD CORRECTION
+
+Correct all “corn grid” wording to:
+“corn grits” or “maize grits”
+
+Use both terms naturally:
+“Corn Grits / Maize Grits from India”
+
+SEO PAGE STRUCTURE
+
+Create dedicated SEO pages with clean URLs:
+
+/products/animal-feed-ingredients-indonesia
+/products/soybean-meal-indonesia
+/products/yellow-maize-feed-corn-indonesia
+/products/corn-grits-maize-grits-india
+/products/rapeseed-meal-canola-meal
+/products/groundnut-meal-peanut-cake
+/products/rice-bran-doc
+/products/wheat-bran
+/products/pulses-from-india
+/products/indian-spices-indonesia
+
+Each page must include:
+- Unique H1
+- Unique meta title
+- Unique meta description
+- 600 to 900 words of natural human-written content
+- Product overview
+- Common uses
+- Typical buyer types
+- Typical specification section
+- Origin/source note
+- Packaging/shipment note
+- Documentation note
+- Important disclaimer: availability, origin, specs and shipment terms depend on supplier confirmation and season
+- FAQ section
+- WhatsApp / enquiry CTA
+
+HUMAN COPY STYLE
+
+Rewrite all content so it sounds written by an experienced commodity broker, not AI.
+
+Avoid these words:
+- seamless
+- unlock
+- revolutionary
+- cutting-edge
+- world-class
+- premium quality everywhere
+- empower
+- transform
+- unparalleled
+- leading provider
+- game-changing
+
+Use simple real language.
+
+Example style:
+“We help buyers check availability, compare origin options and coordinate product specifications before shipment. Final price, specification and shipment terms depend on supplier confirmation, season and market movement.”
+
+Another example:
+“For feed mill buyers, consistency in supply, documentation and communication is important. Our role is to support the buying process from enquiry to shipment follow-up.”
+
+Do not make exaggerated claims.
+
+SEO TECHNICAL REQUIREMENTS
+
+Fix all technical SEO before launch.
+
+Add:
+1. sitemap.xml
+2. robots.txt
+3. Correct sitemap URL for final domain sveeint.com
+4. Unique title and meta description for every page
+5. Canonical URLs after final domain is confirmed
+6. Organization JSON-LD schema
+7. Product JSON-LD schema for each important product page
+8. FAQ JSON-LD schema for FAQ sections
+9. Breadcrumb JSON-LD schema
+10. Proper image alt text
+11. Open Graph tags for social sharing
+12. Twitter/X card tags
+13. Clean URL slugs
+14. 404 page
+15. Fast mobile loading
+16. Compressed images
+17. Proper heading structure: one H1 per page, then H2/H3
+
+CRAWLABILITY / LLM READINESS
+
+The website must not depend only on JavaScript-rendered text.
+
+Make product page content crawlable and visible in the HTML as much as possible.
+
+If this remains a React SPA, implement one of these:
+- Static pre-rendering for main pages
+- Server-side rendering
+- Static HTML generation for all important product pages
+
+Do not rely only on client-side JavaScript for SEO product pages.
+
+Add these files at root:
+
+/llms.txt
+/llms-full.txt
+
+Create /llms.txt as a curated summary for AI tools.
+
+llms.txt should include:
+- Company name
+- Short description
+- Main services
+- Main product categories
+- Important product page links
+- Contact page link
+- Note that PT Svee International is an Indonesia-based import and sourcing broker for agro commodities and feed raw materials
+
+Create /llms-full.txt with a longer structured summary of:
+- Company overview
+- What we do
+- Who we serve
+- Product categories
+- Important product pages
+- Sourcing and documentation support
+- Contact details
+
+Important:
+Do not put private data, supplier names, client names, pricing, internal notes or fake claims in llms.txt or llms-full.txt.
+
+PRODUCT IMAGE FIX
+
+Currently product detail pages may use the same generic image. Fix this.
+
+Create product/category-specific image mapping:
+- Soybean meal: feed meal / soybean meal image
+- Yellow maize: maize/corn image
+- Corn grits / maize grits: corn grits image
+- Rice bran DOC: rice bran/feed ingredient image
+- Wheat bran: bran/feed image
+- Pulses: pulses/beans image
+- Spices: real spice image
+- Oilseeds: oilseed image
+- Edible oils: oil/commodity image
+- Fertilizers: fertilizer/agri input image
+
+Do not use the same spice image for all products.
+
+IMPORTANT PRODUCT PAGE COPY REQUIREMENTS
+
+Create strong content for these 5 pages first:
+
+1. Animal Feed Ingredients for Indonesia
+Position this page for feed mills and animal feed buyers.
+Mention soybean meal, maize, corn grits/maize grits, rice bran DOC, wheat bran, rapeseed meal, groundnut meal and other feed raw materials if actually handled.
+
+2. Soybean Meal for Feed Mills in Indonesia
+Focus on feed use, protein meal, buyer coordination, origin options, specifications and shipment documentation.
+
+3. Yellow Maize / Feed Corn for Indonesia
+Focus on feed mills, poultry feed, bulk buying, origin comparison and shipment coordination.
+
+4. Corn Grits / Maize Grits from India
+Focus on food/feed/industrial usage depending on grade. Use both keywords naturally: corn grits and maize grits.
+
+5. Rice Bran DOC / Wheat Bran
+Focus on animal feed raw material buyers and practical sourcing.
+
+CONTACT / CONVERSION
+
+Every page should have a clear CTA:
+“Send Product Enquiry”
+“Request Current Availability”
+“Discuss Requirement on WhatsApp”
+
+Add enquiry form fields:
+- Name
+- Company
+- Country / City
+- Product required
+- Approximate quantity
+- Target shipment month
+- Destination port
+- Message
+- WhatsApp / Email
+
+Add note:
+“Product availability, specification, price and shipment terms are confirmed case by case.”
+
+CODE FIXES
+
+Run:
+npm run check
+npm run build
+
+Fix all TypeScript errors.
+
+Known issues to fix:
+- Products.tsx category.name[language] type error
+- Products.tsx category.description[language] type error
+- server/storage.ts User and InsertUser import/export issue
+
+Final requirement:
+Both npm run check and npm run build must pass before final deployment.
+
+FINAL QUALITY CHECK
+
+Before finishing, review the site like a real Indonesian commodity buyer.
+
+Check:
+- Does the homepage explain what PT Svee does in 5 seconds?
+- Is Animal Feed Ingredients visible clearly?
+- Are soybean meal, yellow maize/feed corn and corn grits/maize grits easy to find?
+- Does the site sound human and practical?
+- Are there any fake or exaggerated claims?
+- Are pages crawlable for Google and AI tools?
+- Is sitemap working?
+- Is robots.txt correct?
+- Is llms.txt available?
+- Are product pages unique and not duplicate text?
+- Is mobile view clean?
+- Is WhatsApp/contact easy to find?
+
+Do not finish until the site feels real, trustworthy, search-friendly and ready for serious B2B buyer enquiries.

@@ -1,0 +1,701 @@
+Act as a senior website strategist, B2B copywriter, SEO specialist, technical SEO developer, and React/TypeScript engineer.
+
+Review and improve the full PT Svee International website for final production launch.
+
+The website must look real, trustworthy, human-written, SEO-ready, LLM-ready, and focused on Indonesian buyers. Do not make it sound like an AI-generated global trading website.
+
+==================================================
+1. CORE BUSINESS POSITIONING
+==================================================
+
+PT Svee International / Svee Komoditi is an Indonesia-based import and sourcing broker.
+
+We help Indonesian buyers source agro commodities, animal-feed raw materials, grain-based products, oilseeds, pulses, spices, food ingredients and selected essential products from India and other reliable origin markets.
+
+Do NOT position the company as a generic exporter or fake global trading giant.
+
+Main positioning:
+“Indonesia-based agro commodity import and sourcing partner helping Indonesian buyers source from India and other reliable origin markets.”
+
+Main audience:
+- Feed mills
+- Animal feed manufacturers
+- Food processors
+- Snack manufacturers
+- Commodity importers
+- Wholesalers
+- Trading houses
+- Industrial buyers in Indonesia
+
+Main strength:
+We work as a sourcing bridge between Indonesian buyers and Indian/global suppliers. We help with supplier search, availability checks, specification coordination, documentation follow-up, shipment communication and buyer-supplier coordination.
+
+Remove or rewrite any content that says or implies:
+- expanding in Middle East
+- serving the whole world
+- global leader
+- world-class supply chain
+- biggest supplier
+- guaranteed supply
+- guaranteed cheapest price
+- fake certifications
+- fake clients
+- fake shipment volumes
+
+The full site must focus on Indonesia.
+
+==================================================
+2. HUMAN COPY RULE
+==================================================
+
+Rewrite all content to sound natural, practical and experienced.
+
+The tone should feel like a real commodity broker speaking to serious buyers.
+
+Avoid AI-style words:
+- seamless
+- unlock
+- empower
+- revolutionary
+- cutting-edge
+- world-class
+- unparalleled
+- game-changing
+- global leader
+- most competitive prices
+- premium quality everywhere
+- hassle-free everywhere
+- guaranteed supply
+- certified supplier unless actually verified
+
+Use practical words:
+- sourcing support
+- availability check
+- origin comparison
+- specification coordination
+- document follow-up
+- shipment communication
+- buyer-supplier coordination
+- confirmed case by case
+
+Use this style:
+“We help buyers check availability, compare origin options, coordinate specifications and follow shipment documentation. Final price, specification, origin and shipment terms are confirmed case by case.”
+
+Do not invent any unverified claim.
+
+==================================================
+3. HOMEPAGE UPDATE
+==================================================
+
+Hero headline:
+“Agro Commodity Sourcing for Indonesian Buyers”
+
+Hero subheadline:
+“PT Svee International helps Indonesian feed mills, food processors and commodity importers source agricultural products from India and other reliable origin markets — with support for supplier coordination, documentation, shipment follow-up and trade communication.”
+
+Primary CTA:
+“Request Product Quote”
+
+Secondary CTA:
+“View Animal Feed Ingredients”
+
+Add this section:
+
+Title:
+“Your sourcing bridge between Indonesia and India”
+
+Copy:
+“We work with Indonesian buyers who need practical sourcing support for agro commodities, feed raw materials and food ingredients. Our role is to help buyers check availability, compare origins, coordinate specifications, follow documentation and keep communication clear between buyer and supplier.”
+
+Add homepage sections:
+1. Animal Feed Ingredients
+2. Grains & Corn Products
+3. Rice & Milled Products
+4. Oilseeds & Kernels
+5. Pulses & Beans
+6. Spices
+7. Food Ingredients & Sweeteners
+8. Import Support for Indonesian Buyers
+9. Contact / WhatsApp CTA
+
+==================================================
+4. ABOUT US PAGE
+==================================================
+
+Remove any fake expansion or Middle East/global-growth language.
+
+Replace About Us content with this:
+
+“PT Svee International / Svee Komoditi is an Indonesia-based import and sourcing company focused on agro commodities, feed raw materials, grain-based products, oilseeds, pulses, spices and selected food ingredients.
+
+Established in 2001 and based in Jakarta, we work with Indonesian buyers who need practical sourcing support from India and other reliable origin markets. Our role is to help buyers identify suitable suppliers, check product availability, coordinate specifications, follow documentation and keep communication clear from enquiry to shipment.
+
+We mainly serve feed mills, food processors, snack manufacturers, commodity importers, wholesalers, trading houses and industrial buyers in Indonesia. Many buyers need more than only a supplier name. They need correct product information, realistic market communication, document follow-up and shipment coordination.
+
+Through our sourcing network in India and other origins, we support products such as soybean meal, rapeseed meal, rice DDGS, maize, maize grits, rice grits, groundnut kernels, sesame seeds, pulses, spices and other agri-based raw materials as per buyer requirement.
+
+We do not claim to be the biggest. We focus on being practical, reachable and useful for buyers who need reliable sourcing coordination. Product availability, specifications, packing, origin, pricing and shipment terms are always confirmed case by case.”
+
+Add About Us sections:
+- Our Role
+- Our Buyers
+- Our Sourcing Focus
+- Import & Documentation Support
+- Practical Disclaimer
+
+Practical disclaimer:
+“Product availability, specification, packing, origin, price and shipment terms are confirmed case by case. Import requirements can vary by HS code, product type, buyer status, destination port and current Indonesian regulations.”
+
+==================================================
+5. SERVICES PAGE / SECTION
+==================================================
+
+Create or improve these service blocks:
+
+1. Sourcing
+“We identify and connect with suitable suppliers across India and other origin markets based on the buyer’s product requirement, quantity, specification and shipment timeline.”
+
+2. Procurement Coordination
+“We support price discussion, product specification checks, packing details and supplier communication so buyers can make informed purchase decisions.”
+
+3. Logistics & Importation Support
+“We coordinate shipment follow-up, documentation, freight communication and import-related support through the required service partners until the cargo reaches Indonesia.”
+
+4. Documentation & Trade Support
+“We assist with LC-related communication, shipping documents, inspection coordination, fumigation requirements and other practical trade documentation needs.”
+
+5. Custom Product Sourcing
+“If a buyer needs a specific raw material or product not listed on the website, we can check availability through our supplier network and respond with possible origin options.”
+
+Do not say we guarantee customs clearance.
+
+Use this wording:
+“We help coordinate required information and documents with suppliers and logistics/service partners. Final import clearance depends on product classification, documents, importer status and applicable Indonesian regulations.”
+
+==================================================
+6. IMPORT SUPPORT PAGE
+==================================================
+
+Create a page called:
+“Import Support for Indonesian Buyers”
+
+URL:
+/import-support-indonesia
+
+Explain that PT Svee helps Indonesian buyers with:
+- Product requirement discussion
+- Supplier and origin check
+- Specification coordination
+- Price and packing discussion
+- Proforma invoice follow-up
+- LC/document requirement coordination
+- Shipment document follow-up
+- Container/shipment communication
+- Coordination with logistics, customs or PPJK partners where required
+
+Mention typical documents:
+- Commercial Invoice
+- Packing List
+- Bill of Lading / Airway Bill
+- Certificate of Origin
+- Phytosanitary Certificate, where required
+- Fumigation Certificate, where required
+- Certificate of Analysis / Quality Certificate, where required
+- Weight Certificate, where required
+- Insurance document, where applicable
+- LC documents, where buyer/bank requires
+- PIB and Indonesian customs documents handled by importer/PPJK as per Indonesian process
+- Other product-specific permits or recommendation documents where required
+
+Add disclaimer:
+“Import requirements depend on HS code, product type, buyer/importer status, destination port and current Indonesian regulations. PT Svee International supports coordination and document follow-up but does not guarantee clearance outcome.”
+
+==================================================
+7. PRODUCT CATEGORY STRUCTURE
+==================================================
+
+Reorganize products in this order:
+
+1. Animal Feed Ingredients
+This must be first and most visible.
+
+Include:
+- Soybean Meal / Soyameal / Soya Meal / SBM
+- Rapeseed Meal / Canola Meal / Mustard Meal
+- Rice DDGS
+- Yellow Maize / Feed Corn
+- Maize Grits / Corn Grits
+- Groundnut Meal / Peanut Cake
+- Rice Bran DOC
+- Wheat Bran
+- Sunflower Meal
+- Cattle Feed Fibre / Germ / Flour
+- Palm Kernel Expeller / PKE only if actually handled
+
+2. Grains & Corn Products
+Include:
+- Yellow Maize / Corn
+- Cleaned Yellow Corn
+- Cleaned White Corn
+- Maize Grits / Corn Grits
+- Flaking Grits
+- Corn Meal
+- Corn Flour
+- Popcorn Seed
+- Wheat
+- Barley
+- Sorghum
+
+3. Rice & Milled Products
+Include:
+- Rice Grits
+- Rice Flour
+- Rice Flour Fine
+- Rice Flour Super Fine
+- Broken Rice if actually handled
+
+4. Oilseeds & Kernels
+Include:
+- Groundnut Kernels / Peanuts
+- Sesame Seeds
+- Soybeans
+- Rapeseed / Canola
+- Sunflower Seeds
+- Castor Seeds if actually handled
+
+5. Pulses & Beans
+Include:
+- Chickpeas
+- Gram Grits
+- Gram Flour
+- Green Moong Beans
+- Red Lentils
+- Pigeon Peas
+- Black Eyed Peas
+- Yellow Peas if actually handled
+
+6. Specialty Grain Flours
+Include:
+- Ragi Meal / Ragi Flour
+- Jowar Meal
+- Jowar Flour
+- Multigrain Flour
+
+7. Spices
+Include:
+- Red Chilli
+- Turmeric
+- Cumin Seeds
+- Coriander Seeds
+- Black Pepper
+- Fenugreek
+- Fennel
+- Mustard Seeds
+- Ajwain
+- Dehydrated Garlic
+- Dehydrated Onion
+
+8. Food Ingredients & Sweeteners
+Include:
+- Liquid Glucose
+- Corn Flour
+- Rice Flour
+- Gram Flour
+- Other food ingredients only if actually handled
+
+9. Edible Oils
+Keep only if actually handled:
+- Palm Oil
+- Groundnut Oil
+- Soybean Oil
+- Sunflower Oil
+
+10. Fertilizers
+Keep only if this is a real active category.
+
+==================================================
+8. IMPORTANT PRODUCT WORDING
+==================================================
+
+Correct all wrong “corn grid” text.
+
+Use:
+“corn grits”
+“maize grits”
+“Corn Grits / Maize Grits from India”
+
+Do not use “corn grid”.
+
+Use aliases naturally:
+- Soybean Meal / Soyameal / Soya Meal / SBM
+- Rapeseed Meal / Canola Meal / Mustard Meal
+- Yellow Maize / Feed Corn
+- Groundnut Kernels / Peanuts
+- Groundnut Meal / Peanut Cake
+
+==================================================
+9. PRIORITY SEO PRODUCT PAGES
+==================================================
+
+Create these pages first:
+
+/products/animal-feed-ingredients-indonesia
+/products/soybean-meal-soyameal-indonesia
+/products/rice-ddgs-indonesia
+/products/rapeseed-meal-canola-meal-indonesia
+/products/yellow-maize-feed-corn-indonesia
+/products/corn-grits-maize-grits-india
+/products/rice-grits-indonesia
+/products/corn-flour-india
+/products/rice-flour-india
+/products/groundnut-kernels-peanuts-india
+/products/pulses-from-india
+/products/indian-spices-indonesia
+/products/liquid-glucose-india
+
+Each product page must include:
+- Unique H1
+- Unique meta title
+- Unique meta description
+- 600 to 900 words of natural human-written content
+- Product overview
+- Common uses
+- Typical buyer types
+- Typical specifications
+- Origin/source note
+- Packing/shipment note
+- Documentation note
+- FAQ section
+- WhatsApp enquiry CTA
+- Disclaimer:
+“Availability, origin, specification, packing, price and shipment terms are confirmed case by case.”
+
+==================================================
+10. PRODUCT PAGE CONTENT GUIDANCE
+==================================================
+
+Use these product notes:
+
+Rice DDGS:
+Rice DDGS is a high-protein, high-fiber by-product from rice-based ethanol production. It is used as an ingredient in animal feed. Write for Indonesian feed mills and animal feed buyers. Mention that protein, fiber, moisture, packing and origin must be confirmed before shipment.
+
+Maize Grits / Corn Grits:
+Maize grits are coarse ground particles made from cleaned and milled corn. They are used in extruded snacks, breakfast cereals, breweries, confectionery, baking applications and selected feed/industrial use depending on grade. Use both terms naturally: maize grits and corn grits.
+
+Rice Grits:
+Rice grits are coarser broken rice particles prepared by grinding and sieving raw rice. They are used in extruded snacks, namkeen, bakery items, instant mixes, ready-to-eat products and food processing applications.
+
+Corn Flour:
+Corn flour is used in gluten-free quick breads, baking, pasta making, sausages as starch substitute, papad making and selected cattle feed applications depending on grade.
+
+Rice Flour:
+Rice flour is fine powder prepared from raw rice. It is used in snacks, bakery items, instant mixes, ready-to-eat products and traditional food applications.
+
+Flaking Grits:
+First-cut de-germed corn grits used for corn flakes, brewery flakes and food processing applications.
+
+Corn Meal:
+Fine corn grits below 1 mm used for specialty snacks and efficient extrusion.
+
+Cattle Feed Fibre / Germ / Flour:
+Corn fibre, germ and flour can be supplied for cattle feed and feed applications depending on supplier availability and specifications.
+
+Gram Grits / Gram Flour:
+Used in extruded snacks and food processing.
+
+Ragi Meal / Ragi Flour:
+Used for dosa, roti, idli, upma, puttu, paratha and traditional food products.
+
+Jowar Meal / Jowar Flour:
+Used in snacks, chips, extruded products and flour applications.
+
+Multigrain Flour:
+Made from a combination of grains such as ragi, barley and corn masa flour. Used in flatbreads and bakery items.
+
+Liquid Glucose:
+Used in sweets, confectionery, biscuits, ice cream, jams, jellies, preserves, pastries and related food applications.
+
+Groundnut Kernels:
+Indian HPS groundnut kernels are used for oil extraction, direct consumption, roasted snacks, peanut butter, confectionery and food processing.
+
+Sesame Seed:
+White and black sesame seeds are used in baking, sweets, confectionery, seasoning and frying applications.
+
+==================================================
+11. PRODUCT DETAIL PAGE FORMAT
+==================================================
+
+Use this format for every product page:
+
+1. H1
+Example:
+“Soybean Meal / Soyameal for Feed Mills in Indonesia”
+
+2. Short intro
+2–3 direct sentences explaining what the product is and who buys it.
+
+3. Common uses
+Use bullets.
+
+4. Typical specification
+Use a table.
+Do not invent exact values unless verified.
+Use “typical / subject to supplier confirmation”.
+
+5. Origin and sourcing note
+Mention India and other origins only where relevant.
+
+6. Packing and shipment
+Mention bulk, container, bags, jumbo bags only where relevant.
+Add “as per supplier confirmation”.
+
+7. Documentation
+Mention documents where applicable:
+Commercial invoice, packing list, certificate of origin, phytosanitary certificate, fumigation certificate, certificate of analysis, weight/quality documents and other buyer/bank/customs/quarantine requirements.
+
+8. FAQ
+Add 4–6 practical buyer questions.
+
+9. CTA
+“Send Product Enquiry”
+“Request Current Availability”
+“Discuss Requirement on WhatsApp”
+
+==================================================
+12. DESIGN UPDATE
+==================================================
+
+Keep the site premium and B2B.
+
+Current design is acceptable, but improve it:
+
+- Keep blue/orange brand identity
+- Reduce excessive dark navy sections
+- Use more white/warm ivory sections
+- Use deep blue, muted orange/gold and dark text
+- Make product pages cleaner and easier to scan
+- Use real commodity/trade/logistics visuals
+- Avoid fake AI-looking images
+- Avoid too many icons
+- Make CTA buttons clear
+- Keep WhatsApp/contact CTA visible
+- Mobile view must be clean and fast
+
+The site should feel like:
+“Reliable commodity sourcing and import support for Indonesian buyers.”
+
+Not:
+“Generic AI-generated global trading landing page.”
+
+==================================================
+13. PRODUCT IMAGE FIX
+==================================================
+
+Do not use the same image for all product pages.
+
+Create product/category-specific image mapping:
+
+- Soybean meal: feed meal / soybean meal image
+- Rice DDGS: feed ingredient image
+- Rapeseed meal: oilseed meal/feed ingredient image
+- Yellow maize: maize/corn image
+- Maize grits / corn grits: grits image
+- Rice grits: rice grits image
+- Corn flour: corn flour image
+- Rice flour: rice flour image
+- Groundnut kernels: peanut image
+- Sesame seed: sesame image
+- Pulses: beans/pulses image
+- Spices: real spice image
+- Liquid glucose: syrup/food ingredient image
+- Fertilizer: fertilizer/agri input image
+
+All images need proper alt text.
+
+==================================================
+14. SEO REQUIREMENTS
+==================================================
+
+Fix all technical SEO before launch.
+
+Add:
+- sitemap.xml
+- robots.txt
+- correct sitemap URL for final domain https://www.sveeint.com
+- unique title and meta description for every page
+- canonical URLs after final domain is confirmed
+- Organization JSON-LD schema
+- Product JSON-LD schema for important product pages
+- FAQ JSON-LD schema for FAQ sections
+- Breadcrumb JSON-LD schema
+- Open Graph tags
+- Twitter/X card tags
+- proper image alt text
+- clean URL slugs
+- 404 page
+- mobile-friendly layout
+- compressed images
+- one H1 per page
+- proper H2/H3 structure
+
+SEO keyword focus:
+- agro commodity sourcing Indonesia
+- import broker Indonesia
+- animal feed raw material supplier Indonesia
+- soybean meal Indonesia
+- soyameal Indonesia
+- rice DDGS Indonesia
+- rapeseed meal Indonesia
+- canola meal Indonesia
+- yellow maize feed corn Indonesia
+- maize grits from India
+- corn grits supplier India Indonesia
+- rice grits Indonesia
+- corn flour India
+- rice flour India
+- Indian agro commodities for Indonesian buyers
+- food ingredient sourcing Indonesia
+
+Do not keyword-stuff. Use keywords naturally.
+
+==================================================
+15. CRAWLABILITY REQUIREMENT
+==================================================
+
+Important product page content must be crawlable.
+
+If this remains a React SPA, implement one of these:
+- static pre-rendering for main pages
+- server-side rendering
+- static HTML generation for important product pages
+
+Do not rely only on client-side JavaScript-rendered text for SEO product pages.
+
+Make sure Google and AI crawlers can read:
+- homepage content
+- about content
+- service content
+- product categories
+- product detail pages
+- contact details
+- FAQ content
+
+==================================================
+16. LLM READINESS
+==================================================
+
+Add these files at root:
+
+/llms.txt
+/llms-full.txt
+
+llms.txt should include:
+- PT Svee International / Svee Komoditi
+- Short company description
+- Main services
+- Main product categories
+- Important product page links
+- Contact page link
+- Note that PT Svee International is an Indonesia-based import and sourcing broker for agro commodities and feed raw materials
+
+llms-full.txt should include:
+- Company overview
+- Who we serve
+- What we source
+- Product categories
+- Key product summaries
+- Service summary
+- Import support summary
+- Contact details
+- Disclaimer that availability, specifications, pricing and shipment terms are confirmed case by case
+
+Do not include private supplier names, private client names, pricing, internal notes or fake claims in llms.txt.
+
+==================================================
+17. CONTACT DETAILS
+==================================================
+
+Update contact page and footer with:
+
+Company:
+PT Svee International / Svee Komoditi
+
+Address:
+Ruko Sunter Terrace Blok C No 12
+Jalan Danau Sunter Utara Kav. No. 60
+Jakarta Utara 14350
+INDONESIA
+
+Phone / WhatsApp:
++62-815-1055-1111
+
+Telephone:
++62-21-65832426
+
+Emails:
+lunkad.v@gmail.com
+ptsvee@gmail.com
+info@sveeint.com
+
+Website:
+https://www.sveeint.com
+
+Add enquiry form fields:
+- Name
+- Company
+- Country / City
+- Product required
+- Approximate quantity
+- Target shipment month
+- Destination port
+- Message
+- WhatsApp number
+- Email
+
+Add form note:
+“Product availability, specification, price and shipment terms are confirmed case by case.”
+
+==================================================
+18. CODE FIXES
+==================================================
+
+Run:
+npm run check
+npm run build
+
+Fix all TypeScript errors.
+
+Known issues to check:
+- Products.tsx category.name[language] type error
+- Products.tsx category.description[language] type error
+- server/storage.ts User and InsertUser import/export issue
+
+Both npm run check and npm run build must pass before final deployment.
+
+==================================================
+19. FINAL REVIEW CHECKLIST
+==================================================
+
+Before finishing, review the website like a real Indonesian feed mill, snack manufacturer or commodity importer.
+
+Check:
+- Can the buyer understand what PT Svee does in 5 seconds?
+- Is Indonesia focus clear?
+- Is India sourcing strength clear?
+- Is Animal Feed Ingredients clearly visible?
+- Are soybean meal, rice DDGS, rapeseed meal, yellow maize, corn grits, maize grits and rice grits easy to find?
+- Does the About Us page sound real?
+- Are Middle East/global expansion lines removed?
+- Does all copy sound human and practical?
+- Are there any fake or exaggerated claims?
+- Are product pages unique and useful?
+- Are sitemap.xml and robots.txt working?
+- Are llms.txt and llms-full.txt available?
+- Are product pages crawlable?
+- Is mobile view clean?
+- Are product images relevant?
+- Is WhatsApp/contact easy to find?
+- Are contact details correct?
+- Do npm run check and npm run build pass?
+
+Do not finish until the site feels real, trustworthy, buyer-focused, Indonesia-focused, search-friendly, LLM-readable and ready for serious B2B enquiries.
