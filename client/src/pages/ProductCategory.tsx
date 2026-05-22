@@ -38,7 +38,7 @@ export default function ProductCategory() {
     <div className="w-full overflow-x-hidden">
 
       {/* ── HERO ── */}
-      <section className="relative py-16 md:py-24 bg-[#1A4A9E] overflow-hidden">
+      <section className="relative py-10 md:py-14 bg-[#1A4A9E] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">
@@ -80,7 +80,7 @@ export default function ProductCategory() {
       </section>
 
       {/* ── PRODUCTS GRID ── */}
-      <section className="py-16 md:py-20 bg-[#f9f6f1]">
+      <section className="py-10 md:py-12 bg-[#f9f6f1]">
         <div className="site-container">
           {products.length > 0 ? (
             <>
@@ -120,7 +120,7 @@ export default function ProductCategory() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16 md:py-20 bg-[#1A4A9E] relative overflow-hidden">
+      <section className="py-10 md:py-12 bg-[#1A4A9E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10 max-w-3xl mx-auto text-center space-y-5">

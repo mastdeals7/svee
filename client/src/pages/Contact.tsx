@@ -64,7 +64,7 @@ export default function Contact() {
     <div className="w-full overflow-x-hidden">
 
       {/* ── HERO ── */}
-      <section className="relative py-20 md:py-28 bg-[#1A4A9E] overflow-hidden">
+      <section className="relative py-12 md:py-16 bg-[#1A4A9E] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10 text-center max-w-2xl mx-auto">
@@ -129,7 +129,7 @@ export default function Contact() {
       </section>
 
       {/* ── MAIN CONTACT SECTION ── */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-10 md:py-12 bg-white">
         <div className="site-container">
           <div className="grid lg:grid-cols-3 gap-8">
 
@@ -239,7 +239,7 @@ export default function Contact() {
       </section>
 
       {/* ── SOURCING OFFICES ── */}
-      <section className="py-16 md:py-20 bg-[#1A4A9E] relative overflow-hidden">
+      <section className="py-10 md:py-12 bg-[#1A4A9E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">

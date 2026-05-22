@@ -53,7 +53,7 @@ export default function About() {
     <div className="w-full overflow-x-hidden">
 
       {/* ── HERO ── */}
-      <section className="relative py-20 md:py-28 bg-[#1A4A9E] overflow-hidden">
+      <section className="relative py-12 md:py-16 bg-[#1A4A9E] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="absolute right-0 top-0 w-1/2 h-full overflow-hidden hidden lg:block opacity-20">
@@ -94,9 +94,9 @@ export default function About() {
       </section>
 
       {/* ── WHO WE ARE — 3 pillars ── */}
-      <section className="py-20 md:py-24 bg-[#f9f6f1]">
+      <section className="py-12 md:py-16 bg-[#f9f6f1]">
         <div className="site-container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <p className="eyebrow mb-3">{language === 'en' ? 'Who We Are' : 'Siapa Kami'}</p>
             <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E]">
               {language === 'en' ? 'About PT Svee International' : 'Tentang PT Svee International'}
@@ -124,9 +124,9 @@ export default function About() {
       </section>
 
       {/* ── OUR ROLE ── */}
-      <section className="py-20 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="site-container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <p className="eyebrow mb-3">{language === 'en' ? 'Our Role' : 'Peran Kami'}</p>
             <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E]">
               {language === 'en' ? 'What We Do for Indonesian Buyers' : 'Apa yang Kami Lakukan untuk Pembeli Indonesia'}
@@ -150,7 +150,7 @@ export default function About() {
       </section>
 
       {/* ── WHO WE SERVE — dark ── */}
-      <section className="py-20 md:py-24 bg-[#1A4A9E] relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-[#1A4A9E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">
@@ -184,9 +184,9 @@ export default function About() {
       </section>
 
       {/* ── TIMELINE ── */}
-      <section className="py-20 md:py-24 bg-[#f9f6f1]">
+      <section className="py-12 md:py-16 bg-[#f9f6f1]">
         <div className="site-container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <p className="eyebrow mb-3">{language === 'en' ? 'Our History' : 'Sejarah Kami'}</p>
             <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E]">
               {language === 'en' ? 'Over 24 Years in Agro Commodity Trade' : 'Lebih dari 24 Tahun dalam Perdagangan Komoditas Agro'}
@@ -214,7 +214,7 @@ export default function About() {
       </section>
 
       {/* ── DISCLAIMER + CTA ── */}
-      <section className="py-16 md:py-20 bg-white border-t border-[#ede8e0]">
+      <section className="py-10 md:py-12 bg-white border-t border-[#ede8e0]">
         <div className="site-container max-w-3xl mx-auto text-center space-y-6">
           <div className="bg-[#f9f6f1] border border-[#ede8e0] rounded-2xl p-6 text-left">
             <div className="flex items-start gap-3">

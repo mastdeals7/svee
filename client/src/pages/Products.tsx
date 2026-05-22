@@ -226,7 +226,7 @@ export default function Products() {
     <div className="w-full overflow-x-hidden">
 
       {/* Hero */}
-      <section className="relative py-20 md:py-28 bg-[#1A4A9E] overflow-hidden">
+      <section className="relative py-12 md:py-16 bg-[#1A4A9E] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">
@@ -260,7 +260,7 @@ export default function Products() {
       </section>
 
       {/* Categories */}
-      <section className="py-16 md:py-20 bg-[#f9f6f1]">
+      <section className="py-10 md:py-12 bg-[#f9f6f1]">
         <div className="site-container">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
             <div>
@@ -279,7 +279,7 @@ export default function Products() {
       </section>
 
       {/* Priority Products */}
-      <section className="py-16 md:py-20 bg-white border-t border-[#ede8e0]">
+      <section className="py-10 md:py-12 bg-white border-t border-[#ede8e0]">
         <div className="site-container">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center h-12 w-12 bg-[#f9f6f1] rounded-2xl mb-4">
@@ -304,7 +304,7 @@ export default function Products() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-20 bg-[#1A4A9E] relative overflow-hidden">
+      <section className="py-10 md:py-12 bg-[#1A4A9E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container text-center max-w-2xl mx-auto z-10">

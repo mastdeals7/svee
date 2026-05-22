@@ -146,7 +146,7 @@ export default function Home() {
         <div className="absolute inset-0 opacity-[0.03]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
 
-        <div className="relative site-container py-14 md:py-20 z-10">
+        <div className="relative site-container py-10 md:py-14 z-10">
           <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-center">
 
             {/* Left — text */}
@@ -247,7 +247,7 @@ export default function Home() {
       </section>
 
       {/* ── PRODUCT CATEGORIES ── */}
-      <section className="py-20 md:py-24 bg-[#f9f6f1]">
+      <section className="py-12 md:py-16 bg-[#f9f6f1]">
         <div className="site-container">
           <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
             <div>
@@ -310,9 +310,9 @@ export default function Home() {
       </section>
 
       {/* ── WHY CHOOSE US ── */}
-      <section className="py-20 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="site-container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <p className="eyebrow mb-3">{language === 'en' ? 'Why Choose Us' : 'Mengapa Memilih Kami'}</p>
             <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E] mb-3">
               {language === 'en' ? 'Practical Sourcing Support You Can Rely On' : 'Dukungan Sourcing Praktis yang Bisa Anda Andalkan'}
@@ -338,7 +338,7 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT SECTION ── */}
-      <section className="py-20 md:py-24 bg-[#f9f6f1]">
+      <section className="py-12 md:py-16 bg-[#f9f6f1]">
         <div className="site-container">
           <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
 
@@ -408,7 +408,7 @@ export default function Home() {
       </section>
 
       {/* ── SOURCING BRIDGE — dark ── */}
-      <section className="py-20 md:py-24 bg-[#1A4A9E] relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-[#1A4A9E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">
@@ -483,7 +483,7 @@ export default function Home() {
       </section>
 
       {/* ── EXPORT QUALITY / CERTIFICATIONS ── */}
-      <section className="py-20 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="site-container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-5">
@@ -532,9 +532,9 @@ export default function Home() {
       </section>
 
       {/* ── ORIGIN MARKETS ── */}
-      <section className="py-20 md:py-24 bg-[#f9f6f1] border-t border-[#ede8e0]">
+      <section className="py-12 md:py-16 bg-[#f9f6f1] border-t border-[#ede8e0]">
         <div className="site-container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <p className="eyebrow mb-3">{language === 'en' ? 'Origin Markets' : 'Pasar Asal'}</p>
             <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E]">
               {language === 'en' ? 'Sourcing From Reliable Origin Markets' : 'Sourcing dari Pasar Asal Terpercaya'}
@@ -575,9 +575,9 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section className="py-20 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="site-container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <p className="eyebrow mb-3">{language === 'en' ? 'Our Services' : 'Layanan Kami'}</p>
             <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E]" data-testid="heading-services">
               {language === 'en' ? 'How We Can Help' : 'Cara Kami Membantu'}
@@ -629,7 +629,7 @@ export default function Home() {
       </section>
 
       {/* ── GLOBAL SUPPLY ── */}
-      <section className="py-20 md:py-24 bg-[#f9f6f1] border-t border-[#ede8e0]">
+      <section className="py-12 md:py-16 bg-[#f9f6f1] border-t border-[#ede8e0]">
         <div className="site-container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] bg-white">
@@ -671,7 +671,7 @@ export default function Home() {
       </section>
 
       {/* ── BOTTOM CTA ── */}
-      <section className="relative py-20 md:py-24 bg-[#1A4A9E] overflow-hidden">
+      <section className="relative py-12 md:py-16 bg-[#1A4A9E] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container text-center z-10 max-w-3xl mx-auto">

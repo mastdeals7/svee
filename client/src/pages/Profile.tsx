@@ -56,7 +56,7 @@ export default function Profile() {
     <div className="w-full overflow-x-hidden">
 
       {/* ── HERO ── */}
-      <section className="relative py-20 md:py-28 bg-[#1A4A9E] overflow-hidden">
+      <section className="relative py-12 md:py-16 bg-[#1A4A9E] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="absolute right-0 top-0 w-1/2 h-full overflow-hidden hidden lg:block">
@@ -119,7 +119,7 @@ export default function Profile() {
       </section>
 
       {/* ── COMPANY OVERVIEW ── */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-10 md:py-12 bg-white">
         <div className="site-container">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
             <div>
@@ -149,9 +149,9 @@ export default function Profile() {
       </section>
 
       {/* ── CAPABILITIES ── */}
-      <section className="py-20 md:py-24 bg-[#f9f6f1]">
+      <section className="py-10 md:py-14 bg-[#f9f6f1]">
         <div className="site-container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <p className="eyebrow mb-3">
               {language === 'en' ? 'What We Handle' : 'Yang Kami Tangani'}
             </p>
@@ -178,11 +178,11 @@ export default function Profile() {
       </section>
 
       {/* ── SOURCING NETWORK ── */}
-      <section className="py-20 md:py-24 bg-[#1A4A9E] relative overflow-hidden">
+      <section className="py-10 md:py-14 bg-[#1A4A9E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <p className="eyebrow text-[#E85E00] mb-3">
               {language === 'en' ? 'Our Presence' : 'Kehadiran Kami'}
             </p>
@@ -215,7 +215,7 @@ export default function Profile() {
       </section>
 
       {/* ── DIRECTOR QUOTE CTA ── */}
-      <section className="relative py-16 md:py-20 overflow-hidden">
+      <section className="relative py-10 md:py-12 overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${sectionBackgrounds.story})` }} />
         <div className="absolute inset-0 bg-gradient-to-br from-[#1A4A9E]/98 via-[#1A4A9E]/92 to-[#1A4A9E]/95" />
         <div className="absolute inset-0 opacity-[0.04]"

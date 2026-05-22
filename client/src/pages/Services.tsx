@@ -56,7 +56,7 @@ export default function Services() {
     <div className="w-full overflow-x-hidden">
 
       {/* ── HERO ── */}
-      <section className="relative py-20 md:py-28 bg-[#1A4A9E] overflow-hidden">
+      <section className="relative py-12 md:py-16 bg-[#1A4A9E] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">
@@ -98,9 +98,9 @@ export default function Services() {
       </section>
 
       {/* ── SERVICES LIST ── */}
-      <section className="py-20 md:py-24 bg-[#f9f6f1]">
+      <section className="py-10 md:py-14 bg-[#f9f6f1]">
         <div className="site-container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <p className="eyebrow mb-3">
               {language === 'en' ? 'What We Do' : 'Apa yang Kami Lakukan'}
             </p>
@@ -162,11 +162,11 @@ export default function Services() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section className="py-20 md:py-24 bg-[#1A4A9E] relative overflow-hidden">
+      <section className="py-10 md:py-14 bg-[#1A4A9E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <p className="eyebrow text-[#E85E00] mb-3">
               {language === 'en' ? 'Our Process' : 'Proses Kami'}
             </p>
@@ -198,7 +198,7 @@ export default function Services() {
       </section>
 
       {/* ── DOCUMENTS ── */}
-      <section className="py-20 md:py-24 bg-white">
+      <section className="py-10 md:py-14 bg-white">
         <div className="site-container">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
             <div className="space-y-5">
@@ -254,7 +254,7 @@ export default function Services() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16 md:py-20 bg-[#f9f6f1] border-t border-[#ede8e0]">
+      <section className="py-10 md:py-12 bg-[#f9f6f1] border-t border-[#ede8e0]">
         <div className="site-container max-w-2xl mx-auto text-center space-y-5">
           <h2 className="text-2xl md:text-3xl font-display text-[#1A4A9E]">
             {language === 'en' ? 'Ready to check availability?' : 'Siap memeriksa ketersediaan?'}
