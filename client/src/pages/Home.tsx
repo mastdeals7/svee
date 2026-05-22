@@ -1,10 +1,6 @@
 import { useI18n } from '@/lib/i18n';
 import { Link } from 'wouter';
-import { Button } from '@/components/ui/button';
-import {
-  ArrowRight, Award, Package, Truck, Clock, MapPin,
-  ShieldCheck, FileText, CheckCircle2, Globe2, ChevronRight, Users,
-} from 'lucide-react';
+import { ArrowRight, Award, Package, Truck, Clock, ShieldCheck, FileText, CircleCheck as CheckCircle2, Globe as Globe2, ChevronRight, Users, Star, Leaf, ChartBar as BarChart3, MapPin } from 'lucide-react';
 import { services as allServices } from '@/data/services';
 import { heroImages, sectionBackgrounds, contentImages } from '@/data/media';
 import { useEffect, useRef, useState } from 'react';
@@ -35,21 +31,6 @@ function useCountUp(target: number, duration = 1200, start = false) {
   return count;
 }
 
-function AnimatedStat({ target, suffix = '', label, sublabel, started }: {
-  target: number; suffix?: string; label: string; sublabel: string; started: boolean;
-}) {
-  const count = useCountUp(target, 1000, started);
-  return (
-    <div className="text-center">
-      <div className="text-4xl md:text-5xl font-bold text-primary leading-none tabular-nums">
-        {count}{suffix}
-      </div>
-      <div className="text-sm font-semibold text-foreground mt-1">{label}</div>
-      <div className="text-xs text-muted-foreground mt-0.5">{sublabel}</div>
-    </div>
-  );
-}
-
 function useInView(threshold = 0.3) {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
@@ -61,83 +42,89 @@ function useInView(threshold = 0.3) {
   return { ref, inView };
 }
 
+function StatBlock({ target, suffix = '', label, sublabel, started }: {
+  target: number; suffix?: string; label: string; sublabel: string; started: boolean;
+}) {
+  const count = useCountUp(target, 1000, started);
+  return (
+    <div className="text-center p-6 md:p-8">
+      <div className="text-4xl md:text-5xl font-bold text-[#0B2245] leading-none tabular-nums mb-2">
+        {count}{suffix}
+      </div>
+      <div className="text-sm font-semibold text-[#0B2245] mb-1">{label}</div>
+      <div className="text-xs text-[#6b7280]">{sublabel}</div>
+    </div>
+  );
+}
+
 export default function Home() {
-  const { language, t } = useI18n();
+  const { language } = useI18n();
   const waUrl = (msg: string) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
   const heroWaMsg = language === 'en'
     ? 'Hello PT Svee International, I would like to request a product quote.'
     : 'Halo PT Svee International, saya ingin meminta penawaran produk.';
 
-  const { ref: statsRef, inView: statsInView } = useInView(0.4);
+  const { ref: statsRef, inView: statsInView } = useInView(0.3);
 
   const ticker = language === 'en'
-    ? ['Soybean Meal / SBM · India', 'Rice DDGS · India', 'Rapeseed Meal · India', 'Yellow Maize · Origin checked on requirement', 'Corn Grits / Maize Grits · India', 'Rice Grits · India', 'Groundnut Kernels · India', 'Sesame Seeds · India', 'Red Chilli · India', 'Cumin Seeds · India', 'Liquid Glucose · India', 'Green Moong · Origin checked on requirement']
-    : ['Soybean Meal / SBM · India', 'Rice DDGS · India', 'Rapeseed Meal · India', 'Jagung Kuning · Asal dicek sesuai kebutuhan', 'Corn Grits / Maize Grits · India', 'Rice Grits · India', 'Kacang Tanah · India', 'Biji Wijen · India', 'Cabai Merah · India', 'Biji Jintan · India', 'Liquid Glucose · India', 'Kacang Hijau · Asal dicek sesuai kebutuhan'];
+    ? ['Soybean Meal / SBM · India', 'Rice DDGS · India', 'Rapeseed Meal · India', 'Yellow Maize · Origin checked', 'Corn Grits / Maize Grits · India', 'Rice Grits · India', 'Groundnut Kernels · India', 'Sesame Seeds · India', 'Red Chilli · India', 'Cumin Seeds · India', 'Liquid Glucose · India', 'Green Moong · India/Myanmar']
+    : ['Soybean Meal / SBM · India', 'Rice DDGS · India', 'Rapeseed Meal · India', 'Jagung Kuning · Asal dicek', 'Corn Grits / Maize Grits · India', 'Rice Grits · India', 'Kacang Tanah · India', 'Biji Wijen · India', 'Cabai Merah · India', 'Biji Jintan · India', 'Liquid Glucose · India', 'Kacang Hijau · India/Myanmar'];
 
   const productCategories = [
     {
       img: contentImages.product2,
       label: language === 'en' ? 'Animal Feed Ingredients' : 'Bahan Baku Pakan Ternak',
-      desc: language === 'en' ? 'SBM · Rice DDGS · Rapeseed Meal · Maize' : 'SBM · Rice DDGS · Rapeseed Meal · Jagung',
-      href: '/products/animal-feed',
-      accent: '#FF6B35',
+      desc: language === 'en' ? 'SBM · Rice DDGS · Rapeseed Meal · Yellow Maize' : 'SBM · Rice DDGS · Rapeseed Meal · Jagung',
+      href: '/products/animal-feed-ingredients',
       badge: language === 'en' ? 'Priority' : 'Prioritas',
     },
     {
       img: contentImages.product2,
       label: language === 'en' ? 'Grains & Corn Products' : 'Produk Jagung & Biji-bijian',
       desc: language === 'en' ? 'Maize Grits · Corn Flour · Wheat · Barley' : 'Maize Grits · Corn Flour · Gandum · Barley',
-      href: '/products/grains',
-      accent: '#1E5BA8',
-      badge: '',
-    },
-    {
-      img: contentImages.product3,
-      label: language === 'en' ? 'Rice & Milled Products' : 'Produk Beras & Olahan',
-      desc: language === 'en' ? 'Rice Grits · Rice Flour · Broken Rice' : 'Rice Grits · Tepung Beras · Beras Patah',
-      href: '/products/rice',
-      accent: '#FF6B35',
-      badge: '',
+      href: '/products/grains-corn-products',
     },
     {
       img: contentImages.product3,
       label: language === 'en' ? 'Oilseeds & Kernels' : 'Biji Minyak & Kernel',
-      desc: language === 'en' ? 'Groundnut HPS · Sesame · Soybeans' : 'Kacang Tanah HPS · Wijen · Kedelai',
-      href: '/products/oilseeds',
-      accent: '#1E5BA8',
-      badge: '',
+      desc: language === 'en' ? 'Groundnut HPS · Sesame Seeds · Soybeans' : 'Kacang Tanah HPS · Wijen · Kedelai',
+      href: '/products/oilseeds-kernels',
+    },
+    {
+      img: contentImages.product3,
+      label: language === 'en' ? 'Pulses & Beans' : 'Kacang-kacangan & Polong',
+      desc: language === 'en' ? 'Chickpeas · Green Moong · Red Lentils · Pigeon Peas' : 'Chickpeas · Kacang Hijau · Lentil Merah',
+      href: '/products/pulses-beans',
     },
     {
       img: contentImages.product1,
-      label: language === 'en' ? 'Spices (from India)' : 'Rempah-rempah (dari India)',
+      label: language === 'en' ? 'Spices from India' : 'Rempah-rempah dari India',
       desc: language === 'en' ? 'Red Chilli · Turmeric · Cumin · Coriander' : 'Cabai Merah · Kunyit · Jintan · Ketumbar',
       href: '/products/spices',
-      accent: '#FF6B35',
-      badge: '',
     },
     {
       img: contentImages.banner3,
-      label: language === 'en' ? 'Food Ingredients & Sweeteners' : 'Bahan Pangan & Pemanis',
+      label: language === 'en' ? 'Food Ingredients' : 'Bahan Pangan',
       desc: language === 'en' ? 'Liquid Glucose · Corn Flour · Rice Flour' : 'Liquid Glucose · Corn Flour · Tepung Beras',
-      href: '/products/food-ingredients',
-      accent: '#1E5BA8',
-      badge: '',
+      href: '/products/food-ingredients-sweeteners',
     },
   ];
 
-  const origins = language === 'en'
-    ? [
-        { code: 'IN', country: 'India', products: 'SBM · Maize Grits · Spices · Oilseeds · Pulses · Liquid Glucose', color: 'bg-orange-500' },
-        { code: 'ID', country: 'Indonesia', products: 'Palm Oil · Local Commodities', color: 'bg-red-500' },
-        { code: 'AS', country: 'Other Asian Origins', products: 'Checked on requirement', color: 'bg-emerald-500' },
-        { code: 'GL', country: 'Global Origins', products: 'Case by case', color: 'bg-purple-500' },
-      ]
-    : [
-        { code: 'IN', country: 'India', products: 'SBM · Maize Grits · Rempah · Biji Minyak · Kacang · Liquid Glucose', color: 'bg-orange-500' },
-        { code: 'ID', country: 'Indonesia', products: 'Minyak Sawit · Komoditas Lokal', color: 'bg-red-500' },
-        { code: 'AS', country: 'Asal Asia Lainnya', products: 'Dicek sesuai kebutuhan', color: 'bg-emerald-500' },
-        { code: 'GL', country: 'Asal Global', products: 'Per kasus', color: 'bg-purple-500' },
-      ];
+  const whyChooseUs = language === 'en' ? [
+    { icon: Award, title: '24+ Years Experience', desc: 'Established in 2001 and actively serving Indonesian buyers since.', color: 'bg-amber-50 text-amber-700' },
+    { icon: Globe2, title: 'India Sourcing Focus', desc: 'Strong sourcing network across India — Mumbai, Pune, Chennai, Delhi.', color: 'bg-blue-50 text-blue-700' },
+    { icon: ShieldCheck, title: 'Document Support', desc: 'COA, phytosanitary, fumigation, BL, certificate of origin and more.', color: 'bg-green-50 text-green-700' },
+    { icon: Clock, title: 'Same-Day Response', desc: 'We respond quickly via WhatsApp — no complicated forms or wait times.', color: 'bg-orange-50 text-orange-700' },
+    { icon: FileText, title: 'Spec Coordination', desc: 'We help match your specification with available supply and origins.', color: 'bg-teal-50 text-teal-700' },
+    { icon: Users, title: 'B2B Only', desc: 'We exclusively serve feed mills, food processors and commodity importers.', color: 'bg-rose-50 text-rose-700' },
+  ] : [
+    { icon: Award, title: '24+ Tahun Pengalaman', desc: 'Berdiri tahun 2001 dan aktif melayani pembeli Indonesia sejak saat itu.', color: 'bg-amber-50 text-amber-700' },
+    { icon: Globe2, title: 'Fokus Sourcing India', desc: 'Jaringan sourcing kuat di seluruh India — Mumbai, Pune, Chennai, Delhi.', color: 'bg-blue-50 text-blue-700' },
+    { icon: ShieldCheck, title: 'Dukungan Dokumen', desc: 'COA, fitosanitasi, fumigasi, BL, sertifikat asal dan lainnya.', color: 'bg-green-50 text-green-700' },
+    { icon: Clock, title: 'Respon Hari yang Sama', desc: 'Kami merespon cepat melalui WhatsApp — tanpa formulir rumit atau waktu tunggu.', color: 'bg-orange-50 text-orange-700' },
+    { icon: FileText, title: 'Koordinasi Spesifikasi', desc: 'Kami membantu mencocokkan spesifikasi Anda dengan pasokan dan asal yang tersedia.', color: 'bg-teal-50 text-teal-700' },
+    { icon: Users, title: 'Khusus B2B', desc: 'Kami melayani eksklusif pabrik pakan, pengolah makanan dan importir komoditas.', color: 'bg-rose-50 text-rose-700' },
+  ];
 
   const serviceIconMap: Record<string, any> = {
     global: Globe2, shipping: Truck, finance: FileText,
@@ -145,142 +132,320 @@ export default function Home() {
     default: CheckCircle2,
   };
 
-  const buyerTypes = language === 'en'
-    ? ['Feed Mills', 'Animal Feed Manufacturers', 'Food Processors', 'Snack Manufacturers', 'Commodity Importers', 'Wholesalers', 'Trading Houses', 'Industrial Buyers']
-    : ['Pabrik Pakan', 'Produsen Pakan Ternak', 'Pengolah Makanan', 'Produsen Snack', 'Importir Komoditas', 'Pedagang Grosir', 'Rumah Dagang', 'Pembeli Industri'];
-
   return (
     <div className="w-full overflow-x-hidden">
 
-      {/* ── HERO — split layout, light left / image right ── */}
-      <section className="relative min-h-[68vh] md:min-h-[74vh] flex items-center trade-section overflow-hidden">
-        <div className="relative max-w-7xl mx-auto px-5 md:px-10 py-14 md:py-20 z-10 w-full">
-          <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-10 md:gap-16 items-center">
+      {/* ── HERO ── */}
+      <section className="relative min-h-[75vh] flex items-center overflow-hidden bg-[#f9f6f1]">
+        {/* Decorative background */}
+        <div className="absolute inset-0 section-grid opacity-70" />
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-[#0B2245] hidden lg:block" />
+        <div className="absolute top-0 right-0 w-1/2 h-full overflow-hidden hidden lg:block">
+          <img src={heroImages.main} alt="PT Svee International — agro commodity sourcing"
+            className="w-full h-full object-cover opacity-30" />
+        </div>
+
+        <div className="relative site-container py-16 md:py-24 z-10 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
 
             {/* Left — text */}
             <div className="space-y-7 animate-fade-in">
-              <div className="inline-flex items-center gap-2 editorial-eyebrow"
+              <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-full px-4 py-1.5"
                 data-testid="badge-since-2001">
-                <Award className="h-3 w-3" />
-                {language === 'en' ? 'Est. 2001 · Jakarta, Indonesia' : 'Berdiri 2001 · Jakarta, Indonesia'}
+                <Award className="h-3.5 w-3.5 text-amber-600" />
+                <span className="text-xs font-semibold text-amber-700">
+                  {language === 'en' ? 'Est. 2001 · Jakarta, Indonesia' : 'Berdiri 2001 · Jakarta, Indonesia'}
+                </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-[4.35rem] font-display leading-[0.98] text-foreground max-w-2xl"
+              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display leading-[1.1] text-[#0B2245] max-w-xl"
                 data-testid="heading-hero-title">
-                {t('home.hero.title')}
+                {language === 'en'
+                  ? 'Agro Commodity Sourcing for Indonesian Buyers'
+                  : 'Sourcing Komoditas Agro untuk Pembeli Indonesia'}
               </h1>
 
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl"
+              <p className="text-base md:text-lg text-[#4a5568] leading-relaxed max-w-lg"
                 data-testid="text-hero-subtitle">
-                {t('home.hero.subtitle')}
+                {language === 'en'
+                  ? 'PT Svee International helps Indonesian feed mills, food processors and commodity importers source agricultural products from India — with support for supplier coordination, documentation and shipment follow-up.'
+                  : 'PT Svee International membantu pabrik pakan, pengolah makanan, dan importir komoditas di Indonesia sourcing dari India — dengan dukungan koordinasi pemasok, dokumentasi, dan tindak lanjut pengiriman.'}
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 pt-1">
-                <Link href="/products/animal-feed">
-                  <Button size="lg" className="w-full sm:w-auto gap-2 shadow-sm text-sm" data-testid="button-animal-feed">
-                    {t('home.hero.cta1')}
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link href="/products/animal-feed-ingredients">
+                  <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#0B2245] hover:bg-[#1a3a6b] text-white text-sm font-semibold rounded-xl transition-all shadow-[0_4px_20px_rgba(11,34,69,0.3)] hover:shadow-[0_8px_30px_rgba(11,34,69,0.4)] hover:-translate-y-0.5"
+                    data-testid="button-animal-feed">
+                    {language === 'en' ? 'View Animal Feed Products' : 'Lihat Produk Pakan Ternak'}
                     <ArrowRight className="h-4 w-4" />
-                  </Button>
+                  </button>
                 </Link>
-                <a href={waUrl(heroWaMsg)} target="_blank" rel="noopener noreferrer" data-testid="button-whatsapp-hero">
-                  <Button size="lg" className="w-full sm:w-auto gap-2 bg-[#2E7D55] text-white border-[#2E7D55] shadow-sm text-sm">
+                <a href={waUrl(heroWaMsg)} target="_blank" rel="noopener noreferrer"
+                  data-testid="button-whatsapp-hero">
+                  <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#2E7D55] hover:bg-[#246444] text-white text-sm font-semibold rounded-xl transition-all shadow-sm hover:-translate-y-0.5">
                     <WhatsAppIcon className="h-4 w-4" />
-                    {t('home.hero.cta2')}
-                  </Button>
+                    {language === 'en' ? 'Request Quote via WhatsApp' : 'Minta Penawaran via WhatsApp'}
+                  </button>
                 </a>
               </div>
 
-              {/* Trust pills */}
-              <div className="grid sm:grid-cols-2 gap-x-5 gap-y-2 pt-2 max-w-xl">
+              {/* Trust badges */}
+              <div className="grid grid-cols-2 gap-3 pt-2 max-w-md">
                 {(language === 'en'
-                  ? ['Indonesia-based', 'India sourcing', 'Spec coordination', 'Document support']
-                  : ['Berbasis Indonesia', 'Sourcing India', 'Koordinasi spesifikasi', 'Dukungan dokumen']).map(p => (
-                  <span key={p} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="h-3 w-3 text-primary flex-shrink-0" />
+                  ? ['Indonesia-based sourcing', 'India supply network', 'Full spec coordination', 'Same-day response']
+                  : ['Sourcing berbasis Indonesia', 'Jaringan pasokan India', 'Koordinasi spesifikasi', 'Respons hari yang sama']).map(p => (
+                  <div key={p} className="flex items-center gap-2 text-sm text-[#4a5568]">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[#2E7D55] flex-shrink-0" />
                     {p}
-                  </span>
+                  </div>
                 ))}
               </div>
             </div>
 
-            {/* Right — stacked images */}
-            <div className="relative hidden md:block">
-              <div className="relative image-treatment overflow-hidden aspect-[5/4]">
-                <img src={heroImages.main} alt="Agro commodities for Indonesian buyers — PT Svee International"
+            {/* Right — image */}
+            <div className="relative hidden lg:flex flex-col gap-4">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl aspect-[4/3]">
+                <img src={heroImages.main} alt="Agricultural commodity sourcing from India"
                   className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 flex gap-2 flex-wrap">
-                  {(language === 'en'
-                    ? ['Soybean Meal · India', 'Corn Grits · India', 'Yellow Maize · On requirement']
-                    : ['Soybean Meal · India', 'Corn Grits · India', 'Jagung · Sesuai kebutuhan']).map(t => (
-                    <span key={t} className="text-xs bg-white/10 backdrop-blur-sm text-white border border-white/20 px-2.5 py-1 rounded-sm">
-                      {t}
-                    </span>
-                  ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B2245]/60 via-transparent to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5">
+                  <div className="flex flex-wrap gap-1.5">
+                    {['Soybean Meal · India', 'Corn Grits · India', 'Indian Spices'].map(t => (
+                      <span key={t} className="text-xs bg-white/15 backdrop-blur-sm text-white border border-white/25 px-2.5 py-1 rounded-full">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-              {/* Floating stat card */}
-              <div className="absolute -bottom-4 -left-6 bg-background/95 backdrop-blur border border-border p-4 flex items-center gap-3 z-10">
-                <div className="h-10 w-10 bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Package className="h-5 w-5 text-primary" />
+              {/* Floating stats */}
+              <div className="absolute -bottom-4 -left-5 bg-white rounded-xl shadow-xl border border-[#ede8e0] p-4 flex items-center gap-3 z-10">
+                <div className="h-11 w-11 bg-[#0B2245]/8 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Package className="h-5 w-5 text-[#0B2245]" />
                 </div>
                 <div>
-                  <div className="text-xl font-bold text-primary leading-none">50+</div>
-                  <div className="text-xs text-muted-foreground mt-0.5">{language === 'en' ? 'Products sourced' : 'Produk yang disourcingkan'}</div>
+                  <div className="text-xl font-bold text-[#0B2245] leading-none">50+</div>
+                  <div className="text-xs text-[#6b7280] mt-0.5">{language === 'en' ? 'Products sourced' : 'Produk disourcingkan'}</div>
                 </div>
               </div>
-              <div className="absolute -top-4 -right-4 bg-background/95 backdrop-blur border border-border p-4 flex items-center gap-3 z-10">
-                <div className="h-10 w-10 bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <Award className="h-5 w-5 text-accent" />
+              <div className="absolute -top-4 -right-4 bg-white rounded-xl shadow-xl border border-[#ede8e0] p-4 flex items-center gap-3 z-10">
+                <div className="h-11 w-11 bg-amber-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Award className="h-5 w-5 text-amber-600" />
                 </div>
                 <div>
-                  <div className="text-xl font-bold text-accent leading-none">24+</div>
-                  <div className="text-xs text-muted-foreground mt-0.5">{language === 'en' ? 'Years' : 'Tahun'}</div>
+                  <div className="text-xl font-bold text-[#0B2245] leading-none">2001</div>
+                  <div className="text-xs text-[#6b7280] mt-0.5">{language === 'en' ? 'Established' : 'Berdiri'}</div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* ── SCROLLING TICKER ── */}
-      <div className="bg-primary py-3 overflow-hidden border-y border-primary/20">
+      {/* ── PRODUCT TICKER ── */}
+      <div className="bg-[#0B2245] py-3.5 overflow-hidden">
         <div className="flex animate-ticker whitespace-nowrap">
           {[...ticker, ...ticker].map((item, i) => (
-            <span key={i} className="inline-flex items-center gap-2 text-white/90 text-xs font-medium px-6 flex-shrink-0">
-              <span className="h-1 w-1 rounded-full bg-accent flex-shrink-0" />
+            <span key={i} className="inline-flex items-center gap-3 text-white/80 text-xs font-medium px-6 flex-shrink-0">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#C8922A] flex-shrink-0" />
               {item}
             </span>
           ))}
         </div>
       </div>
 
-      {/* ── ANIMATED STATS ── */}
-      <section ref={statsRef} className="py-10 bg-background editorial-rule">
-        <div className="max-w-4xl mx-auto px-5 md:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
-            <AnimatedStat target={24} suffix="+" label={language === 'en' ? 'Years Active' : 'Tahun Aktif'} sublabel={language === 'en' ? 'Since 2001' : 'Sejak 2001'} started={statsInView} />
-            <AnimatedStat target={10} suffix="" label={language === 'en' ? 'Product Categories' : 'Kategori Produk'} sublabel={language === 'en' ? 'Agro & feed commodities' : 'Komoditas agro & pakan'} started={statsInView} />
-            <AnimatedStat target={50} suffix="+" label={language === 'en' ? 'Products Sourced' : 'Produk Disourcingkan'} sublabel={language === 'en' ? 'India & other origins' : 'India & asal lainnya'} started={statsInView} />
-            <AnimatedStat target={1} suffix=" Day" label={language === 'en' ? 'Response' : 'Respons'} sublabel={language === 'en' ? 'Same day reply' : 'Dijawab hari ini'} started={statsInView} />
+      {/* ── STATS ── */}
+      <section ref={statsRef} className="py-4 bg-white border-b border-[#ede8e0]">
+        <div className="site-container">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#ede8e0]">
+            <StatBlock target={24} suffix="+" label={language === 'en' ? 'Years Active' : 'Tahun Aktif'} sublabel={language === 'en' ? 'Since 2001' : 'Sejak 2001'} started={statsInView} />
+            <StatBlock target={10} label={language === 'en' ? 'Product Categories' : 'Kategori Produk'} sublabel={language === 'en' ? 'Agro & feed commodities' : 'Komoditas agro & pakan'} started={statsInView} />
+            <StatBlock target={50} suffix="+" label={language === 'en' ? 'Products Sourced' : 'Produk Disourcingkan'} sublabel={language === 'en' ? 'India & other origins' : 'India & asal lainnya'} started={statsInView} />
+            <StatBlock target={1} suffix=" Day" label={language === 'en' ? 'Response Time' : 'Waktu Respons'} sublabel={language === 'en' ? 'Same day reply' : 'Dijawab hari ini'} started={statsInView} />
           </div>
         </div>
       </section>
 
-      {/* ── SOURCING BRIDGE — dark accent ── */}
-      <section className="py-16 md:py-20 bg-[#0B2245]">
-        <div className="max-w-7xl mx-auto px-5 md:px-10">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-14 items-center">
-            <div className="space-y-4">
-              <p className="editorial-eyebrow">
+      {/* ── PRODUCT CATEGORIES ── */}
+      <section className="py-20 md:py-24 bg-[#f9f6f1]">
+        <div className="site-container">
+          <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
+            <div>
+              <p className="eyebrow mb-3">{language === 'en' ? 'Product Categories' : 'Kategori Produk'}</p>
+              <h2 className="text-3xl md:text-4xl font-display text-[#0B2245]" data-testid="heading-categories">
+                {language === 'en' ? 'What We Source' : 'Apa yang Kami Sourcingkan'}
+              </h2>
+              <p className="text-[#6b7280] text-sm mt-2 max-w-md">
+                {language === 'en'
+                  ? 'Ten categories for Indonesian feed mills, food processors and importers'
+                  : 'Sepuluh kategori untuk pabrik pakan, pengolah makanan dan importir Indonesia'}
+              </p>
+            </div>
+            <Link href="/products">
+              <button className="flex items-center gap-1.5 text-sm font-semibold text-[#0B2245] hover:text-[#C8922A] transition-colors">
+                {language === 'en' ? 'All Products' : 'Semua Produk'}
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {productCategories.map((cat, i) => (
+              <Link key={i} href={cat.href}>
+                <div className="group relative overflow-hidden rounded-2xl cursor-pointer bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#ede8e0]"
+                  data-testid={`category-card-${i}`}>
+                  <div className="relative overflow-hidden aspect-[16/10]">
+                    <img src={cat.img} alt={cat.label}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B2245]/85 via-[#0B2245]/25 to-transparent" />
+                    {cat.badge && (
+                      <div className="absolute top-3 left-3">
+                        <span className="bg-[#C8922A] text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide">
+                          {cat.badge}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <div className="text-white font-semibold text-base leading-tight mb-1">{cat.label}</div>
+                    <div className="text-white/60 text-xs">{cat.desc}</div>
+                    <div className="flex items-center gap-1 text-[#C8922A] text-xs font-semibold mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      {language === 'en' ? 'View Products' : 'Lihat Produk'} <ChevronRight className="h-3 w-3" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link href="/products">
+              <button className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#0B2245] text-[#0B2245] hover:bg-[#0B2245] hover:text-white text-sm font-semibold rounded-xl transition-all">
+                {language === 'en' ? 'View All 10 Product Categories' : 'Lihat Semua 10 Kategori Produk'}
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY CHOOSE US ── */}
+      <section className="py-20 md:py-24 bg-white">
+        <div className="site-container">
+          <div className="text-center mb-12">
+            <p className="eyebrow mb-3">{language === 'en' ? 'Why Choose Us' : 'Mengapa Memilih Kami'}</p>
+            <h2 className="text-3xl md:text-4xl font-display text-[#0B2245] mb-3">
+              {language === 'en' ? 'Practical Sourcing Support You Can Rely On' : 'Dukungan Sourcing Praktis yang Bisa Anda Andalkan'}
+            </h2>
+            <p className="text-[#6b7280] text-base max-w-xl mx-auto">
+              {language === 'en'
+                ? 'We focus on being useful — not just promising. Here is what we actually do.'
+                : 'Kami fokus untuk berguna — tidak hanya berjanji. Inilah yang sebenarnya kami lakukan.'}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyChooseUs.map((item, i) => (
+              <div key={i} className="bg-[#f9f6f1] rounded-2xl p-6 border border-[#ede8e0] hover:shadow-md transition-shadow">
+                <div className={`inline-flex items-center justify-center h-11 w-11 rounded-xl mb-4 ${item.color}`}>
+                  <item.icon className="h-5 w-5" />
+                </div>
+                <h3 className="font-semibold text-[#0B2245] text-sm mb-2">{item.title}</h3>
+                <p className="text-[#6b7280] text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── ABOUT SECTION ── */}
+      <section className="py-20 md:py-24 bg-[#f9f6f1]">
+        <div className="site-container">
+          <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
+
+            <div className="relative img-rounded overflow-hidden group aspect-[4/3] order-2 lg:order-1">
+              <img src={contentImages.about} alt="PT Svee International team — Jakarta"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B2245]/70 via-[#0B2245]/15 to-transparent" />
+              <div className="absolute top-4 left-4">
+                <span className="bg-[#0B2245] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">
+                  {language === 'en' ? 'Est. 2001' : 'Berdiri 2001'}
+                </span>
+              </div>
+              <div className="absolute bottom-5 left-5 right-5">
+                <div className="flex gap-2 flex-wrap">
+                  <span className="text-xs bg-white/15 backdrop-blur-sm text-white border border-white/25 px-2.5 py-1 rounded-full">Jakarta HQ</span>
+                  <span className="text-xs bg-white/15 backdrop-blur-sm text-white border border-white/25 px-2.5 py-1 rounded-full flex items-center gap-1">
+                    <MapPin className="h-2.5 w-2.5" />India sourcing network
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-5 order-1 lg:order-2">
+              <p className="eyebrow">{language === 'en' ? 'About Us' : 'Tentang Kami'}</p>
+              <h2 className="text-3xl md:text-4xl font-display leading-tight text-[#0B2245]"
+                data-testid="heading-about-title">
+                {language === 'en'
+                  ? 'Indonesia-based Import & Sourcing Support Since 2001'
+                  : 'Dukungan Impor & Sourcing Berbasis Indonesia Sejak 2001'}
+              </h2>
+              <p className="text-[#4a5568] leading-relaxed text-sm"
+                data-testid="text-about-description">
+                {language === 'en'
+                  ? 'PT Svee International / Svee Komoditi is based in Jakarta and focused on helping Indonesian buyers source agro commodities, feed raw materials and food ingredients from India and other reliable origin markets.'
+                  : 'PT Svee International / Svee Komoditi berbasis di Jakarta dan fokus membantu pembeli Indonesia sourcing komoditas agro, bahan baku pakan, dan bahan pangan dari India dan pasar asal terpercaya lainnya.'}
+              </p>
+              <p className="text-sm leading-relaxed text-[#4a5568]"
+                data-testid="text-about-mission">
+                {language === 'en'
+                  ? 'We help with supplier identification, availability checks, specification coordination, documentation follow-up and shipment communication. Product availability, specifications, packing, origin and price are confirmed case by case.'
+                  : 'Kami membantu identifikasi pemasok, pemeriksaan ketersediaan, koordinasi spesifikasi, tindak lanjut dokumentasi, dan komunikasi pengiriman. Ketersediaan produk, spesifikasi, kemasan, asal, dan harga dikonfirmasi per kasus.'}
+              </p>
+
+              <div className="grid grid-cols-3 gap-3 pt-2">
+                {[
+                  { val: '24+', lbl: language === 'en' ? 'Years Active' : 'Tahun Aktif' },
+                  { val: '10', lbl: language === 'en' ? 'Categories' : 'Kategori' },
+                  { val: '50+', lbl: language === 'en' ? 'Products' : 'Produk' },
+                ].map((s, i) => (
+                  <div key={i} className="bg-white rounded-xl border border-[#ede8e0] p-3 text-center shadow-sm">
+                    <div className="text-2xl font-bold text-[#0B2245] leading-none">{s.val}</div>
+                    <div className="text-[11px] text-[#6b7280] mt-1 font-medium">{s.lbl}</div>
+                  </div>
+                ))}
+              </div>
+
+              <Link href="/about">
+                <button className="inline-flex items-center gap-2 text-sm font-semibold text-[#0B2245] hover:text-[#C8922A] transition-colors mt-2"
+                  data-testid="button-learn-more">
+                  {language === 'en' ? 'Learn More About Us' : 'Pelajari Lebih Lanjut'}
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SOURCING BRIDGE — dark ── */}
+      <section className="py-20 md:py-24 bg-[#0B2245] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04]"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
+        <div className="relative site-container z-10">
+          <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div className="space-y-5">
+              <p className="eyebrow text-[#C8922A]">
                 {language === 'en' ? 'Our Role' : 'Peran Kami'}
               </p>
-              <h2 className="text-3xl md:text-5xl font-display text-white leading-tight">
-                {t('home.bridge.title')}
+              <h2 className="text-3xl md:text-4xl font-display text-white leading-tight">
+                {language === 'en'
+                  ? 'Your Sourcing Bridge Between Indonesia and India'
+                  : 'Jembatan Sourcing Anda Antara Indonesia dan India'}
               </h2>
-              <p className="text-white/65 leading-relaxed text-base max-w-xl">
-                {t('home.bridge.desc')}
+              <p className="text-white/65 leading-relaxed text-sm max-w-xl">
+                {language === 'en'
+                  ? 'We work with Indonesian buyers who need practical sourcing support for agro commodities, feed raw materials and food ingredients. Our role is to help buyers check availability, compare origins, coordinate specifications, follow documentation and keep communication clear between buyer and supplier.'
+                  : 'Kami bekerja dengan pembeli Indonesia yang membutuhkan dukungan sourcing praktis untuk komoditas agro, bahan baku pakan, dan bahan pangan. Peran kami adalah membantu pembeli memeriksa ketersediaan, membandingkan asal, mengkoordinasikan spesifikasi, dan menjaga komunikasi yang jelas.'}
               </p>
               <div className="grid grid-cols-2 gap-3 pt-2">
                 {(language === 'en'
@@ -297,35 +462,38 @@ export default function Home() {
                       { icon: Truck, text: 'Tindak lanjut dokumen' },
                     ]
                 ).map(({ icon: Icon, text }) => (
-                  <div key={text} className="flex items-center gap-2 text-white/70 text-sm border-t border-white/10 pt-3">
-                    <Icon className="h-4 w-4 text-accent flex-shrink-0" />
+                  <div key={text} className="flex items-center gap-2.5 text-white/70 text-sm py-2.5 border-t border-white/10">
+                    <Icon className="h-4 w-4 text-[#C8922A] flex-shrink-0" />
                     {text}
                   </div>
                 ))}
               </div>
-              <p className="text-white/40 text-xs leading-relaxed pt-1">
+              <p className="text-white/35 text-xs leading-relaxed pt-1">
                 {language === 'en'
                   ? 'Final price, specification, origin and shipment terms are confirmed case by case.'
                   : 'Harga akhir, spesifikasi, asal dan syarat pengiriman dikonfirmasi per kasus.'}
               </p>
               <Link href="/about">
-                <Button variant="outline" className="gap-2 text-sm mt-1 border-white/20 text-white/80 hover:text-white hover:border-white/40 bg-transparent">
+                <button className="inline-flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-white border border-white/20 hover:border-white/40 px-5 py-2.5 rounded-xl transition-all">
                   {language === 'en' ? 'Read More About Us' : 'Baca Lebih Lanjut'}
                   <ArrowRight className="h-4 w-4" />
-                </Button>
+                </button>
               </Link>
             </div>
 
             {/* Buyer types */}
-            <div className="space-y-3">
-              <p className="text-white/50 text-xs font-semibold uppercase tracking-wider">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8">
+              <p className="text-white/50 text-xs font-bold uppercase tracking-wider mb-5">
                 {language === 'en' ? 'We Mainly Serve' : 'Kami Terutama Melayani'}
               </p>
-              <div className="grid grid-cols-2 gap-2">
-                {buyerTypes.map((b, i) => (
-                  <div key={i} className="flex items-center gap-2.5 border-t border-white/10 px-0 py-3">
-                    <Users className="h-3.5 w-3.5 text-accent flex-shrink-0" />
-                    <span className="text-white/75 text-xs leading-snug">{b}</span>
+              <div className="grid grid-cols-2 gap-3">
+                {(language === 'en'
+                  ? ['Feed Mills', 'Animal Feed Manufacturers', 'Food Processors', 'Snack Manufacturers', 'Commodity Importers', 'Wholesalers', 'Trading Houses', 'Industrial Buyers']
+                  : ['Pabrik Pakan', 'Produsen Pakan Ternak', 'Pengolah Makanan', 'Produsen Snack', 'Importir Komoditas', 'Pedagang Grosir', 'Rumah Dagang', 'Pembeli Industri']
+                ).map((b, i) => (
+                  <div key={i} className="flex items-center gap-2.5 py-2.5 border-b border-white/8">
+                    <div className="h-1.5 w-1.5 rounded-full bg-[#C8922A] flex-shrink-0" />
+                    <span className="text-white/70 text-xs leading-snug">{b}</span>
                   </div>
                 ))}
               </div>
@@ -334,239 +502,227 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PRODUCT CATEGORIES GRID ── */}
-      <section className="py-16 md:py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-5 md:px-10">
-          <div className="flex items-end justify-between mb-6 flex-wrap gap-3">
-            <div>
-              <p className="editorial-eyebrow mb-2">
-                {language === 'en' ? 'Product Categories' : 'Kategori Produk'}
-              </p>
-              <h2 className="text-3xl md:text-5xl font-display text-foreground" data-testid="heading-categories">
-                {t('home.categories.title')}
+      {/* ── EXPORT QUALITY / CERTIFICATIONS ── */}
+      <section className="py-20 md:py-24 bg-white">
+        <div className="site-container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-5">
+              <p className="eyebrow">{language === 'en' ? 'Quality Promise' : 'Janji Kualitas'}</p>
+              <h2 className="text-3xl md:text-4xl font-display text-[#0B2245] leading-tight">
+                {language === 'en' ? 'Export-Grade Quality With Full Documentation' : 'Kualitas Standar Ekspor Dengan Dokumentasi Lengkap'}
               </h2>
-              <p className="text-muted-foreground text-sm mt-1 max-w-md">
-                {t('home.categories.subtitle')}
+              <p className="text-[#4a5568] text-sm leading-relaxed">
+                {language === 'en'
+                  ? 'Every shipment we coordinate is supported with proper trade documentation. We work with suppliers who can provide the required certificates and compliance documents for Indonesian import regulations.'
+                  : 'Setiap pengiriman yang kami koordinasikan didukung dengan dokumentasi perdagangan yang tepat. Kami bekerja dengan pemasok yang dapat menyediakan sertifikat dan dokumen kepatuhan yang diperlukan untuk regulasi impor Indonesia.'}
               </p>
-            </div>
-            <Link href="/products">
-              <Button variant="outline" size="sm" className="gap-1.5 text-xs">
-                {language === 'en' ? 'All Products' : 'Semua Produk'}
-                <ArrowRight className="h-3 w-3" />
-              </Button>
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
-            {productCategories.map((cat, i) => (
-              <Link key={i} href={cat.href}>
-                <div className="group relative image-treatment overflow-hidden cursor-pointer aspect-[16/11]"
-                  data-testid={`category-card-${i}`}>
-                  <img src={cat.img} alt={cat.label}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/15 transition-colors duration-400" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <div className="text-white font-semibold text-lg leading-tight">{cat.label}</div>
-                    <div className="text-white/60 text-[10px] mt-1">{cat.desc}</div>
-                  </div>
-                  {cat.badge && (
-                    <div className="absolute top-2.5 right-2.5">
-                      <span className="text-[10px] font-bold text-white px-2 py-0.5 rounded-sm"
-                        style={{ backgroundColor: cat.accent }}>{cat.badge}</span>
-                    </div>
-                  )}
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-4 text-center">
-            <Link href="/products">
-              <Button variant="outline" className="gap-2 text-sm">
-                {language === 'en' ? 'View All 10 Product Categories' : 'Lihat Semua 10 Kategori Produk'}
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── ABOUT STRIP — light, split ── */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-5 md:px-10">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-14 items-center">
-
-            <div className="relative image-treatment overflow-hidden group aspect-[4/3] order-2 md:order-1">
-              <img src={contentImages.about} alt="PT Svee International — agro commodity sourcing Jakarta"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-              <div className="absolute top-4 left-4">
-                <span className="bg-primary text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow">
-                  {language === 'en' ? 'Est. 2001' : 'Berdiri 2001'}
-                </span>
-              </div>
-              <div className="absolute bottom-4 left-4 right-4">
-                <div className="flex gap-2 flex-wrap">
-                  <span className="text-xs bg-white/15 backdrop-blur-sm text-white border border-white/25 px-2.5 py-1 rounded-sm">Jakarta HQ</span>
-                  <span className="text-xs bg-white/15 backdrop-blur-sm text-white border border-white/25 px-2.5 py-1 rounded-sm flex items-center gap-1">
-                    <MapPin className="h-2.5 w-2.5" />India · Other origins case by case
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-4 order-1 md:order-2">
-              <p className="editorial-eyebrow">
-                {language === 'en' ? 'About Us' : 'Tentang Kami'}
-              </p>
-              <h2 className="text-3xl md:text-5xl font-display leading-tight" data-testid="heading-about-title">
-                {t('home.about.title')}
-              </h2>
-              <p className="text-muted-foreground leading-relaxed text-sm" data-testid="text-about-description">
-                {t('home.about.description')}
-              </p>
-              <p className="text-sm leading-relaxed text-muted-foreground" data-testid="text-about-mission">
-                {t('home.about.mission')}
-              </p>
-
-              <div className="grid grid-cols-3 gap-3 pt-1">
-                {[
-                  { val: '24+', lbl: language === 'en' ? 'Years Active' : 'Tahun Aktif' },
-                  { val: '10', lbl: language === 'en' ? 'Categories' : 'Kategori' },
-                  { val: '50+', lbl: language === 'en' ? 'Products' : 'Produk' },
-                ].map((s, i) => (
-                  <div key={i} className="border-t border-border p-3 text-center">
-                    <div className="text-2xl font-bold text-primary leading-none">{s.val}</div>
-                    <div className="text-[11px] text-muted-foreground mt-1">{s.lbl}</div>
+              <div className="grid grid-cols-2 gap-3 pt-2">
+                {['Certificate of Origin', 'Phytosanitary Certificate', 'Fumigation Certificate', 'Bill of Lading', 'Certificate of Analysis', 'SGS / Third-party Inspection'].map((doc, i) => (
+                  <div key={i} className="flex items-center gap-2 text-sm text-[#4a5568]">
+                    <ShieldCheck className="h-4 w-4 text-[#2E7D55] flex-shrink-0" />
+                    {doc}
                   </div>
                 ))}
               </div>
-
-              <Link href="/about">
-                <Button variant="outline" className="gap-2 text-sm" data-testid="button-learn-more">
-                  {t('home.about.cta')}
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SOURCING ORIGINS ── */}
-      <section className="py-16 md:py-20 bg-background editorial-rule">
-        <div className="max-w-7xl mx-auto px-5 md:px-10">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-6">
-            <div>
-              <p className="editorial-eyebrow mb-2">
-                {language === 'en' ? 'Origin Markets' : 'Pasar Asal'}
-              </p>
-              <h2 className="text-3xl md:text-5xl font-display text-foreground">
-                {t('home.network.title')}
-              </h2>
-            </div>
-            <p className="text-muted-foreground text-xs max-w-xs">
-              {t('home.network.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border-y border-border">
-            {origins.map((o, i) => (
-              <div key={i}
-                className="bg-transparent border-b sm:border-r border-border p-6 flex flex-col items-start text-left gap-3 hover-elevate"
-                data-testid={`origin-tile-${i}`}>
-                <div className={`h-10 w-10 ${o.color} flex items-center justify-center text-white font-bold text-sm shadow-sm`}>
-                  {o.code}
-                </div>
-                <div>
-                  <div className="text-foreground font-semibold text-sm leading-tight">{o.country}</div>
-                  <div className="text-muted-foreground text-[10px] mt-1 leading-relaxed">{o.products}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── SERVICES — light ── */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-5 md:px-10">
-          <div className="text-center mb-6">
-            <p className="editorial-eyebrow mb-2">
-              {language === 'en' ? 'Our Services' : 'Layanan Kami'}
-            </p>
-            <h2 className="text-3xl md:text-5xl font-display" data-testid="heading-services">
-              {t('home.services.title')}
-            </h2>
-            <p className="text-muted-foreground text-sm mt-2 max-w-md mx-auto" data-testid="text-services-subtitle">
-              {t('home.services.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-0 border-y border-border">
-            {allServices.map((service) => {
-              const Icon = serviceIconMap[service.icon] || serviceIconMap.default;
-              return (
-                <div key={service.id}
-                  className="border-b md:border-r border-border py-7 pr-6 hover-elevate group"
-                  data-testid={`card-service-${service.id}`}>
-                  <div className="flex items-start gap-4">
-                    <div className="h-10 w-10 bg-primary/8 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/15 transition-colors">
-                      <Icon className="h-5 w-5 text-primary" />
+            <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] bg-[#f9f6f1]">
+              <img src={sectionBackgrounds.port} alt="Port shipment quality"
+                className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0B2245]/20 to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5">
+                <div className="bg-white/95 backdrop-blur rounded-xl p-4 shadow-lg">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 bg-[#2E7D55]/10 rounded-xl flex items-center justify-center">
+                      <ShieldCheck className="h-5 w-5 text-[#2E7D55]" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground text-sm leading-tight mb-1.5">
-                        {service.title[language]}
-                      </h3>
-                      <p className="text-muted-foreground text-xs leading-relaxed line-clamp-3">
-                        {service.description[language]}
-                      </p>
+                      <div className="text-xs font-bold text-[#0B2245]">
+                        {language === 'en' ? 'Document Support Included' : 'Dukungan Dokumen Termasuk'}
+                      </div>
+                      <div className="text-xs text-[#6b7280] mt-0.5">
+                        {language === 'en' ? 'COA · Phyto · Fumigation · BL · CO' : 'COA · Fitosanitasi · Fumigasi · BL · CO'}
+                      </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ORIGIN MARKETS ── */}
+      <section className="py-20 md:py-24 bg-[#f9f6f1] border-t border-[#ede8e0]">
+        <div className="site-container">
+          <div className="text-center mb-12">
+            <p className="eyebrow mb-3">{language === 'en' ? 'Origin Markets' : 'Pasar Asal'}</p>
+            <h2 className="text-3xl md:text-4xl font-display text-[#0B2245]">
+              {language === 'en' ? 'Sourcing From Reliable Origin Markets' : 'Sourcing dari Pasar Asal Terpercaya'}
+            </h2>
+            <p className="text-[#6b7280] text-sm mt-2 max-w-md mx-auto">
+              {language === 'en'
+                ? 'We support Indonesian buyers primarily from India, plus other origins checked case by case'
+                : 'Kami mendukung pembeli Indonesia terutama dari India, serta asal lain yang dicek per kasus'}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {(language === 'en' ? [
+              { code: 'IN', country: 'India', products: 'SBM · Maize Grits · Spices · Oilseeds · Pulses · Liquid Glucose', color: 'from-orange-400 to-orange-600', main: true },
+              { code: 'ID', country: 'Indonesia', products: 'Palm Oil · Local Commodities', color: 'from-red-400 to-red-600', main: false },
+              { code: 'AS', country: 'Other Asian Origins', products: 'Myanmar · Vietnam · Checked on requirement', color: 'from-emerald-400 to-emerald-600', main: false },
+              { code: 'GL', country: 'Global Origins', products: 'Australia · Black Sea · Case by case', color: 'from-sky-400 to-sky-600', main: false },
+            ] : [
+              { code: 'IN', country: 'India', products: 'SBM · Maize Grits · Rempah · Biji Minyak · Kacang · Liquid Glucose', color: 'from-orange-400 to-orange-600', main: true },
+              { code: 'ID', country: 'Indonesia', products: 'Minyak Sawit · Komoditas Lokal', color: 'from-red-400 to-red-600', main: false },
+              { code: 'AS', country: 'Asal Asia Lainnya', products: 'Myanmar · Vietnam · Dicek sesuai kebutuhan', color: 'from-emerald-400 to-emerald-600', main: false },
+              { code: 'GL', country: 'Asal Global', products: 'Australia · Black Sea · Per kasus', color: 'from-sky-400 to-sky-600', main: false },
+            ]).map((o, i) => (
+              <div key={i}
+                className={`bg-white rounded-2xl border p-6 transition-shadow hover:shadow-md ${o.main ? 'border-[#C8922A] shadow-sm' : 'border-[#ede8e0]'}`}
+                data-testid={`origin-tile-${i}`}>
+                <div className={`h-12 w-12 bg-gradient-to-br ${o.color} rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-sm mb-4`}>
+                  {o.code}
+                </div>
+                <div className="font-semibold text-[#0B2245] text-sm mb-1.5 flex items-center gap-2">
+                  {o.country}
+                  {o.main && <span className="text-[10px] bg-[#C8922A] text-white px-2 py-0.5 rounded-full font-bold">Primary</span>}
+                </div>
+                <div className="text-[#6b7280] text-xs leading-relaxed">{o.products}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SERVICES ── */}
+      <section className="py-20 md:py-24 bg-white">
+        <div className="site-container">
+          <div className="text-center mb-12">
+            <p className="eyebrow mb-3">{language === 'en' ? 'Our Services' : 'Layanan Kami'}</p>
+            <h2 className="text-3xl md:text-4xl font-display text-[#0B2245]" data-testid="heading-services">
+              {language === 'en' ? 'How We Can Help' : 'Cara Kami Membantu'}
+            </h2>
+            <p className="text-[#6b7280] text-sm mt-2 max-w-md mx-auto" data-testid="text-services-subtitle">
+              {language === 'en'
+                ? 'From first product enquiry to shipment arrival — practical sourcing support at each step'
+                : 'Dari pertanyaan produk pertama hingga pengiriman tiba — dukungan sourcing praktis di setiap tahap'}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {allServices.map((service, idx) => {
+              const Icon = serviceIconMap[service.icon] || serviceIconMap.default;
+              const colors = [
+                'bg-blue-50 text-[#0B2245]',
+                'bg-amber-50 text-amber-700',
+                'bg-green-50 text-green-700',
+                'bg-rose-50 text-rose-700',
+                'bg-teal-50 text-teal-700',
+              ];
+              return (
+                <div key={service.id}
+                  className="bg-[#f9f6f1] rounded-2xl p-6 border border-[#ede8e0] hover:shadow-md transition-all hover:-translate-y-0.5 group"
+                  data-testid={`card-service-${service.id}`}>
+                  <div className={`inline-flex items-center justify-center h-11 w-11 rounded-xl mb-4 ${colors[idx % colors.length]}`}>
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-semibold text-[#0B2245] text-sm leading-tight mb-2">
+                    {service.title[language]}
+                  </h3>
+                  <p className="text-[#6b7280] text-xs leading-relaxed line-clamp-3">
+                    {service.description[language]}
+                  </p>
                 </div>
               );
             })}
           </div>
 
-          <div className="text-center mt-6">
+          <div className="text-center mt-8">
             <Link href="/services">
-              <Button variant="outline" className="gap-2 text-sm">
-                {t('home.services.cta')}
+              <button className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#0B2245] text-[#0B2245] hover:bg-[#0B2245] hover:text-white text-sm font-semibold rounded-xl transition-all">
+                {language === 'en' ? 'See All Services' : 'Lihat Semua Layanan'}
                 <ArrowRight className="h-4 w-4" />
-              </Button>
+              </button>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── BOTTOM CTA — dark ── */}
-      <section className="relative py-16 md:py-20 bg-[#0B2245] overflow-hidden">
-        <div className="relative max-w-3xl mx-auto px-5 md:px-10 text-center z-10">
-          <p className="editorial-eyebrow mb-3">
+      {/* ── GLOBAL SUPPLY ── */}
+      <section className="py-20 md:py-24 bg-[#f9f6f1] border-t border-[#ede8e0]">
+        <div className="site-container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] bg-white">
+              <img src={sectionBackgrounds.warehouse} alt="Warehouse and supply chain"
+                className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B2245]/50 to-transparent" />
+            </div>
+            <div className="space-y-5">
+              <p className="eyebrow">{language === 'en' ? 'Global Supply' : 'Pasokan Global'}</p>
+              <h2 className="text-3xl md:text-4xl font-display text-[#0B2245] leading-tight">
+                {language === 'en' ? 'Reliable Supply Chain From Farm to Port' : 'Rantai Pasokan Andal dari Ladang ke Pelabuhan'}
+              </h2>
+              <p className="text-[#4a5568] text-sm leading-relaxed">
+                {language === 'en'
+                  ? 'Our associate offices and sourcing contacts in India and across Asia help ensure we can check availability, verify specifications and coordinate logistics for Indonesian buyers efficiently.'
+                  : 'Kantor afiliasi dan kontak sourcing kami di India dan Asia membantu kami memeriksa ketersediaan, memverifikasi spesifikasi, dan mengkoordinasikan logistik untuk pembeli Indonesia secara efisien.'}
+              </p>
+              <div className="space-y-3 pt-2">
+                {(language === 'en' ? [
+                  { icon: MapPin, text: 'Associate offices in Mumbai, Pune, Chennai & Delhi' },
+                  { icon: Globe2, text: 'Partner contacts in Myanmar, Vietnam and other Asian origins' },
+                  { icon: Truck, text: 'Shipment coordination from origin port to Indonesian ports' },
+                  { icon: BarChart3, text: 'Real-time availability checks and market updates' },
+                ] : [
+                  { icon: MapPin, text: 'Kantor afiliasi di Mumbai, Pune, Chennai & Delhi' },
+                  { icon: Globe2, text: 'Kontak mitra di Myanmar, Vietnam dan asal Asia lainnya' },
+                  { icon: Truck, text: 'Koordinasi pengiriman dari pelabuhan asal ke pelabuhan Indonesia' },
+                  { icon: BarChart3, text: 'Pemeriksaan ketersediaan real-time dan pembaruan pasar' },
+                ]).map(({ icon: Icon, text }, i) => (
+                  <div key={i} className="flex items-start gap-3 text-sm text-[#4a5568]">
+                    <Icon className="h-4 w-4 text-[#C8922A] flex-shrink-0 mt-0.5" />
+                    {text}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── BOTTOM CTA ── */}
+      <section className="relative py-20 md:py-24 bg-[#0B2245] overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04]"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
+        <div className="relative site-container text-center z-10 max-w-3xl mx-auto">
+          <p className="eyebrow text-[#C8922A] mb-4">
             {language === 'en' ? 'Get in Touch' : 'Hubungi Kami'}
           </p>
-          <h2 className="text-2xl md:text-3xl font-display text-white mb-3">
-            {t('home.cta.title')}
+          <h2 className="text-3xl md:text-4xl font-display text-white mb-4">
+            {language === 'en'
+              ? 'Send Us Your Product Requirement'
+              : 'Kirimkan Kebutuhan Produk Anda'}
           </h2>
-          <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-lg mx-auto">
-            {t('home.cta.subtitle')}
+          <p className="text-white/60 text-sm leading-relaxed mb-8 max-w-lg mx-auto">
+            {language === 'en'
+              ? 'Tell us what you need — product, quantity and destination. We will check availability and come back to you as soon as possible.'
+              : 'Beritahu kami apa yang Anda butuhkan — produk, kuantitas, dan tujuan. Kami akan memeriksa ketersediaan dan menghubungi Anda sesegera mungkin.'}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a href={waUrl(heroWaMsg)} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="w-full sm:w-auto gap-2 bg-[#2E7D55] text-white border-[#2E7D55] shadow-sm">
+              <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#2E7D55] hover:bg-[#246444] text-white text-sm font-semibold rounded-xl transition-all shadow-[0_4px_20px_rgba(46,125,85,0.3)] hover:shadow-[0_8px_30px_rgba(46,125,85,0.4)] hover:-translate-y-0.5">
                 <WhatsAppIcon className="h-5 w-5" />
-                {t('home.cta.button')}
-              </Button>
+                {language === 'en' ? 'Send WhatsApp Enquiry' : 'Kirim Pertanyaan WhatsApp'}
+              </button>
             </a>
             <Link href="/contact">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2 border-white/20 text-white/80 hover:text-white hover:border-white/40 bg-transparent">
-                {language === 'en' ? 'Contact Page' : 'Halaman Kontak'}
+              <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 border-2 border-white/20 hover:border-white/40 text-white/80 hover:text-white text-sm font-semibold rounded-xl transition-all">
+                {language === 'en' ? 'View Contact Page' : 'Halaman Kontak'}
                 <ChevronRight className="h-4 w-4" />
-              </Button>
+              </button>
             </Link>
           </div>
-          <p className="text-white/30 text-xs mt-5 leading-relaxed">
+          <p className="text-white/25 text-xs mt-6 leading-relaxed">
             {language === 'en'
               ? 'Product availability, specification, price and shipment terms are confirmed case by case.'
               : 'Ketersediaan produk, spesifikasi, harga dan syarat pengiriman dikonfirmasi per kasus.'}

@@ -2,15 +2,13 @@ import { Link, useLocation } from 'wouter';
 import { useI18n } from '@/lib/i18n';
 import { Button } from '@/components/ui/button';
 import { WhatsAppFAB } from '@/components/WhatsAppFAB';
-import { ChevronDown, Globe, Menu, X, Phone, Mail, MapPin } from 'lucide-react';
+import { ChevronDown, Globe, Menu, X, Phone, Mail, MapPin, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import logoUrl from '@assets/logo.png';
 
 const WA_NUMBER = '6281510551111';
 const WA_MSG_EN = 'Hello PT Svee International, I would like to inquire about your agricultural products.';
 const WA_MSG_ID = 'Halo PT Svee International, saya ingin menanyakan mengenai produk pertanian Anda.';
-const WA_MSG_FOOTER_EN = 'Hello PT Svee International, I would like to inquire about your products.';
-const WA_MSG_FOOTER_ID = 'Halo PT Svee International, saya ingin menanyakan mengenai produk Anda.';
 
 function waUrl(msg: string) {
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
@@ -29,47 +27,50 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setProductsOpen(false);
+  }, [location]);
 
   const toggleLanguage = () => setLanguage(language === 'en' ? 'id' : 'en');
 
   const navItems = [
     { path: '/', label: t('nav.home') },
     { path: '/about', label: t('nav.about') },
-    { path: '/profile', label: t('nav.profile') },
-    { path: '/products', label: t('nav.products') },
+    { path: '/products', label: t('nav.products'), hasDropdown: true },
     { path: '/services', label: t('nav.services') },
     { path: '/contact', label: t('nav.contact') },
   ];
 
-  const productLinks = language === 'en'
-    ? [
-        { path: '/products/animal-feed-ingredients', label: 'Animal Feed Ingredients' },
-        { path: '/products/grains-corn-products', label: 'Grains & Corn Products' },
-        { path: '/products/rice-milled-products', label: 'Rice & Milled Products' },
-        { path: '/products/oilseeds-kernels', label: 'Oilseeds & Kernels' },
-        { path: '/products/pulses-beans', label: 'Pulses & Beans' },
-        { path: '/products/spices', label: 'Spices' },
-        { path: '/products/food-ingredients-sweeteners', label: 'Food Ingredients' },
-        { path: '/products/edible-oils', label: 'Edible Oils' },
-        { path: '/products/fertilizers', label: 'Fertilizers' },
-      ]
-    : [
-        { path: '/products/animal-feed-ingredients', label: 'Bahan Baku Pakan Ternak' },
-        { path: '/products/grains-corn-products', label: 'Produk Jagung & Biji-bijian' },
-        { path: '/products/rice-milled-products', label: 'Produk Beras & Olahan' },
-        { path: '/products/oilseeds-kernels', label: 'Biji Minyak & Kernel' },
-        { path: '/products/pulses-beans', label: 'Kacang-kacangan & Polong' },
-        { path: '/products/spices', label: 'Rempah-rempah' },
-        { path: '/products/food-ingredients-sweeteners', label: 'Bahan Pangan' },
-        { path: '/products/edible-oils', label: 'Minyak Goreng' },
-        { path: '/products/fertilizers', label: 'Pupuk' },
-      ];
+  const productLinks = language === 'en' ? [
+    { path: '/products/animal-feed-ingredients', label: 'Animal Feed Ingredients', icon: '🌾' },
+    { path: '/products/grains-corn-products', label: 'Grains & Corn Products', icon: '🌽' },
+    { path: '/products/rice-milled-products', label: 'Rice & Milled Products', icon: '🍚' },
+    { path: '/products/oilseeds-kernels', label: 'Oilseeds & Kernels', icon: '🥜' },
+    { path: '/products/pulses-beans', label: 'Pulses & Beans', icon: '🫘' },
+    { path: '/products/spices', label: 'Spices', icon: '🌶️' },
+    { path: '/products/food-ingredients-sweeteners', label: 'Food Ingredients', icon: '🍯' },
+    { path: '/products/edible-oils', label: 'Edible Oils', icon: '🫙' },
+    { path: '/products/fertilizers', label: 'Fertilizers', icon: '🌱' },
+  ] : [
+    { path: '/products/animal-feed-ingredients', label: 'Bahan Baku Pakan Ternak', icon: '🌾' },
+    { path: '/products/grains-corn-products', label: 'Produk Jagung & Biji-bijian', icon: '🌽' },
+    { path: '/products/rice-milled-products', label: 'Produk Beras & Olahan', icon: '🍚' },
+    { path: '/products/oilseeds-kernels', label: 'Biji Minyak & Kernel', icon: '🥜' },
+    { path: '/products/pulses-beans', label: 'Kacang-kacangan & Polong', icon: '🫘' },
+    { path: '/products/spices', label: 'Rempah-rempah', icon: '🌶️' },
+    { path: '/products/food-ingredients-sweeteners', label: 'Bahan Pangan', icon: '🍯' },
+    { path: '/products/edible-oils', label: 'Minyak Goreng', icon: '🫙' },
+    { path: '/products/fertilizers', label: 'Pupuk', icon: '🌱' },
+  ];
 
   const isActive = (path: string) => {
     if (path === '/') return location === path;
@@ -79,28 +80,28 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
 
-      {/* ── Top Contact Bar ── */}
-      <div className="bg-[#0F2F5F] text-white text-[11px] py-1.5 hidden sm:block">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-4 md:gap-6 flex-wrap">
+      {/* ── Top Contact Strip ── */}
+      <div className="bg-[#0B2245] text-white text-[11px] py-2 hidden sm:block">
+        <div className="site-container flex items-center justify-between gap-4">
+          <div className="flex items-center gap-5 flex-wrap">
             <a href="tel:+622165832426"
-              className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors">
+              className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors">
               <Phone className="h-3 w-3 flex-shrink-0" />
               +62 21 658 32426
             </a>
             <a href="mailto:info@sveeint.com"
-              className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors">
+              className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors">
               <Mail className="h-3 w-3 flex-shrink-0" />
               info@sveeint.com
             </a>
-            <span className="hidden md:flex items-center gap-1.5 text-white/60">
+            <span className="hidden md:flex items-center gap-1.5 text-white/50">
               <MapPin className="h-3 w-3 flex-shrink-0" />
               Jakarta Utara, Indonesia
             </span>
           </div>
           <button
             onClick={toggleLanguage}
-            className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors font-medium"
+            className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors font-semibold"
             data-testid="topbar-button-language">
             <Globe className="h-3 w-3" />
             {language === 'en' ? 'Bahasa Indonesia' : 'English'}
@@ -109,150 +110,173 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </div>
 
       {/* ── Main Header ── */}
-      <header className={`sticky top-0 z-50 backdrop-blur-md border-b transition-all duration-300 ${
+      <header className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-background/96 shadow-sm border-border'
-          : 'bg-background/92 border-border/60'
+          ? 'bg-white/98 backdrop-blur-md shadow-[0_2px_20px_-8px_rgba(11,34,69,0.18)] border-b border-[#e8e2d9]'
+          : 'bg-white/95 backdrop-blur-sm border-b border-[#ede8e0]'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="flex items-center justify-between h-14 md:h-16 gap-4">
+        <div className="site-container">
+          <div className="flex items-center justify-between h-16 md:h-[70px] gap-6">
 
-            <Link href="/" className="flex items-center hover-elevate active-elevate-2 rounded-md px-1.5 py-1 -ml-1.5 flex-shrink-0" data-testid="link-home">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2.5 flex-shrink-0" data-testid="link-home">
               <img src={logoUrl} alt="PT Svee International" className="h-9 md:h-10 w-auto" />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-0.5 flex-1 justify-center">
+            <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center">
               {navItems.map((item) => (
-                item.path === '/products' ? (
+                item.hasDropdown ? (
                   <div key={item.path} className="relative group">
                     <Link href={item.path}>
-                      <Button
-                        variant={isActive(item.path) ? 'secondary' : 'ghost'}
-                        size="sm"
-                        className={`text-sm font-medium transition-colors gap-1.5 ${isActive(item.path) ? 'text-primary font-semibold bg-secondary border-b border-accent rounded-none' : 'text-muted-foreground hover:text-foreground'}`}
+                      <button
+                        className={`flex items-center gap-1 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
+                          isActive(item.path)
+                            ? 'text-[#0B2245] bg-[#f0ebe3]'
+                            : 'text-[#4a5568] hover:text-[#0B2245] hover:bg-[#f7f3ed]'
+                        }`}
                         data-testid="link-products"
                       >
                         {item.label}
-                        <ChevronDown className="h-3.5 w-3.5" />
-                      </Button>
+                        <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180 duration-200" />
+                      </button>
                     </Link>
-                    <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 focus-within:visible focus-within:opacity-100 transition-all absolute left-1/2 -translate-x-1/2 top-full pt-3 w-72 z-50">
-                      <div className="bg-white border border-border shadow-lg p-2">
-                        <Link href="/products">
-                          <span className="block px-3 py-2 text-sm font-semibold text-primary hover:bg-secondary cursor-pointer">
-                            {language === 'en' ? 'All categories' : 'Semua kategori'}
-                          </span>
-                        </Link>
-                        <div className="h-px bg-border my-1" />
-                        {productLinks.map(link => (
-                          <Link key={link.path} href={link.path}>
-                            <span className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary cursor-pointer">
-                              {link.label}
+                    {/* Mega dropdown */}
+                    <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 absolute left-1/2 -translate-x-1/2 top-full pt-2 w-80 z-50">
+                      <div className="bg-white border border-[#e8e2d9] rounded-xl shadow-[0_20px_60px_-20px_rgba(11,34,69,0.25)] overflow-hidden">
+                        <div className="bg-[#0B2245] px-4 py-3">
+                          <Link href="/products">
+                            <span className="text-sm font-semibold text-white hover:text-amber-300 transition-colors cursor-pointer flex items-center gap-2">
+                              {language === 'en' ? 'All Product Categories' : 'Semua Kategori Produk'}
+                              <ChevronRight className="h-3.5 w-3.5" />
                             </span>
                           </Link>
-                        ))}
+                        </div>
+                        <div className="p-2">
+                          {productLinks.map(link => (
+                            <Link key={link.path} href={link.path}>
+                              <span className="flex items-center gap-2.5 px-3 py-2 text-sm text-[#4a5568] hover:text-[#0B2245] hover:bg-[#f7f3ed] rounded-lg cursor-pointer transition-colors">
+                                <span className="text-base leading-none">{link.icon}</span>
+                                {link.label}
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
                 ) : (
                   <Link key={item.path} href={item.path}>
-                    <Button
-                      variant={isActive(item.path) ? 'secondary' : 'ghost'}
-                      size="sm"
-                      className={`text-sm font-medium transition-colors ${isActive(item.path) ? 'text-primary font-semibold bg-secondary border-b border-accent rounded-none' : 'text-muted-foreground hover:text-foreground'}`}
+                    <button
+                      className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
+                        isActive(item.path)
+                          ? 'text-[#0B2245] bg-[#f0ebe3]'
+                          : 'text-[#4a5568] hover:text-[#0B2245] hover:bg-[#f7f3ed]'
+                      }`}
                       data-testid={`link-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {item.label}
-                    </Button>
+                    </button>
                   </Link>
                 )
               ))}
             </nav>
 
-            {/* Right Actions */}
+            {/* Right actions */}
             <div className="flex items-center gap-2 flex-shrink-0">
-              <Button variant="outline" size="sm" onClick={toggleLanguage}
-                className="gap-1.5 hidden md:flex" data-testid="button-language-toggle">
+              <button
+                onClick={toggleLanguage}
+                className="hidden md:flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold text-[#4a5568] hover:text-[#0B2245] hover:bg-[#f7f3ed] rounded-lg transition-colors"
+                data-testid="button-language-toggle">
                 <Globe className="h-3.5 w-3.5" />
-                <span className="font-semibold">{language === 'en' ? 'ID' : 'EN'}</span>
-              </Button>
+                {language === 'en' ? 'ID' : 'EN'}
+              </button>
 
               <a href={waUrl(language === 'en' ? WA_MSG_EN : WA_MSG_ID)}
                 target="_blank" rel="noopener noreferrer"
-                className="hidden md:flex" data-testid="button-whatsapp-header">
-                  <Button size="sm" className="gap-2 bg-[#2E7D55] text-white border-[#2E7D55]">
+                className="hidden md:flex"
+                data-testid="button-whatsapp-header">
+                <button className="flex items-center gap-2 px-4 py-2 bg-[#2E7D55] hover:bg-[#246444] text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">
                   <WaIcon />
                   WhatsApp
-                </Button>
+                </button>
               </a>
 
-              <Button variant="ghost" size="icon" className="lg:hidden"
+              <button
+                className="lg:hidden p-2 rounded-lg hover:bg-[#f7f3ed] transition-colors"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 data-testid="button-mobile-menu-toggle">
-                {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </Button>
+                {mobileMenuOpen ? <X className="h-5 w-5 text-[#0B2245]" /> : <Menu className="h-5 w-5 text-[#0B2245]" />}
+              </button>
             </div>
           </div>
+        </div>
 
-          {/* Mobile Menu */}
-          {mobileMenuOpen && (
-            <div className="lg:hidden border-t py-4 space-y-1">
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden border-t border-[#ede8e0] bg-white">
+            <div className="site-container py-4 space-y-1">
               {navItems.map((item) => (
-                item.path === '/products' ? (
-                  <div key={item.path} className="space-y-1">
-                    <Link href="/products">
-                      <Button
-                        variant={isActive(item.path) ? 'secondary' : 'ghost'}
-                        className="w-full justify-start"
-                        onClick={() => setMobileMenuOpen(false)}
-                        data-testid="mobile-link-products">
-                        {item.label}
-                      </Button>
-                    </Link>
-                    <div className="pl-4 border-l border-border space-y-1">
-                      {productLinks.map(link => (
-                        <Link key={link.path} href={link.path}>
-                          <Button
-                            variant="ghost"
-                            className="w-full justify-start text-muted-foreground text-sm"
-                            onClick={() => setMobileMenuOpen(false)}>
-                            {link.label}
-                          </Button>
+                item.hasDropdown ? (
+                  <div key={item.path}>
+                    <button
+                      onClick={() => setProductsOpen(!productsOpen)}
+                      className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-[#4a5568] hover:text-[#0B2245] hover:bg-[#f7f3ed] transition-colors">
+                      {item.label}
+                      <ChevronDown className={`h-4 w-4 transition-transform ${productsOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {productsOpen && (
+                      <div className="pl-4 mt-1 space-y-0.5 border-l-2 border-[#C8922A] ml-3">
+                        <Link href="/products">
+                          <span className="block px-3 py-2 text-sm font-semibold text-[#0B2245] hover:bg-[#f7f3ed] rounded-lg cursor-pointer transition-colors">
+                            {language === 'en' ? 'All Categories' : 'Semua Kategori'}
+                          </span>
                         </Link>
-                      ))}
-                    </div>
+                        {productLinks.map(link => (
+                          <Link key={link.path} href={link.path}>
+                            <span className="flex items-center gap-2 px-3 py-2 text-sm text-[#4a5568] hover:text-[#0B2245] hover:bg-[#f7f3ed] rounded-lg cursor-pointer transition-colors">
+                              <span className="text-sm">{link.icon}</span>
+                              {link.label}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ) : (
                   <Link key={item.path} href={item.path}>
-                    <Button
-                      variant={isActive(item.path) ? 'secondary' : 'ghost'}
-                      className="w-full justify-start"
-                      onClick={() => setMobileMenuOpen(false)}
+                    <button
+                      className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                        isActive(item.path)
+                          ? 'text-[#0B2245] bg-[#f0ebe3]'
+                          : 'text-[#4a5568] hover:text-[#0B2245] hover:bg-[#f7f3ed]'
+                      }`}
                       data-testid={`mobile-link-${item.label.toLowerCase().replace(/\s+/g, '-')}`}>
                       {item.label}
-                    </Button>
+                    </button>
                   </Link>
                 )
               ))}
-              <div className="pt-2 flex gap-2">
+              <div className="pt-3 flex gap-2 border-t border-[#ede8e0]">
                 <a href={waUrl(language === 'en' ? WA_MSG_EN : WA_MSG_ID)}
                   target="_blank" rel="noopener noreferrer" className="flex-1">
-                  <Button className="w-full gap-2 bg-[#2E7D55] text-white border-[#2E7D55]"
+                  <button className="w-full flex items-center justify-center gap-2 py-2.5 bg-[#2E7D55] text-white text-sm font-semibold rounded-lg transition-colors"
                     data-testid="mobile-button-whatsapp">
                     <WaIcon />
                     WhatsApp
-                  </Button>
+                  </button>
                 </a>
-                <Button variant="outline" size="default" onClick={toggleLanguage}
-                  className="gap-1.5" data-testid="mobile-button-language">
+                <button
+                  onClick={toggleLanguage}
+                  className="flex items-center gap-1.5 px-4 py-2.5 border border-[#e8e2d9] rounded-lg text-sm font-semibold text-[#4a5568] hover:bg-[#f7f3ed] transition-colors"
+                  data-testid="mobile-button-language">
                   <Globe className="h-4 w-4" />
                   {language === 'en' ? 'ID' : 'EN'}
-                </Button>
+                </button>
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </header>
 
       {/* ── Main Content ── */}
@@ -260,33 +284,36 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
 
-      {/* ── Footer — Primary Blue ── */}
-      <footer className="relative bg-[#0B2245] text-white mt-8 overflow-hidden">
+      {/* ── Footer ── */}
+      <footer className="relative bg-[#0B2245] text-white overflow-hidden">
 
-        {/* Logo watermark — large ghost in the background */}
-        <div className="pointer-events-none absolute right-0 bottom-0 h-[340px] w-[340px] opacity-[0.06] select-none"
-          aria-hidden="true">
-          <img src={logoUrl} alt="" className="w-full h-full object-contain" />
-        </div>
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.03]"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }}
+          aria-hidden="true" />
 
-        {/* Orange top accent stripe */}
-        <div className="h-px w-full bg-white/15" />
+        {/* Gold top accent line */}
+        <div className="h-1 w-full bg-gradient-to-r from-transparent via-[#C8922A] to-transparent" />
 
-        <div className="relative max-w-7xl mx-auto px-4 md:px-8 pt-8 pb-6 z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        <div className="relative site-container pt-12 pb-8 z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
             {/* Brand column */}
-            <div className="space-y-4 lg:col-span-1">
+            <div className="space-y-5 lg:col-span-1">
               <img src={logoUrl} alt="PT Svee International" className="h-10 w-auto brightness-0 invert" />
-              <p className="text-sm text-white/65 leading-relaxed">
+              <p className="text-sm text-white/60 leading-relaxed">
                 {language === 'en'
                   ? 'Indonesia-based agro commodity import and sourcing support since 2001. Helping Indonesian buyers source from India and other reliable origin markets.'
                   : 'Dukungan impor dan sourcing komoditas agro berbasis Indonesia sejak 2001. Membantu pembeli Indonesia sourcing dari India dan pasar asal terpercaya lainnya.'}
               </p>
-              <div className="flex flex-wrap gap-1.5 pt-1">
-                {['Soybean Meal', 'Rice DDGS', 'Corn Grits', 'Rempah India', 'Pupuk DAP'].map(tag => (
+              <div className="flex items-center gap-2 pt-1">
+                <div className="h-0.5 w-8 bg-[#C8922A] rounded-full" />
+                <span className="text-xs text-white/40 font-medium uppercase tracking-wider">Est. 2001</span>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {['Soybean Meal', 'Corn Grits', 'Rice DDGS', 'Indian Spices', 'DAP Fertilizer'].map(tag => (
                   <span key={tag}
-                    className="text-[10px] bg-white/10 text-white/55 px-2 py-0.5 rounded-full border border-white/10">
+                    className="text-[10px] bg-white/8 text-white/45 px-2.5 py-1 rounded-full border border-white/10">
                     {tag}
                   </span>
                 ))}
@@ -295,11 +322,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Company links */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="h-0.5 w-5 bg-[#FF6B35] rounded-full" />
-                <h3 className="font-semibold text-xs uppercase tracking-wider text-white/80">{t('footer.company')}</h3>
+              <div className="flex items-center gap-2 mb-5">
+                <div className="h-0.5 w-5 bg-[#C8922A] rounded-full" />
+                <h3 className="font-semibold text-xs uppercase tracking-wider text-white/70">{t('footer.company')}</h3>
               </div>
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 {[
                   { href: '/about', label: t('nav.about') },
                   { href: '/profile', label: t('nav.profile') },
@@ -308,7 +335,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 ].map(item => (
                   <li key={item.href}>
                     <Link href={item.href}>
-                      <span className="text-sm text-white/55 hover:text-white transition-colors cursor-pointer">
+                      <span className="text-sm text-white/50 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
+                        <ChevronRight className="h-3 w-3 text-[#C8922A] opacity-0 group-hover:opacity-100 -ml-1 transition-opacity" />
                         {item.label}
                       </span>
                     </Link>
@@ -319,22 +347,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Products links */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="h-0.5 w-5 bg-[#FF6B35] rounded-full" />
-                <h3 className="font-semibold text-xs uppercase tracking-wider text-white/80">{t('footer.products')}</h3>
+              <div className="flex items-center gap-2 mb-5">
+                <div className="h-0.5 w-5 bg-[#C8922A] rounded-full" />
+                <h3 className="font-semibold text-xs uppercase tracking-wider text-white/70">{t('footer.products')}</h3>
               </div>
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 {[
-                  { href: '/products/animal-feed', label: language === 'en' ? 'Animal Feed Ingredients' : 'Bahan Baku Pakan Ternak' },
-                  { href: '/products/grains', label: language === 'en' ? 'Grains & Corn Products' : 'Produk Jagung & Biji-bijian' },
-                  { href: '/products/rice', label: language === 'en' ? 'Rice & Milled Products' : 'Produk Beras & Olahan' },
-                  { href: '/products/oilseeds', label: language === 'en' ? 'Oilseeds & Kernels' : 'Biji Minyak & Kernel' },
-                  { href: '/products/pulses', label: language === 'en' ? 'Pulses & Beans' : 'Kacang-kacangan & Polong' },
-                  { href: '/products/spices', label: language === 'en' ? 'Spices (India)' : 'Rempah-rempah (India)' },
+                  { href: '/products/animal-feed-ingredients', label: language === 'en' ? 'Animal Feed Ingredients' : 'Bahan Baku Pakan Ternak' },
+                  { href: '/products/grains-corn-products', label: language === 'en' ? 'Grains & Corn Products' : 'Produk Jagung & Biji-bijian' },
+                  { href: '/products/rice-milled-products', label: language === 'en' ? 'Rice & Milled Products' : 'Produk Beras & Olahan' },
+                  { href: '/products/oilseeds-kernels', label: language === 'en' ? 'Oilseeds & Kernels' : 'Biji Minyak & Kernel' },
+                  { href: '/products/pulses-beans', label: language === 'en' ? 'Pulses & Beans' : 'Kacang-kacangan & Polong' },
+                  { href: '/products/spices', label: language === 'en' ? 'Spices' : 'Rempah-rempah' },
                 ].map(item => (
                   <li key={item.href}>
                     <Link href={item.href}>
-                      <span className="text-sm text-white/55 hover:text-white transition-colors cursor-pointer">
+                      <span className="text-sm text-white/50 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
+                        <ChevronRight className="h-3 w-3 text-[#C8922A] opacity-0 group-hover:opacity-100 -ml-1 transition-opacity" />
                         {item.label}
                       </span>
                     </Link>
@@ -345,43 +374,37 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
             {/* Contact */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="h-0.5 w-5 bg-[#FF6B35] rounded-full" />
-                <h3 className="font-semibold text-xs uppercase tracking-wider text-white/80">{t('footer.contact')}</h3>
+              <div className="flex items-center gap-2 mb-5">
+                <div className="h-0.5 w-5 bg-[#C8922A] rounded-full" />
+                <h3 className="font-semibold text-xs uppercase tracking-wider text-white/70">{t('footer.contact')}</h3>
               </div>
-              <ul className="space-y-3">
-                <li className="flex gap-2.5 text-white/60 text-sm">
-                  <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5 text-[#FF6B35]" />
-                  <span>Ruko Sunter Terrace Blok C No 12,<br />Jl. Danau Sunter Utara Kav. No. 60,<br />Jakarta Utara 14350, Indonesia</span>
+              <ul className="space-y-3.5">
+                <li className="flex gap-2.5 text-white/55 text-sm">
+                  <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5 text-[#C8922A]" />
+                  <span className="leading-relaxed">Ruko Sunter Terrace Blok C No 12,<br />Jakarta Utara 14350, Indonesia</span>
                 </li>
                 <li>
-                  <a href="tel:+622165832426" className="flex gap-2.5 text-white/60 text-sm hover:text-white transition-colors">
-                    <Phone className="h-4 w-4 flex-shrink-0 mt-0.5 text-[#FF6B35]" />
+                  <a href="tel:+622165832426" className="flex gap-2.5 text-white/55 text-sm hover:text-white transition-colors">
+                    <Phone className="h-4 w-4 flex-shrink-0 mt-0.5 text-[#C8922A]" />
                     +62 21 658 32426
                   </a>
                 </li>
                 <li>
-                  <a href={`https://wa.me/${WA_NUMBER}`} className="flex gap-2.5 text-white/60 text-sm hover:text-white transition-colors">
-                    <WaIcon cls="h-4 w-4 flex-shrink-0 mt-0.5 text-[#FF6B35]" />
+                  <a href={`https://wa.me/${WA_NUMBER}`} className="flex gap-2.5 text-white/55 text-sm hover:text-white transition-colors">
+                    <WaIcon cls="h-4 w-4 flex-shrink-0 mt-0.5 text-[#C8922A]" />
                     +62 815-1055-1111
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:info@sveeint.com" className="flex gap-2.5 text-white/60 text-sm hover:text-white transition-colors">
-                    <Mail className="h-4 w-4 flex-shrink-0 mt-0.5 text-[#FF6B35]" />
+                  <a href="mailto:info@sveeint.com" className="flex gap-2.5 text-white/55 text-sm hover:text-white transition-colors">
+                    <Mail className="h-4 w-4 flex-shrink-0 mt-0.5 text-[#C8922A]" />
                     info@sveeint.com
                   </a>
                 </li>
-                <li>
-                  <a href="mailto:ptsvee@gmail.com" className="flex gap-2.5 text-white/60 text-sm hover:text-white transition-colors">
-                    <Mail className="h-4 w-4 flex-shrink-0 mt-0.5 text-[#FF6B35]" />
-                    ptsvee@gmail.com
-                  </a>
-                </li>
-                <li className="pt-1">
-                  <a href={waUrl(language === 'en' ? WA_MSG_FOOTER_EN : WA_MSG_FOOTER_ID)}
+                <li className="pt-2">
+                  <a href={waUrl(language === 'en' ? WA_MSG_EN : WA_MSG_ID)}
                     target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#2E7D55] text-white text-sm px-4 py-2 rounded-md font-medium shadow-sm"
+                    className="inline-flex items-center gap-2 bg-[#2E7D55] hover:bg-[#246444] text-white text-sm px-4 py-2.5 rounded-lg font-semibold shadow-sm transition-colors"
                     data-testid="footer-button-whatsapp">
                     <WaIcon />
                     {language === 'en' ? 'Chat on WhatsApp' : 'Chat WhatsApp'}
@@ -389,22 +412,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </li>
               </ul>
             </div>
-
           </div>
 
           {/* Bottom bar */}
-          <div className="border-t border-white/15 pt-5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/40">
+          <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/35">
             <p>
               © {new Date().getFullYear()} PT Svee International.{' '}
-              <span className="text-[#FF6B35]/70">{t('footer.rights')}.</span>
+              <span className="text-[#C8922A]/60">{t('footer.rights')}.</span>
             </p>
-            <p className="text-center">
+            <p className="text-center text-white/30">
               {language === 'en'
                 ? 'Agro Commodity Import & Sourcing Support — Jakarta, Indonesia'
                 : 'Dukungan Impor & Sourcing Komoditas Agro — Jakarta, Indonesia'}
             </p>
             <button onClick={toggleLanguage}
-              className="flex items-center gap-1.5 text-white/40 hover:text-white/70 transition-colors"
+              className="flex items-center gap-1.5 text-white/35 hover:text-white/70 transition-colors"
               data-testid="footer-button-language-toggle">
               <Globe className="h-3.5 w-3.5" />
               {language === 'en' ? 'Bahasa Indonesia' : 'English'}
