@@ -64,12 +64,12 @@ export default function Contact() {
     <div className="w-full overflow-x-hidden">
 
       {/* ── HERO ── */}
-      <section className="relative py-20 md:py-28 bg-[#0B2245] overflow-hidden">
+      <section className="relative py-20 md:py-28 bg-[#1A4A9E] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10 text-center max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
-            <MessageSquare className="h-3.5 w-3.5 text-[#C8922A]" />
+            <MessageSquare className="h-3.5 w-3.5 text-[#E85E00]" />
             <span className="text-xs font-semibold text-white/90">
               {language === 'en' ? 'Get In Touch' : 'Hubungi Kami'}
             </span>
@@ -106,7 +106,7 @@ export default function Contact() {
         <div className="site-container">
           <div className="text-center mb-8">
             <p className="eyebrow mb-2">{language === 'en' ? 'Quick Enquiry' : 'Pertanyaan Cepat'}</p>
-            <h2 className="text-2xl font-display text-[#0B2245]">
+            <h2 className="text-2xl font-display text-[#1A4A9E]">
               {language === 'en' ? 'Enquire About a Specific Product' : 'Tanyakan Produk Spesifik'}
             </h2>
           </div>
@@ -118,7 +118,7 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid={`button-topic-${i}`}>
-                <button className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-[#ede8e0] hover:border-[#C8922A] text-[#0B2245] text-sm font-medium rounded-xl transition-all hover:shadow-sm hover:-translate-y-0.5">
+                <button className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-[#ede8e0] hover:border-[#E85E00] text-[#1A4A9E] text-sm font-medium rounded-xl transition-all hover:shadow-sm hover:-translate-y-0.5">
                   <WhatsAppIcon size="sm" />
                   {topic.label}
                 </button>
@@ -154,10 +154,10 @@ export default function Contact() {
                       return (
                         <div key={i} className="flex items-start gap-3">
                           <div className="h-7 w-7 rounded-lg bg-[#f9f6f1] flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <Icon className="h-3.5 w-3.5 text-[#0B2245]" />
+                            <Icon className="h-3.5 w-3.5 text-[#1A4A9E]" />
                           </div>
                           <div>
-                            <div className="text-xs font-semibold text-[#0B2245]">{item.label}</div>
+                            <div className="text-xs font-semibold text-[#1A4A9E]">{item.label}</div>
                             <div className="text-xs text-[#6b7280]">{item.desc}</div>
                           </div>
                         </div>
@@ -180,40 +180,40 @@ export default function Contact() {
               {/* Head Office */}
               <div className="bg-[#f9f6f1] border border-[#ede8e0] rounded-2xl p-7">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="h-0.5 w-6 bg-[#C8922A] rounded-full" />
-                  <h2 className="font-bold text-sm uppercase tracking-wider text-[#0B2245]">{t('contact.headquarters')}</h2>
+                  <div className="h-0.5 w-6 bg-[#E85E00] rounded-full" />
+                  <h2 className="font-bold text-sm uppercase tracking-wider text-[#1A4A9E]">{t('contact.headquarters')}</h2>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-4">
                     <div className="flex gap-3">
-                      <MapPin className="h-5 w-5 text-[#C8922A] flex-shrink-0 mt-0.5" />
+                      <MapPin className="h-5 w-5 text-[#E85E00] flex-shrink-0 mt-0.5" />
                       <div className="text-sm text-[#4a5568]">
-                        <div className="font-semibold text-[#0B2245] mb-1">PT Svee International / Svee Komoditi</div>
+                        <div className="font-semibold text-[#1A4A9E] mb-1">PT Svee International / Svee Komoditi</div>
                         Ruko Sunter Terrace Blok C No 12,<br />
                         Jl. Danau Sunter Utara Kav. No. 60,<br />
                         Jakarta Utara 14350, Indonesia
                       </div>
                     </div>
-                    <a href="tel:+622165832426" className="flex gap-3 hover:text-[#0B2245] transition-colors group" data-testid="link-phone">
-                      <Phone className="h-5 w-5 text-[#C8922A] flex-shrink-0 mt-0.5" />
-                      <div className="text-sm text-[#4a5568] group-hover:text-[#0B2245]">+62 21 658 32426</div>
+                    <a href="tel:+622165832426" className="flex gap-3 hover:text-[#1A4A9E] transition-colors group" data-testid="link-phone">
+                      <Phone className="h-5 w-5 text-[#E85E00] flex-shrink-0 mt-0.5" />
+                      <div className="text-sm text-[#4a5568] group-hover:text-[#1A4A9E]">+62 21 658 32426</div>
                     </a>
-                    <a href="https://wa.me/6281510551111" className="flex gap-3 hover:text-[#0B2245] transition-colors group" data-testid="link-whatsapp">
-                      <MessageSquare className="h-5 w-5 text-[#C8922A] flex-shrink-0 mt-0.5" />
-                      <div className="text-sm text-[#4a5568] group-hover:text-[#0B2245]">+62 815-1055-1111 (WhatsApp)</div>
+                    <a href="https://wa.me/6281510551111" className="flex gap-3 hover:text-[#1A4A9E] transition-colors group" data-testid="link-whatsapp">
+                      <MessageSquare className="h-5 w-5 text-[#E85E00] flex-shrink-0 mt-0.5" />
+                      <div className="text-sm text-[#4a5568] group-hover:text-[#1A4A9E]">+62 815-1055-1111 (WhatsApp)</div>
                     </a>
                   </div>
                   <div className="space-y-4">
-                    <a href="mailto:info@sveeint.com" className="flex gap-3 hover:text-[#0B2245] transition-colors group" data-testid="link-email-info">
-                      <Mail className="h-5 w-5 text-[#C8922A] flex-shrink-0 mt-0.5" />
-                      <div className="text-sm text-[#4a5568] group-hover:text-[#0B2245]">info@sveeint.com</div>
+                    <a href="mailto:info@sveeint.com" className="flex gap-3 hover:text-[#1A4A9E] transition-colors group" data-testid="link-email-info">
+                      <Mail className="h-5 w-5 text-[#E85E00] flex-shrink-0 mt-0.5" />
+                      <div className="text-sm text-[#4a5568] group-hover:text-[#1A4A9E]">info@sveeint.com</div>
                     </a>
-                    <a href="mailto:ptsvee@gmail.com" className="flex gap-3 hover:text-[#0B2245] transition-colors group" data-testid="link-email-ptsvee">
-                      <Mail className="h-5 w-5 text-[#C8922A] flex-shrink-0 mt-0.5" />
-                      <div className="text-sm text-[#4a5568] group-hover:text-[#0B2245]">ptsvee@gmail.com</div>
+                    <a href="mailto:ptsvee@gmail.com" className="flex gap-3 hover:text-[#1A4A9E] transition-colors group" data-testid="link-email-ptsvee">
+                      <Mail className="h-5 w-5 text-[#E85E00] flex-shrink-0 mt-0.5" />
+                      <div className="text-sm text-[#4a5568] group-hover:text-[#1A4A9E]">ptsvee@gmail.com</div>
                     </a>
                     <div className="flex gap-3">
-                      <Clock className="h-5 w-5 text-[#C8922A] flex-shrink-0 mt-0.5" />
+                      <Clock className="h-5 w-5 text-[#E85E00] flex-shrink-0 mt-0.5" />
                       <div className="text-sm text-[#4a5568]">
                         {language === 'en' ? 'Mon–Sat, 9:00 AM – 6:00 PM WIB' : 'Sen–Sab, 09.00 – 18.00 WIB'}
                       </div>
@@ -239,12 +239,12 @@ export default function Contact() {
       </section>
 
       {/* ── SOURCING OFFICES ── */}
-      <section className="py-16 md:py-20 bg-[#0B2245] relative overflow-hidden">
+      <section className="py-16 md:py-20 bg-[#1A4A9E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">
           <div className="text-center mb-10">
-            <p className="eyebrow text-[#C8922A] mb-3">{language === 'en' ? 'Our Network' : 'Jaringan Kami'}</p>
+            <p className="eyebrow text-[#E85E00] mb-3">{language === 'en' ? 'Our Network' : 'Jaringan Kami'}</p>
             <h2 className="text-3xl font-display text-white">
               {t('contact.offices.title')}
             </h2>

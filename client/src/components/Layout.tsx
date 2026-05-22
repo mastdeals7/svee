@@ -81,7 +81,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen flex flex-col">
 
       {/* ── Top Contact Strip ── */}
-      <div className="bg-[#0B2245] text-white text-[11px] py-2 hidden sm:block">
+      <div className="bg-[#1A4A9E] text-white text-[11px] py-2 hidden sm:block">
         <div className="site-container flex items-center justify-between gap-4">
           <div className="flex items-center gap-5 flex-wrap">
             <a href="tel:+622165832426"
@@ -112,7 +112,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       {/* ── Main Header ── */}
       <header className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/98 backdrop-blur-md shadow-[0_2px_20px_-8px_rgba(11,34,69,0.18)] border-b border-[#e8e2d9]'
+          ? 'bg-white/98 backdrop-blur-md shadow-[0_2px_20px_-8px_rgba(26,74,158,0.18)] border-b border-[#e8e2d9]'
           : 'bg-white/95 backdrop-blur-sm border-b border-[#ede8e0]'
       }`}>
         <div className="site-container">
@@ -132,8 +132,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
                       <button
                         className={`flex items-center gap-1 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                           isActive(item.path)
-                            ? 'text-[#0B2245] bg-[#f0ebe3]'
-                            : 'text-[#4a5568] hover:text-[#0B2245] hover:bg-[#f7f3ed]'
+                            ? 'text-[#1A4A9E] bg-[#f0ebe3]'
+                            : 'text-[#4a5568] hover:text-[#1A4A9E] hover:bg-[#f7f3ed]'
                         }`}
                         data-testid="link-products"
                       >
@@ -144,9 +144,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     {/* Mega dropdown */}
                     <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 absolute left-1/2 -translate-x-1/2 top-full pt-2 w-80 z-50">
                       <div className="bg-white border border-[#e8e2d9] rounded-xl shadow-[0_20px_60px_-20px_rgba(11,34,69,0.25)] overflow-hidden">
-                        <div className="bg-[#0B2245] px-4 py-3">
+                        <div className="bg-[#1A4A9E] px-4 py-3">
                           <Link href="/products">
-                            <span className="text-sm font-semibold text-white hover:text-amber-300 transition-colors cursor-pointer flex items-center gap-2">
+                            <span className="text-sm font-semibold text-white hover:text-orange-300 transition-colors cursor-pointer flex items-center gap-2">
                               {language === 'en' ? 'All Product Categories' : 'Semua Kategori Produk'}
                               <ChevronRight className="h-3.5 w-3.5" />
                             </span>
@@ -155,7 +155,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                         <div className="p-2">
                           {productLinks.map(link => (
                             <Link key={link.path} href={link.path}>
-                              <span className="flex items-center gap-2.5 px-3 py-2 text-sm text-[#4a5568] hover:text-[#0B2245] hover:bg-[#f7f3ed] rounded-lg cursor-pointer transition-colors">
+                              <span className="flex items-center gap-2.5 px-3 py-2 text-sm text-[#4a5568] hover:text-[#1A4A9E] hover:bg-[#f7f3ed] rounded-lg cursor-pointer transition-colors">
                                 <span className="text-base leading-none">{link.icon}</span>
                                 {link.label}
                               </span>
@@ -170,8 +170,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     <button
                       className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                         isActive(item.path)
-                          ? 'text-[#0B2245] bg-[#f0ebe3]'
-                          : 'text-[#4a5568] hover:text-[#0B2245] hover:bg-[#f7f3ed]'
+                          ? 'text-[#1A4A9E] bg-[#f0ebe3]'
+                          : 'text-[#4a5568] hover:text-[#1A4A9E] hover:bg-[#f7f3ed]'
                       }`}
                       data-testid={`link-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                     >
@@ -186,7 +186,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex items-center gap-2 flex-shrink-0">
               <button
                 onClick={toggleLanguage}
-                className="hidden md:flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold text-[#4a5568] hover:text-[#0B2245] hover:bg-[#f7f3ed] rounded-lg transition-colors"
+                className="hidden md:flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold text-[#4a5568] hover:text-[#1A4A9E] hover:bg-[#f7f3ed] rounded-lg transition-colors"
                 data-testid="button-language-toggle">
                 <Globe className="h-3.5 w-3.5" />
                 {language === 'en' ? 'ID' : 'EN'}
@@ -206,7 +206,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 className="lg:hidden p-2 rounded-lg hover:bg-[#f7f3ed] transition-colors"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 data-testid="button-mobile-menu-toggle">
-                {mobileMenuOpen ? <X className="h-5 w-5 text-[#0B2245]" /> : <Menu className="h-5 w-5 text-[#0B2245]" />}
+                {mobileMenuOpen ? <X className="h-5 w-5 text-[#1A4A9E]" /> : <Menu className="h-5 w-5 text-[#1A4A9E]" />}
               </button>
             </div>
           </div>
@@ -221,20 +221,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   <div key={item.path}>
                     <button
                       onClick={() => setProductsOpen(!productsOpen)}
-                      className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-[#4a5568] hover:text-[#0B2245] hover:bg-[#f7f3ed] transition-colors">
+                      className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-[#4a5568] hover:text-[#1A4A9E] hover:bg-[#f7f3ed] transition-colors">
                       {item.label}
                       <ChevronDown className={`h-4 w-4 transition-transform ${productsOpen ? 'rotate-180' : ''}`} />
                     </button>
                     {productsOpen && (
-                      <div className="pl-4 mt-1 space-y-0.5 border-l-2 border-[#C8922A] ml-3">
+                      <div className="pl-4 mt-1 space-y-0.5 border-l-2 border-[#E85E00] ml-3">
                         <Link href="/products">
-                          <span className="block px-3 py-2 text-sm font-semibold text-[#0B2245] hover:bg-[#f7f3ed] rounded-lg cursor-pointer transition-colors">
+                          <span className="block px-3 py-2 text-sm font-semibold text-[#1A4A9E] hover:bg-[#f7f3ed] rounded-lg cursor-pointer transition-colors">
                             {language === 'en' ? 'All Categories' : 'Semua Kategori'}
                           </span>
                         </Link>
                         {productLinks.map(link => (
                           <Link key={link.path} href={link.path}>
-                            <span className="flex items-center gap-2 px-3 py-2 text-sm text-[#4a5568] hover:text-[#0B2245] hover:bg-[#f7f3ed] rounded-lg cursor-pointer transition-colors">
+                            <span className="flex items-center gap-2 px-3 py-2 text-sm text-[#4a5568] hover:text-[#1A4A9E] hover:bg-[#f7f3ed] rounded-lg cursor-pointer transition-colors">
                               <span className="text-sm">{link.icon}</span>
                               {link.label}
                             </span>
@@ -248,8 +248,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     <button
                       className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                         isActive(item.path)
-                          ? 'text-[#0B2245] bg-[#f0ebe3]'
-                          : 'text-[#4a5568] hover:text-[#0B2245] hover:bg-[#f7f3ed]'
+                          ? 'text-[#1A4A9E] bg-[#f0ebe3]'
+                          : 'text-[#4a5568] hover:text-[#1A4A9E] hover:bg-[#f7f3ed]'
                       }`}
                       data-testid={`mobile-link-${item.label.toLowerCase().replace(/\s+/g, '-')}`}>
                       {item.label}
@@ -285,7 +285,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </main>
 
       {/* ── Footer ── */}
-      <footer className="relative bg-[#0B2245] text-white overflow-hidden">
+      <footer className="relative bg-[#1A4A9E] text-white overflow-hidden">
 
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-[0.03]"
@@ -293,7 +293,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           aria-hidden="true" />
 
         {/* Gold top accent line */}
-        <div className="h-1 w-full bg-gradient-to-r from-transparent via-[#C8922A] to-transparent" />
+        <div className="h-1 w-full bg-gradient-to-r from-transparent via-[#E85E00] to-transparent" />
 
         <div className="relative site-container pt-12 pb-8 z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
@@ -307,7 +307,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   : 'Dukungan impor dan sourcing komoditas agro berbasis Indonesia sejak 2001. Membantu pembeli Indonesia sourcing dari India dan pasar asal terpercaya lainnya.'}
               </p>
               <div className="flex items-center gap-2 pt-1">
-                <div className="h-0.5 w-8 bg-[#C8922A] rounded-full" />
+                <div className="h-0.5 w-8 bg-[#E85E00] rounded-full" />
                 <span className="text-xs text-white/40 font-medium uppercase tracking-wider">Est. 2001</span>
               </div>
               <div className="flex flex-wrap gap-1.5">
@@ -323,7 +323,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             {/* Company links */}
             <div>
               <div className="flex items-center gap-2 mb-5">
-                <div className="h-0.5 w-5 bg-[#C8922A] rounded-full" />
+                <div className="h-0.5 w-5 bg-[#E85E00] rounded-full" />
                 <h3 className="font-semibold text-xs uppercase tracking-wider text-white/70">{t('footer.company')}</h3>
               </div>
               <ul className="space-y-3">
@@ -336,7 +336,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   <li key={item.href}>
                     <Link href={item.href}>
                       <span className="text-sm text-white/50 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
-                        <ChevronRight className="h-3 w-3 text-[#C8922A] opacity-0 group-hover:opacity-100 -ml-1 transition-opacity" />
+                        <ChevronRight className="h-3 w-3 text-[#E85E00] opacity-0 group-hover:opacity-100 -ml-1 transition-opacity" />
                         {item.label}
                       </span>
                     </Link>
@@ -348,7 +348,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             {/* Products links */}
             <div>
               <div className="flex items-center gap-2 mb-5">
-                <div className="h-0.5 w-5 bg-[#C8922A] rounded-full" />
+                <div className="h-0.5 w-5 bg-[#E85E00] rounded-full" />
                 <h3 className="font-semibold text-xs uppercase tracking-wider text-white/70">{t('footer.products')}</h3>
               </div>
               <ul className="space-y-3">
@@ -363,7 +363,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   <li key={item.href}>
                     <Link href={item.href}>
                       <span className="text-sm text-white/50 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
-                        <ChevronRight className="h-3 w-3 text-[#C8922A] opacity-0 group-hover:opacity-100 -ml-1 transition-opacity" />
+                        <ChevronRight className="h-3 w-3 text-[#E85E00] opacity-0 group-hover:opacity-100 -ml-1 transition-opacity" />
                         {item.label}
                       </span>
                     </Link>
@@ -375,29 +375,29 @@ export function Layout({ children }: { children: React.ReactNode }) {
             {/* Contact */}
             <div>
               <div className="flex items-center gap-2 mb-5">
-                <div className="h-0.5 w-5 bg-[#C8922A] rounded-full" />
+                <div className="h-0.5 w-5 bg-[#E85E00] rounded-full" />
                 <h3 className="font-semibold text-xs uppercase tracking-wider text-white/70">{t('footer.contact')}</h3>
               </div>
               <ul className="space-y-3.5">
                 <li className="flex gap-2.5 text-white/55 text-sm">
-                  <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5 text-[#C8922A]" />
+                  <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5 text-[#E85E00]" />
                   <span className="leading-relaxed">Ruko Sunter Terrace Blok C No 12,<br />Jakarta Utara 14350, Indonesia</span>
                 </li>
                 <li>
                   <a href="tel:+622165832426" className="flex gap-2.5 text-white/55 text-sm hover:text-white transition-colors">
-                    <Phone className="h-4 w-4 flex-shrink-0 mt-0.5 text-[#C8922A]" />
+                    <Phone className="h-4 w-4 flex-shrink-0 mt-0.5 text-[#E85E00]" />
                     +62 21 658 32426
                   </a>
                 </li>
                 <li>
                   <a href={`https://wa.me/${WA_NUMBER}`} className="flex gap-2.5 text-white/55 text-sm hover:text-white transition-colors">
-                    <WaIcon cls="h-4 w-4 flex-shrink-0 mt-0.5 text-[#C8922A]" />
+                    <WaIcon cls="h-4 w-4 flex-shrink-0 mt-0.5 text-[#E85E00]" />
                     +62 815-1055-1111
                   </a>
                 </li>
                 <li>
                   <a href="mailto:info@sveeint.com" className="flex gap-2.5 text-white/55 text-sm hover:text-white transition-colors">
-                    <Mail className="h-4 w-4 flex-shrink-0 mt-0.5 text-[#C8922A]" />
+                    <Mail className="h-4 w-4 flex-shrink-0 mt-0.5 text-[#E85E00]" />
                     info@sveeint.com
                   </a>
                 </li>
@@ -418,7 +418,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/35">
             <p>
               © {new Date().getFullYear()} PT Svee International.{' '}
-              <span className="text-[#C8922A]/60">{t('footer.rights')}.</span>
+              <span className="text-[#E85E00]/60">{t('footer.rights')}.</span>
             </p>
             <p className="text-center text-white/30">
               {language === 'en'

@@ -56,18 +56,18 @@ export default function Profile() {
     <div className="w-full overflow-x-hidden">
 
       {/* ── HERO ── */}
-      <section className="relative py-20 md:py-28 bg-[#0B2245] overflow-hidden">
+      <section className="relative py-20 md:py-28 bg-[#1A4A9E] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="absolute right-0 top-0 w-1/2 h-full overflow-hidden hidden lg:block">
           <img src={contentImages.about} alt="" className="w-full h-full object-cover opacity-15" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B2245] via-[#0B2245]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A4A9E] via-[#1A4A9E]/60 to-transparent" />
         </div>
         <div className="relative site-container z-10">
           <div className="grid lg:grid-cols-[1fr_auto] gap-10 items-center">
             <div className="max-w-2xl animate-fade-in space-y-6">
               <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5">
-                <Building2 className="h-3.5 w-3.5 text-[#C8922A]" />
+                <Building2 className="h-3.5 w-3.5 text-[#E85E00]" />
                 <span className="text-xs font-semibold text-white/90">
                   {language === 'en' ? 'Trade Partner Overview' : 'Gambaran Mitra Dagang'}
                 </span>
@@ -107,7 +107,7 @@ export default function Profile() {
 
             <div className="relative hidden lg:block">
               <div className="flex items-center gap-2 bg-white/10 border border-white/15 rounded-xl px-4 py-3 backdrop-blur-sm">
-                <MapPin className="h-4 w-4 text-[#C8922A] flex-shrink-0" />
+                <MapPin className="h-4 w-4 text-[#E85E00] flex-shrink-0" />
                 <div>
                   <div className="text-white text-xs font-semibold">Jakarta HQ</div>
                   <div className="text-white/50 text-xs">India · Myanmar · Vietnam</div>
@@ -126,7 +126,7 @@ export default function Profile() {
               <p className="eyebrow mb-3">
                 {language === 'en' ? 'Company Overview' : 'Gambaran Perusahaan'}
               </p>
-              <h2 className="text-2xl md:text-3xl font-display text-[#0B2245] mb-4" data-testid="heading-intro">
+              <h2 className="text-2xl md:text-3xl font-display text-[#1A4A9E] mb-4" data-testid="heading-intro">
                 {t('profile.intro.title')}
               </h2>
               <p className="text-[#6b7280] leading-relaxed text-sm" data-testid="text-intro">
@@ -137,7 +137,7 @@ export default function Profile() {
               <p className="eyebrow mb-3">
                 {language === 'en' ? 'Product Scope' : 'Cakupan Produk'}
               </p>
-              <h3 className="font-bold text-[#0B2245] text-base mb-3" data-testid="heading-products">
+              <h3 className="font-bold text-[#1A4A9E] text-base mb-3" data-testid="heading-products">
                 {t('profile.products.title')}
               </h3>
               <p className="text-[#6b7280] text-sm leading-relaxed" data-testid="text-products">
@@ -155,7 +155,7 @@ export default function Profile() {
             <p className="eyebrow mb-3">
               {language === 'en' ? 'What We Handle' : 'Yang Kami Tangani'}
             </p>
-            <h2 className="text-2xl md:text-3xl font-display text-[#0B2245]">
+            <h2 className="text-2xl md:text-3xl font-display text-[#1A4A9E]">
               {language === 'en' ? 'Trading Capabilities' : 'Kemampuan Perdagangan'}
             </h2>
           </div>
@@ -168,7 +168,7 @@ export default function Profile() {
                   <cap.icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#0B2245] text-sm mb-1.5">{cap.label}</h3>
+                  <h3 className="font-bold text-[#1A4A9E] text-sm mb-1.5">{cap.label}</h3>
                   <p className="text-xs text-[#6b7280] leading-relaxed">{cap.desc}</p>
                 </div>
               </div>
@@ -178,12 +178,12 @@ export default function Profile() {
       </section>
 
       {/* ── SOURCING NETWORK ── */}
-      <section className="py-20 md:py-24 bg-[#0B2245] relative overflow-hidden">
+      <section className="py-20 md:py-24 bg-[#1A4A9E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">
           <div className="text-center mb-12">
-            <p className="eyebrow text-[#C8922A] mb-3">
+            <p className="eyebrow text-[#E85E00] mb-3">
               {language === 'en' ? 'Our Presence' : 'Kehadiran Kami'}
             </p>
             <h2 className="text-2xl md:text-3xl font-display text-white mb-3" data-testid="heading-operations">
@@ -203,7 +203,7 @@ export default function Profile() {
                 </div>
                 <div className="min-w-0">
                   <div className="font-semibold text-white text-sm flex items-center gap-1 mb-1">
-                    <MapPin className="h-3 w-3 text-[#C8922A] flex-shrink-0" />
+                    <MapPin className="h-3 w-3 text-[#E85E00] flex-shrink-0" />
                     <span className="truncate">{office.city}</span>
                   </div>
                   <div className="text-[10px] text-white/45 leading-relaxed">{office.role}</div>
@@ -217,10 +217,10 @@ export default function Profile() {
       {/* ── DIRECTOR QUOTE CTA ── */}
       <section className="relative py-16 md:py-20 overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${sectionBackgrounds.story})` }} />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B2245]/98 via-[#0B2245]/92 to-[#0B2245]/95" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1A4A9E]/98 via-[#1A4A9E]/92 to-[#1A4A9E]/95" />
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-0.5 bg-[#C8922A] opacity-60" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-0.5 bg-[#E85E00] opacity-60" />
         <div className="relative site-container max-w-3xl mx-auto text-center space-y-5 z-10">
           <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center mx-auto border border-white/15">
             <Quote className="h-6 w-6 text-white" />

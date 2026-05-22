@@ -15,7 +15,7 @@ const serviceColors: Record<string, string> = {
   shipping: 'bg-amber-50 text-amber-700',
   documentation: 'bg-green-50 text-green-700',
   technical: 'bg-rose-50 text-rose-700',
-  default: 'bg-[#f9f6f1] text-[#0B2245]',
+  default: 'bg-[#f9f6f1] text-[#1A4A9E]',
 };
 
 function WhatsAppIcon({ className = 'h-4 w-4' }: { className?: string }) {
@@ -56,13 +56,13 @@ export default function Services() {
     <div className="w-full overflow-x-hidden">
 
       {/* ── HERO ── */}
-      <section className="relative py-20 md:py-28 bg-[#0B2245] overflow-hidden">
+      <section className="relative py-20 md:py-28 bg-[#1A4A9E] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">
           <div className="max-w-2xl animate-fade-in">
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
-              <Globe2 className="h-3.5 w-3.5 text-[#C8922A]" />
+              <Globe2 className="h-3.5 w-3.5 text-[#E85E00]" />
               <span className="text-xs font-semibold text-white/90">
                 {language === 'en' ? 'Sourcing Support Services' : 'Layanan Dukungan Sourcing'}
               </span>
@@ -88,8 +88,8 @@ export default function Services() {
       {/* ── INTRO DISCLAIMER ── */}
       <section className="py-8 bg-white border-b border-[#ede8e0]">
         <div className="site-container max-w-4xl mx-auto">
-          <div className="flex items-start gap-3 border-l-4 border-[#0B2245] pl-5 py-2">
-            <ShieldCheck className="h-5 w-5 text-[#0B2245] flex-shrink-0 mt-0.5" />
+          <div className="flex items-start gap-3 border-l-4 border-[#1A4A9E] pl-5 py-2">
+            <ShieldCheck className="h-5 w-5 text-[#1A4A9E] flex-shrink-0 mt-0.5" />
             <p className="text-sm text-[#6b7280] leading-relaxed">
               {t('services.intro')}
             </p>
@@ -104,7 +104,7 @@ export default function Services() {
             <p className="eyebrow mb-3">
               {language === 'en' ? 'What We Do' : 'Apa yang Kami Lakukan'}
             </p>
-            <h2 className="text-3xl md:text-4xl font-display text-[#0B2245]" data-testid="heading-services-list">
+            <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E]" data-testid="heading-services-list">
               {language === 'en' ? 'Five Ways We Support Indonesian Buyers' : 'Lima Cara Kami Mendukung Pembeli Indonesia'}
             </h2>
           </div>
@@ -121,11 +121,11 @@ export default function Services() {
                     <div className={`h-12 w-12 rounded-xl flex items-center justify-center flex-shrink-0 ${colorClass}`}>
                       <Icon className="h-6 w-6" />
                     </div>
-                    <span className="text-2xl font-bold text-[#0B2245]/10">
+                    <span className="text-2xl font-bold text-[#1A4A9E]/10">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                   </div>
-                  <h3 className="font-semibold text-[#0B2245] text-base leading-tight">
+                  <h3 className="font-semibold text-[#1A4A9E] text-base leading-tight">
                     {service.title[language]}
                   </h3>
                   <p className="text-[#6b7280] text-sm leading-relaxed">
@@ -136,7 +136,7 @@ export default function Services() {
             })}
 
             {/* Custom sourcing CTA card */}
-            <div className="bg-[#0B2245] rounded-2xl p-7 shadow-sm space-y-4 flex flex-col justify-between">
+            <div className="bg-[#1A4A9E] rounded-2xl p-7 shadow-sm space-y-4 flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="h-12 w-12 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
                   <MessageCircle className="h-6 w-6 text-white" />
@@ -162,12 +162,12 @@ export default function Services() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section className="py-20 md:py-24 bg-[#0B2245] relative overflow-hidden">
+      <section className="py-20 md:py-24 bg-[#1A4A9E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">
           <div className="text-center mb-12">
-            <p className="eyebrow text-[#C8922A] mb-3">
+            <p className="eyebrow text-[#E85E00] mb-3">
               {language === 'en' ? 'Our Process' : 'Proses Kami'}
             </p>
             <h2 className="text-3xl md:text-4xl font-display text-white">
@@ -188,7 +188,7 @@ export default function Services() {
                 <p className="text-white/55 text-xs leading-relaxed">{step.desc}</p>
                 {i < processSteps.length - 1 && (
                   <div className="hidden lg:flex absolute top-6 -right-2.5 z-10 h-5 w-5 items-center justify-center">
-                    <ArrowUpRight className="h-4 w-4 text-[#C8922A]" />
+                    <ArrowUpRight className="h-4 w-4 text-[#E85E00]" />
                   </div>
                 )}
               </div>
@@ -205,7 +205,7 @@ export default function Services() {
               <p className="eyebrow mb-2">
                 {language === 'en' ? 'Trade Documentation' : 'Dokumentasi Perdagangan'}
               </p>
-              <h2 className="text-2xl md:text-3xl font-display text-[#0B2245]">
+              <h2 className="text-2xl md:text-3xl font-display text-[#1A4A9E]">
                 {language === 'en' ? 'Documents We Support' : 'Dokumen yang Kami Dukung'}
               </h2>
               <p className="text-[#6b7280] text-sm leading-relaxed">
@@ -221,7 +221,7 @@ export default function Services() {
                   </div>
                 ))}
               </div>
-              <div className="bg-[#f9f6f1] border border-[#ede8e0] rounded-xl p-4 border-l-4 border-l-[#C8922A]">
+              <div className="bg-[#f9f6f1] border border-[#ede8e0] rounded-xl p-4 border-l-4 border-l-[#E85E00]">
                 <p className="text-[#6b7280] text-xs leading-relaxed">
                   {language === 'en'
                     ? 'Specific document requirements depend on product type, HS code, buyer status and current Indonesian import regulations. We confirm document requirements case by case.'
@@ -231,13 +231,13 @@ export default function Services() {
             </div>
             <div className="space-y-5">
               <div className="bg-[#f9f6f1] border border-[#ede8e0] rounded-2xl p-7 space-y-4">
-                <h3 className="font-semibold text-[#0B2245] text-base">
+                <h3 className="font-semibold text-[#1A4A9E] text-base">
                   {language === 'en' ? 'Payment & Trade Terms' : 'Syarat Pembayaran & Perdagangan'}
                 </h3>
                 <div className="grid grid-cols-1 gap-2.5">
                   {paymentTerms.map((term, i) => (
                     <div key={i} className="flex items-center gap-2.5 bg-white border border-[#ede8e0] rounded-xl px-4 py-3 text-sm text-[#4a5568]">
-                      <FileText className="h-4 w-4 text-[#0B2245] flex-shrink-0" />
+                      <FileText className="h-4 w-4 text-[#1A4A9E] flex-shrink-0" />
                       {term}
                     </div>
                   ))}
@@ -256,7 +256,7 @@ export default function Services() {
       {/* ── CTA ── */}
       <section className="py-16 md:py-20 bg-[#f9f6f1] border-t border-[#ede8e0]">
         <div className="site-container max-w-2xl mx-auto text-center space-y-5">
-          <h2 className="text-2xl md:text-3xl font-display text-[#0B2245]">
+          <h2 className="text-2xl md:text-3xl font-display text-[#1A4A9E]">
             {language === 'en' ? 'Ready to check availability?' : 'Siap memeriksa ketersediaan?'}
           </h2>
           <p className="text-[#6b7280] text-sm leading-relaxed">
@@ -272,7 +272,7 @@ export default function Services() {
               </button>
             </a>
             <Link href="/products">
-              <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 border-2 border-[#0B2245]/20 hover:border-[#0B2245]/40 text-[#0B2245] text-sm font-semibold rounded-xl transition-all">
+              <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 border-2 border-[#1A4A9E]/20 hover:border-[#1A4A9E]/40 text-[#1A4A9E] text-sm font-semibold rounded-xl transition-all">
                 {language === 'en' ? 'View Products' : 'Lihat Produk'}
                 <ArrowRight className="h-4 w-4" />
               </button>

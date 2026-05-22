@@ -38,7 +38,7 @@ export default function ProductCategory() {
     <div className="w-full overflow-x-hidden">
 
       {/* ── HERO ── */}
-      <section className="relative py-16 md:py-24 bg-[#0B2245] overflow-hidden">
+      <section className="relative py-16 md:py-24 bg-[#1A4A9E] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">
@@ -52,7 +52,7 @@ export default function ProductCategory() {
 
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-5">
-              <Package className="h-3.5 w-3.5 text-[#C8922A]" />
+              <Package className="h-3.5 w-3.5 text-[#E85E00]" />
               <span className="text-xs font-semibold text-white/80">
                 {language === 'en' ? 'Product Category' : 'Kategori Produk'}
               </span>
@@ -70,7 +70,7 @@ export default function ProductCategory() {
             <div className="flex flex-wrap gap-2">
               {pillItems.map(item => (
                 <span key={item} className="inline-flex items-center gap-1.5 bg-white/8 border border-white/15 rounded-full px-3 py-1.5 text-xs text-white/70">
-                  <CheckCircle2 className="h-3 w-3 text-[#C8922A]" />
+                  <CheckCircle2 className="h-3 w-3 text-[#E85E00]" />
                   {item}
                 </span>
               ))}
@@ -87,7 +87,7 @@ export default function ProductCategory() {
               <div className="flex items-center justify-between mb-8">
                 <div>
                   <p className="eyebrow mb-1">{language === 'en' ? 'Available Products' : 'Produk Tersedia'}</p>
-                  <h2 className="text-2xl font-display text-[#0B2245]">
+                  <h2 className="text-2xl font-display text-[#1A4A9E]">
                     {products.length} {language === 'en' ? 'products in this category' : 'produk dalam kategori ini'}
                   </h2>
                 </div>
@@ -107,7 +107,7 @@ export default function ProductCategory() {
           ) : (
             <div className="text-center py-16">
               <div className="inline-flex items-center justify-center h-16 w-16 bg-white rounded-2xl border border-[#ede8e0] shadow-sm mb-4">
-                <Package className="h-8 w-8 text-[#0B2245]/30" />
+                <Package className="h-8 w-8 text-[#1A4A9E]/30" />
               </div>
               <p className="text-[#6b7280] text-sm" data-testid="text-no-products">
                 {language === 'en'
@@ -120,11 +120,11 @@ export default function ProductCategory() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16 md:py-20 bg-[#0B2245] relative overflow-hidden">
+      <section className="py-16 md:py-20 bg-[#1A4A9E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10 max-w-3xl mx-auto text-center space-y-5">
-          <p className="eyebrow text-[#C8922A]">
+          <p className="eyebrow text-[#E85E00]">
             {language === 'en' ? 'Category Enquiry' : 'Pertanyaan Kategori'}
           </p>
           <h2 className="text-3xl md:text-4xl font-display text-white">

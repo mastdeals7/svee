@@ -4,12 +4,12 @@
 
 /* ── PREMIUM COLOR SYSTEM ── */
 :root {
-  /* Brand colors — warm gold/amber + deep navy */
-  --brand-navy:       #0B2245;
-  --brand-navy-light: #1a3a6b;
-  --brand-gold:       #C8922A;
-  --brand-gold-light: #E8A93D;
-  --brand-amber:      #D97706;
+  /* Brand colors — logo blue + logo orange */
+  --brand-navy:       #1A4A9E;
+  --brand-navy-light: #2860C4;
+  --brand-gold:       #E85E00;
+  --brand-gold-light: #FF7A20;
+  --brand-amber:      #E85E00;
   --brand-green:      #2E7D55;
   --brand-red:        #B91C1C;
 
@@ -31,20 +31,20 @@
   --popover-foreground: 218 40% 12%;
   --popover-border: 35 20% 88%;
 
-  /* Primary — deep navy blue */
-  --primary: 218 72% 28%;
+  /* Primary — logo blue */
+  --primary: 220 72% 36%;
   --primary-foreground: 0 0% 100%;
 
   /* Secondary — soft warm */
   --secondary: 35 40% 94%;
-  --secondary-foreground: 218 40% 20%;
+  --secondary-foreground: 220 40% 20%;
 
   /* Muted */
   --muted: 35 25% 94%;
-  --muted-foreground: 218 16% 46%;
+  --muted-foreground: 220 16% 46%;
 
-  /* Accent — warm amber/gold */
-  --accent: 38 82% 45%;
+  /* Accent — logo orange */
+  --accent: 24 100% 45%;
   --accent-foreground: 0 0% 100%;
 
   /* Other */
@@ -77,14 +77,14 @@
   --radius: .5rem;
 
   /* Premium shadow system */
-  --shadow-2xs: 0 1px 2px 0 rgba(11,34,69,0.05);
-  --shadow-xs:  0 1px 3px 0 rgba(11,34,69,0.07), 0 1px 2px -1px rgba(11,34,69,0.05);
-  --shadow-sm:  0 2px 10px -4px rgba(11,34,69,0.14);
-  --shadow:     0 8px 24px -12px rgba(11,34,69,0.18);
-  --shadow-md:  0 14px 34px -18px rgba(11,34,69,0.22);
-  --shadow-lg:  0 24px 52px -26px rgba(11,34,69,0.26);
-  --shadow-xl:  0 34px 72px -34px rgba(11,34,69,0.30);
-  --shadow-2xl: 0 48px 100px -46px rgba(11,34,69,0.34);
+  --shadow-2xs: 0 1px 2px 0 rgba(26,74,158,0.05);
+  --shadow-xs:  0 1px 3px 0 rgba(26,74,158,0.07), 0 1px 2px -1px rgba(26,74,158,0.05);
+  --shadow-sm:  0 2px 10px -4px rgba(26,74,158,0.14);
+  --shadow:     0 8px 24px -12px rgba(26,74,158,0.18);
+  --shadow-md:  0 14px 34px -18px rgba(26,74,158,0.22);
+  --shadow-lg:  0 24px 52px -26px rgba(26,74,158,0.26);
+  --shadow-xl:  0 34px 72px -34px rgba(26,74,158,0.30);
+  --shadow-2xl: 0 48px 100px -46px rgba(26,74,158,0.34);
   --spacing: 0.25rem;
   --tracking-normal: 0em;
 
@@ -178,7 +178,7 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: hsl(var(--accent));
+    color: var(--brand-gold);
   }
 
   /* Legacy support */
@@ -189,8 +189,8 @@
   /* ── Section patterns ── */
   .section-grid {
     background:
-      linear-gradient(90deg, rgba(11,34,69,0.04) 1px, transparent 1px),
-      linear-gradient(180deg, rgba(11,34,69,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26,74,158,0.04) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(26,74,158,0.03) 1px, transparent 1px),
       hsl(var(--background));
     background-size: 64px 64px;
   }
@@ -208,7 +208,7 @@
   .img-rounded {
     border-radius: 0.75rem;
     overflow: hidden;
-    box-shadow: 0 24px 64px -32px rgba(11,34,69,0.45);
+    box-shadow: 0 24px 64px -32px rgba(26,74,158,0.45);
   }
 
   /* Legacy support */
@@ -221,12 +221,12 @@
     background: white;
     border-radius: 1rem;
     border: 1px solid hsl(var(--border));
-    box-shadow: 0 2px 16px -8px rgba(11,34,69,0.12);
+    box-shadow: 0 2px 16px -8px rgba(26,74,158,0.12);
     transition: box-shadow 0.25s ease, transform 0.25s ease;
   }
 
   .premium-card:hover {
-    box-shadow: 0 12px 40px -16px rgba(11,34,69,0.22);
+    box-shadow: 0 12px 40px -16px rgba(26,74,158,0.22);
     transform: translateY(-2px);
   }
 
@@ -337,11 +337,11 @@
 
   /* ── CTA button glow ── */
   .btn-glow {
-    box-shadow: 0 4px 16px rgba(11,34,69,0.25);
+    box-shadow: 0 4px 16px rgba(26,74,158,0.25);
     transition: box-shadow 0.2s ease, transform 0.2s ease;
   }
   .btn-glow:hover {
-    box-shadow: 0 8px 28px rgba(11,34,69,0.35);
+    box-shadow: 0 8px 28px rgba(26,74,158,0.35);
     transform: translateY(-1px);
   }
 
@@ -351,7 +351,7 @@
     border: 1px solid hsl(var(--border));
     border-radius: 0.75rem;
     padding: 1.25rem 1.5rem;
-    box-shadow: 0 2px 12px -6px rgba(11,34,69,0.10);
+    box-shadow: 0 2px 12px -6px rgba(26,74,158,0.10);
   }
 
   /* ── Hide search cancel ── */

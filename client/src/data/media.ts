@@ -1,43 +1,51 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// SITE IMAGES — all images live in: client/public/images/
+// SITE IMAGES
 //
-// To replace an image, drop the new file into the correct subfolder using the
-// SAME filename listed below. The site picks it up automatically on next reload.
+// Local images live in client/public/images/ — drop replacement files there.
+// Remote images use Pexels CDN (free, no key required for display).
 //
-// Folder structure:
-//   /images/hero/          → Hero/banner images (1600×900 px, <300 KB)
-//   /images/about/         → About section images (1000×700 px, <200 KB)
-//   /images/categories/    → Product category cards (800×600 px, <150 KB)
-//   /images/products/      → Individual product images (800×600 px, <150 KB)
-//   /images/banners/       → CTA and section backgrounds (1400×800 px, <250 KB)
-//   /images/icons/         → Logo and icon files (PNG for transparency)
+// To replace any image: add a file to the correct subfolder with the same
+// filename and update the path below from the Pexels URL to '/images/...'
 // ─────────────────────────────────────────────────────────────────────────────
 
+// Pexels images — agro/commodity/trade themed
+const P = {
+  grainField:   'https://images.pexels.com/photos/326082/pexels-photo-326082.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  spicesMarket: 'https://images.pexels.com/photos/2802527/pexels-photo-2802527.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  oilseeds:     'https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  port:         'https://images.pexels.com/photos/1427541/pexels-photo-1427541.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  warehouse:    'https://images.pexels.com/photos/4481326/pexels-photo-4481326.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  team:         'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  heroFood:     'https://images.pexels.com/photos/1393382/pexels-photo-1393382.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  maize:        'https://images.pexels.com/photos/547264/pexels-photo-547264.jpeg?auto=compress&cs=tinysrgb&w=1600',
+  trade:        'https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg?auto=compress&cs=tinysrgb&w=1600',
+};
+
 export const heroImages = {
-  main:      '/images/hero/home-hero.jpg',
-  secondary: '/images/hero/products-hero.jpg',
-  tertiary:  '/images/hero/home-hero.jpg',
-  contact:   '/images/hero/products-hero.jpg',
-  about:     '/images/hero/about-hero.jpg',
-  food:      '/images/hero/hero-food.jpg',
+  main:      P.grainField,
+  secondary: P.maize,
+  tertiary:  P.grainField,
+  contact:   P.port,
+  about:     P.team,
+  food:      P.heroFood,
 };
 
 export const sectionBackgrounds = {
-  trust:    '/images/banners/cta-trust.jpg',
-  services: '/images/banners/cta-services.jpg',
-  story:    '/images/banners/cta-story.jpg',
-  port:     '/images/banners/port-shipment.jpg',
-  warehouse: '/images/banners/warehouse.jpg',
+  trust:     P.trade,
+  services:  P.port,
+  story:     P.warehouse,
+  port:      P.port,
+  warehouse: P.warehouse,
 };
 
 export const contentImages = {
-  about:    '/images/about/team.jpg',
+  about:    P.team,
   product1: '/images/categories/spices.jpg',
   product2: '/images/categories/grains.jpg',
   product3: '/images/categories/oilseeds.jpg',
-  banner1:  '/images/banners/spices.jpg',
-  banner2:  '/images/banners/grains.jpg',
-  banner3:  '/images/banners/oilseeds.jpg',
+  banner1:  P.spicesMarket,
+  banner2:  P.grainField,
+  banner3:  P.oilseeds,
 };
 
 export const categoryImages: Record<string, string> = {

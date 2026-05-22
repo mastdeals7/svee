@@ -48,10 +48,10 @@ function StatBlock({ target, suffix = '', label, sublabel, started }: {
   const count = useCountUp(target, 1000, started);
   return (
     <div className="text-center p-6 md:p-8">
-      <div className="text-4xl md:text-5xl font-bold text-[#0B2245] leading-none tabular-nums mb-2">
+      <div className="text-4xl md:text-5xl font-bold text-[#1A4A9E] leading-none tabular-nums mb-2">
         {count}{suffix}
       </div>
-      <div className="text-sm font-semibold text-[#0B2245] mb-1">{label}</div>
+      <div className="text-sm font-semibold text-[#1A4A9E] mb-1">{label}</div>
       <div className="text-xs text-[#6b7280]">{sublabel}</div>
     </div>
   );
@@ -136,118 +136,98 @@ export default function Home() {
     <div className="w-full overflow-x-hidden">
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[75vh] flex items-center overflow-hidden bg-[#f9f6f1]">
-        {/* Decorative background */}
-        <div className="absolute inset-0 section-grid opacity-70" />
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[#0B2245] hidden lg:block" />
-        <div className="absolute top-0 right-0 w-1/2 h-full overflow-hidden hidden lg:block">
-          <img src={heroImages.main} alt="PT Svee International — agro commodity sourcing"
-            className="w-full h-full object-cover opacity-30" />
+      <section className="relative overflow-hidden bg-[#1A4A9E]">
+        {/* Full-bleed background image */}
+        <div className="absolute inset-0">
+          <img src={heroImages.main} alt="" className="w-full h-full object-cover opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A4A9E]/95 via-[#1A4A9E]/80 to-[#1A4A9E]/40" />
         </div>
+        {/* Subtle diagonal pattern */}
+        <div className="absolute inset-0 opacity-[0.03]"
+          style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
 
-        <div className="relative site-container py-16 md:py-24 z-10 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative site-container py-14 md:py-20 z-10">
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-center">
 
             {/* Left — text */}
-            <div className="space-y-7 animate-fade-in">
-              <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-full px-4 py-1.5"
+            <div className="space-y-5 animate-fade-in">
+              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5"
                 data-testid="badge-since-2001">
-                <Award className="h-3.5 w-3.5 text-amber-600" />
-                <span className="text-xs font-semibold text-amber-700">
-                  {language === 'en' ? 'Est. 2001 · Jakarta, Indonesia' : 'Berdiri 2001 · Jakarta, Indonesia'}
+                <Award className="h-3.5 w-3.5 text-[#E85E00]" />
+                <span className="text-xs font-semibold text-white/90">
+                  {language === 'en' ? 'Est. 2001 · Jakarta, Indonesia · Your Export Import Partner' : 'Berdiri 2001 · Jakarta, Indonesia · Mitra Ekspor Impor Anda'}
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-display leading-[1.1] text-[#0B2245] max-w-xl"
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display leading-[1.1] text-white max-w-xl"
                 data-testid="heading-hero-title">
                 {language === 'en'
                   ? 'Agro Commodity Sourcing for Indonesian Buyers'
                   : 'Sourcing Komoditas Agro untuk Pembeli Indonesia'}
               </h1>
 
-              <p className="text-base md:text-lg text-[#4a5568] leading-relaxed max-w-lg"
+              <p className="text-sm md:text-base text-white/70 leading-relaxed max-w-lg"
                 data-testid="text-hero-subtitle">
                 {language === 'en'
                   ? 'PT Svee International helps Indonesian feed mills, food processors and commodity importers source agricultural products from India — with support for supplier coordination, documentation and shipment follow-up.'
                   : 'PT Svee International membantu pabrik pakan, pengolah makanan, dan importir komoditas di Indonesia sourcing dari India — dengan dukungan koordinasi pemasok, dokumentasi, dan tindak lanjut pengiriman.'}
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 pt-1">
                 <Link href="/products/animal-feed-ingredients">
-                  <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#0B2245] hover:bg-[#1a3a6b] text-white text-sm font-semibold rounded-xl transition-all shadow-[0_4px_20px_rgba(11,34,69,0.3)] hover:shadow-[0_8px_30px_rgba(11,34,69,0.4)] hover:-translate-y-0.5"
+                  <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#E85E00] hover:bg-[#CC5200] text-white text-sm font-semibold rounded-xl transition-all shadow-lg hover:-translate-y-0.5"
                     data-testid="button-animal-feed">
-                    {language === 'en' ? 'View Animal Feed Products' : 'Lihat Produk Pakan Ternak'}
+                    {language === 'en' ? 'View Products' : 'Lihat Produk'}
                     <ArrowRight className="h-4 w-4" />
                   </button>
                 </Link>
                 <a href={waUrl(heroWaMsg)} target="_blank" rel="noopener noreferrer"
                   data-testid="button-whatsapp-hero">
-                  <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#2E7D55] hover:bg-[#246444] text-white text-sm font-semibold rounded-xl transition-all shadow-sm hover:-translate-y-0.5">
+                  <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#2E7D55] hover:bg-[#246444] text-white text-sm font-semibold rounded-xl transition-all hover:-translate-y-0.5">
                     <WhatsAppIcon className="h-4 w-4" />
                     {language === 'en' ? 'Request Quote via WhatsApp' : 'Minta Penawaran via WhatsApp'}
                   </button>
                 </a>
               </div>
 
-              {/* Trust badges */}
-              <div className="grid grid-cols-2 gap-3 pt-2 max-w-md">
+              {/* Trust pills */}
+              <div className="flex flex-wrap gap-2 pt-1">
                 {(language === 'en'
                   ? ['Indonesia-based sourcing', 'India supply network', 'Full spec coordination', 'Same-day response']
                   : ['Sourcing berbasis Indonesia', 'Jaringan pasokan India', 'Koordinasi spesifikasi', 'Respons hari yang sama']).map(p => (
-                  <div key={p} className="flex items-center gap-2 text-sm text-[#4a5568]">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-[#2E7D55] flex-shrink-0" />
+                  <span key={p} className="inline-flex items-center gap-1.5 bg-white/10 border border-white/15 rounded-full px-3 py-1 text-xs text-white/75">
+                    <CheckCircle2 className="h-3 w-3 text-[#E85E00] flex-shrink-0" />
                     {p}
-                  </div>
+                  </span>
                 ))}
               </div>
             </div>
 
-            {/* Right — image */}
-            <div className="relative hidden lg:flex flex-col gap-4">
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl aspect-[4/3]">
-                <img src={heroImages.main} alt="Agricultural commodity sourcing from India"
-                  className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B2245]/60 via-transparent to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5">
-                  <div className="flex flex-wrap gap-1.5">
-                    {['Soybean Meal · India', 'Corn Grits · India', 'Indian Spices'].map(t => (
-                      <span key={t} className="text-xs bg-white/15 backdrop-blur-sm text-white border border-white/25 px-2.5 py-1 rounded-full">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
+            {/* Right — stats cards */}
+            <div className="hidden lg:grid grid-cols-2 gap-3">
+              {[
+                { icon: Package, val: '50+', lbl: language === 'en' ? 'Products sourced' : 'Produk disourcing', color: 'text-[#E85E00]' },
+                { icon: Award, val: '24+', lbl: language === 'en' ? 'Years active' : 'Tahun aktif', color: 'text-white' },
+                { icon: Globe2, val: '10', lbl: language === 'en' ? 'Categories' : 'Kategori', color: 'text-white' },
+                { icon: Users, val: 'B2B', lbl: language === 'en' ? 'Buyers only' : 'Khusus pembeli', color: 'text-[#E85E00]' },
+              ].map(({ icon: Icon, val, lbl, color }, i) => (
+                <div key={i} className="bg-white/10 border border-white/15 rounded-2xl p-4 backdrop-blur-sm hover:bg-white/15 transition-colors">
+                  <Icon className={`h-5 w-5 mb-3 ${color}`} />
+                  <div className="text-2xl font-bold text-white leading-none mb-1">{val}</div>
+                  <div className="text-xs text-white/55">{lbl}</div>
                 </div>
-              </div>
-              {/* Floating stats */}
-              <div className="absolute -bottom-4 -left-5 bg-white rounded-xl shadow-xl border border-[#ede8e0] p-4 flex items-center gap-3 z-10">
-                <div className="h-11 w-11 bg-[#0B2245]/8 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Package className="h-5 w-5 text-[#0B2245]" />
-                </div>
-                <div>
-                  <div className="text-xl font-bold text-[#0B2245] leading-none">50+</div>
-                  <div className="text-xs text-[#6b7280] mt-0.5">{language === 'en' ? 'Products sourced' : 'Produk disourcingkan'}</div>
-                </div>
-              </div>
-              <div className="absolute -top-4 -right-4 bg-white rounded-xl shadow-xl border border-[#ede8e0] p-4 flex items-center gap-3 z-10">
-                <div className="h-11 w-11 bg-amber-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Award className="h-5 w-5 text-amber-600" />
-                </div>
-                <div>
-                  <div className="text-xl font-bold text-[#0B2245] leading-none">2001</div>
-                  <div className="text-xs text-[#6b7280] mt-0.5">{language === 'en' ? 'Established' : 'Berdiri'}</div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* ── PRODUCT TICKER ── */}
-      <div className="bg-[#0B2245] py-3.5 overflow-hidden">
+      <div className="bg-[#1A4A9E] py-3.5 overflow-hidden">
         <div className="flex animate-ticker whitespace-nowrap">
           {[...ticker, ...ticker].map((item, i) => (
             <span key={i} className="inline-flex items-center gap-3 text-white/80 text-xs font-medium px-6 flex-shrink-0">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#C8922A] flex-shrink-0" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#E85E00] flex-shrink-0" />
               {item}
             </span>
           ))}
@@ -272,7 +252,7 @@ export default function Home() {
           <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
             <div>
               <p className="eyebrow mb-3">{language === 'en' ? 'Product Categories' : 'Kategori Produk'}</p>
-              <h2 className="text-3xl md:text-4xl font-display text-[#0B2245]" data-testid="heading-categories">
+              <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E]" data-testid="heading-categories">
                 {language === 'en' ? 'What We Source' : 'Apa yang Kami Sourcingkan'}
               </h2>
               <p className="text-[#6b7280] text-sm mt-2 max-w-md">
@@ -282,7 +262,7 @@ export default function Home() {
               </p>
             </div>
             <Link href="/products">
-              <button className="flex items-center gap-1.5 text-sm font-semibold text-[#0B2245] hover:text-[#C8922A] transition-colors">
+              <button className="flex items-center gap-1.5 text-sm font-semibold text-[#1A4A9E] hover:text-[#E85E00] transition-colors">
                 {language === 'en' ? 'All Products' : 'Semua Produk'}
                 <ArrowRight className="h-4 w-4" />
               </button>
@@ -297,10 +277,10 @@ export default function Home() {
                   <div className="relative overflow-hidden aspect-[16/10]">
                     <img src={cat.img} alt={cat.label}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B2245]/85 via-[#0B2245]/25 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A4A9E]/85 via-[#1A4A9E]/25 to-transparent" />
                     {cat.badge && (
                       <div className="absolute top-3 left-3">
-                        <span className="bg-[#C8922A] text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide">
+                        <span className="bg-[#E85E00] text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide">
                           {cat.badge}
                         </span>
                       </div>
@@ -309,7 +289,7 @@ export default function Home() {
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <div className="text-white font-semibold text-base leading-tight mb-1">{cat.label}</div>
                     <div className="text-white/60 text-xs">{cat.desc}</div>
-                    <div className="flex items-center gap-1 text-[#C8922A] text-xs font-semibold mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="flex items-center gap-1 text-[#E85E00] text-xs font-semibold mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       {language === 'en' ? 'View Products' : 'Lihat Produk'} <ChevronRight className="h-3 w-3" />
                     </div>
                   </div>
@@ -320,7 +300,7 @@ export default function Home() {
 
           <div className="mt-8 text-center">
             <Link href="/products">
-              <button className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#0B2245] text-[#0B2245] hover:bg-[#0B2245] hover:text-white text-sm font-semibold rounded-xl transition-all">
+              <button className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#1A4A9E] text-[#1A4A9E] hover:bg-[#1A4A9E] hover:text-white text-sm font-semibold rounded-xl transition-all">
                 {language === 'en' ? 'View All 10 Product Categories' : 'Lihat Semua 10 Kategori Produk'}
                 <ArrowRight className="h-4 w-4" />
               </button>
@@ -334,7 +314,7 @@ export default function Home() {
         <div className="site-container">
           <div className="text-center mb-12">
             <p className="eyebrow mb-3">{language === 'en' ? 'Why Choose Us' : 'Mengapa Memilih Kami'}</p>
-            <h2 className="text-3xl md:text-4xl font-display text-[#0B2245] mb-3">
+            <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E] mb-3">
               {language === 'en' ? 'Practical Sourcing Support You Can Rely On' : 'Dukungan Sourcing Praktis yang Bisa Anda Andalkan'}
             </h2>
             <p className="text-[#6b7280] text-base max-w-xl mx-auto">
@@ -349,7 +329,7 @@ export default function Home() {
                 <div className={`inline-flex items-center justify-center h-11 w-11 rounded-xl mb-4 ${item.color}`}>
                   <item.icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-semibold text-[#0B2245] text-sm mb-2">{item.title}</h3>
+                <h3 className="font-semibold text-[#1A4A9E] text-sm mb-2">{item.title}</h3>
                 <p className="text-[#6b7280] text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -365,9 +345,9 @@ export default function Home() {
             <div className="relative img-rounded overflow-hidden group aspect-[4/3] order-2 lg:order-1">
               <img src={contentImages.about} alt="PT Svee International team — Jakarta"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B2245]/70 via-[#0B2245]/15 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A4A9E]/70 via-[#1A4A9E]/15 to-transparent" />
               <div className="absolute top-4 left-4">
-                <span className="bg-[#0B2245] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">
+                <span className="bg-[#1A4A9E] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">
                   {language === 'en' ? 'Est. 2001' : 'Berdiri 2001'}
                 </span>
               </div>
@@ -383,7 +363,7 @@ export default function Home() {
 
             <div className="space-y-5 order-1 lg:order-2">
               <p className="eyebrow">{language === 'en' ? 'About Us' : 'Tentang Kami'}</p>
-              <h2 className="text-3xl md:text-4xl font-display leading-tight text-[#0B2245]"
+              <h2 className="text-3xl md:text-4xl font-display leading-tight text-[#1A4A9E]"
                 data-testid="heading-about-title">
                 {language === 'en'
                   ? 'Indonesia-based Import & Sourcing Support Since 2001'
@@ -409,14 +389,14 @@ export default function Home() {
                   { val: '50+', lbl: language === 'en' ? 'Products' : 'Produk' },
                 ].map((s, i) => (
                   <div key={i} className="bg-white rounded-xl border border-[#ede8e0] p-3 text-center shadow-sm">
-                    <div className="text-2xl font-bold text-[#0B2245] leading-none">{s.val}</div>
+                    <div className="text-2xl font-bold text-[#1A4A9E] leading-none">{s.val}</div>
                     <div className="text-[11px] text-[#6b7280] mt-1 font-medium">{s.lbl}</div>
                   </div>
                 ))}
               </div>
 
               <Link href="/about">
-                <button className="inline-flex items-center gap-2 text-sm font-semibold text-[#0B2245] hover:text-[#C8922A] transition-colors mt-2"
+                <button className="inline-flex items-center gap-2 text-sm font-semibold text-[#1A4A9E] hover:text-[#E85E00] transition-colors mt-2"
                   data-testid="button-learn-more">
                   {language === 'en' ? 'Learn More About Us' : 'Pelajari Lebih Lanjut'}
                   <ArrowRight className="h-4 w-4" />
@@ -428,13 +408,13 @@ export default function Home() {
       </section>
 
       {/* ── SOURCING BRIDGE — dark ── */}
-      <section className="py-20 md:py-24 bg-[#0B2245] relative overflow-hidden">
+      <section className="py-20 md:py-24 bg-[#1A4A9E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">
           <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <div className="space-y-5">
-              <p className="eyebrow text-[#C8922A]">
+              <p className="eyebrow text-[#E85E00]">
                 {language === 'en' ? 'Our Role' : 'Peran Kami'}
               </p>
               <h2 className="text-3xl md:text-4xl font-display text-white leading-tight">
@@ -463,7 +443,7 @@ export default function Home() {
                     ]
                 ).map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-2.5 text-white/70 text-sm py-2.5 border-t border-white/10">
-                    <Icon className="h-4 w-4 text-[#C8922A] flex-shrink-0" />
+                    <Icon className="h-4 w-4 text-[#E85E00] flex-shrink-0" />
                     {text}
                   </div>
                 ))}
@@ -492,7 +472,7 @@ export default function Home() {
                   : ['Pabrik Pakan', 'Produsen Pakan Ternak', 'Pengolah Makanan', 'Produsen Snack', 'Importir Komoditas', 'Pedagang Grosir', 'Rumah Dagang', 'Pembeli Industri']
                 ).map((b, i) => (
                   <div key={i} className="flex items-center gap-2.5 py-2.5 border-b border-white/8">
-                    <div className="h-1.5 w-1.5 rounded-full bg-[#C8922A] flex-shrink-0" />
+                    <div className="h-1.5 w-1.5 rounded-full bg-[#E85E00] flex-shrink-0" />
                     <span className="text-white/70 text-xs leading-snug">{b}</span>
                   </div>
                 ))}
@@ -508,7 +488,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-5">
               <p className="eyebrow">{language === 'en' ? 'Quality Promise' : 'Janji Kualitas'}</p>
-              <h2 className="text-3xl md:text-4xl font-display text-[#0B2245] leading-tight">
+              <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E] leading-tight">
                 {language === 'en' ? 'Export-Grade Quality With Full Documentation' : 'Kualitas Standar Ekspor Dengan Dokumentasi Lengkap'}
               </h2>
               <p className="text-[#4a5568] text-sm leading-relaxed">
@@ -528,7 +508,7 @@ export default function Home() {
             <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] bg-[#f9f6f1]">
               <img src={sectionBackgrounds.port} alt="Port shipment quality"
                 className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0B2245]/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1A4A9E]/20 to-transparent" />
               <div className="absolute bottom-5 left-5 right-5">
                 <div className="bg-white/95 backdrop-blur rounded-xl p-4 shadow-lg">
                   <div className="flex items-center gap-3">
@@ -536,7 +516,7 @@ export default function Home() {
                       <ShieldCheck className="h-5 w-5 text-[#2E7D55]" />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-[#0B2245]">
+                      <div className="text-xs font-bold text-[#1A4A9E]">
                         {language === 'en' ? 'Document Support Included' : 'Dukungan Dokumen Termasuk'}
                       </div>
                       <div className="text-xs text-[#6b7280] mt-0.5">
@@ -556,7 +536,7 @@ export default function Home() {
         <div className="site-container">
           <div className="text-center mb-12">
             <p className="eyebrow mb-3">{language === 'en' ? 'Origin Markets' : 'Pasar Asal'}</p>
-            <h2 className="text-3xl md:text-4xl font-display text-[#0B2245]">
+            <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E]">
               {language === 'en' ? 'Sourcing From Reliable Origin Markets' : 'Sourcing dari Pasar Asal Terpercaya'}
             </h2>
             <p className="text-[#6b7280] text-sm mt-2 max-w-md mx-auto">
@@ -578,14 +558,14 @@ export default function Home() {
               { code: 'GL', country: 'Asal Global', products: 'Australia · Black Sea · Per kasus', color: 'from-sky-400 to-sky-600', main: false },
             ]).map((o, i) => (
               <div key={i}
-                className={`bg-white rounded-2xl border p-6 transition-shadow hover:shadow-md ${o.main ? 'border-[#C8922A] shadow-sm' : 'border-[#ede8e0]'}`}
+                className={`bg-white rounded-2xl border p-6 transition-shadow hover:shadow-md ${o.main ? 'border-[#E85E00] shadow-sm' : 'border-[#ede8e0]'}`}
                 data-testid={`origin-tile-${i}`}>
                 <div className={`h-12 w-12 bg-gradient-to-br ${o.color} rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-sm mb-4`}>
                   {o.code}
                 </div>
-                <div className="font-semibold text-[#0B2245] text-sm mb-1.5 flex items-center gap-2">
+                <div className="font-semibold text-[#1A4A9E] text-sm mb-1.5 flex items-center gap-2">
                   {o.country}
-                  {o.main && <span className="text-[10px] bg-[#C8922A] text-white px-2 py-0.5 rounded-full font-bold">Primary</span>}
+                  {o.main && <span className="text-[10px] bg-[#E85E00] text-white px-2 py-0.5 rounded-full font-bold">Primary</span>}
                 </div>
                 <div className="text-[#6b7280] text-xs leading-relaxed">{o.products}</div>
               </div>
@@ -599,7 +579,7 @@ export default function Home() {
         <div className="site-container">
           <div className="text-center mb-12">
             <p className="eyebrow mb-3">{language === 'en' ? 'Our Services' : 'Layanan Kami'}</p>
-            <h2 className="text-3xl md:text-4xl font-display text-[#0B2245]" data-testid="heading-services">
+            <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E]" data-testid="heading-services">
               {language === 'en' ? 'How We Can Help' : 'Cara Kami Membantu'}
             </h2>
             <p className="text-[#6b7280] text-sm mt-2 max-w-md mx-auto" data-testid="text-services-subtitle">
@@ -613,7 +593,7 @@ export default function Home() {
             {allServices.map((service, idx) => {
               const Icon = serviceIconMap[service.icon] || serviceIconMap.default;
               const colors = [
-                'bg-blue-50 text-[#0B2245]',
+                'bg-blue-50 text-[#1A4A9E]',
                 'bg-amber-50 text-amber-700',
                 'bg-green-50 text-green-700',
                 'bg-rose-50 text-rose-700',
@@ -626,7 +606,7 @@ export default function Home() {
                   <div className={`inline-flex items-center justify-center h-11 w-11 rounded-xl mb-4 ${colors[idx % colors.length]}`}>
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="font-semibold text-[#0B2245] text-sm leading-tight mb-2">
+                  <h3 className="font-semibold text-[#1A4A9E] text-sm leading-tight mb-2">
                     {service.title[language]}
                   </h3>
                   <p className="text-[#6b7280] text-xs leading-relaxed line-clamp-3">
@@ -639,7 +619,7 @@ export default function Home() {
 
           <div className="text-center mt-8">
             <Link href="/services">
-              <button className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#0B2245] text-[#0B2245] hover:bg-[#0B2245] hover:text-white text-sm font-semibold rounded-xl transition-all">
+              <button className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#1A4A9E] text-[#1A4A9E] hover:bg-[#1A4A9E] hover:text-white text-sm font-semibold rounded-xl transition-all">
                 {language === 'en' ? 'See All Services' : 'Lihat Semua Layanan'}
                 <ArrowRight className="h-4 w-4" />
               </button>
@@ -655,11 +635,11 @@ export default function Home() {
             <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-[4/3] bg-white">
               <img src={sectionBackgrounds.warehouse} alt="Warehouse and supply chain"
                 className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B2245]/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A4A9E]/50 to-transparent" />
             </div>
             <div className="space-y-5">
               <p className="eyebrow">{language === 'en' ? 'Global Supply' : 'Pasokan Global'}</p>
-              <h2 className="text-3xl md:text-4xl font-display text-[#0B2245] leading-tight">
+              <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E] leading-tight">
                 {language === 'en' ? 'Reliable Supply Chain From Farm to Port' : 'Rantai Pasokan Andal dari Ladang ke Pelabuhan'}
               </h2>
               <p className="text-[#4a5568] text-sm leading-relaxed">
@@ -680,7 +660,7 @@ export default function Home() {
                   { icon: BarChart3, text: 'Pemeriksaan ketersediaan real-time dan pembaruan pasar' },
                 ]).map(({ icon: Icon, text }, i) => (
                   <div key={i} className="flex items-start gap-3 text-sm text-[#4a5568]">
-                    <Icon className="h-4 w-4 text-[#C8922A] flex-shrink-0 mt-0.5" />
+                    <Icon className="h-4 w-4 text-[#E85E00] flex-shrink-0 mt-0.5" />
                     {text}
                   </div>
                 ))}
@@ -691,11 +671,11 @@ export default function Home() {
       </section>
 
       {/* ── BOTTOM CTA ── */}
-      <section className="relative py-20 md:py-24 bg-[#0B2245] overflow-hidden">
+      <section className="relative py-20 md:py-24 bg-[#1A4A9E] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container text-center z-10 max-w-3xl mx-auto">
-          <p className="eyebrow text-[#C8922A] mb-4">
+          <p className="eyebrow text-[#E85E00] mb-4">
             {language === 'en' ? 'Get in Touch' : 'Hubungi Kami'}
           </p>
           <h2 className="text-3xl md:text-4xl font-display text-white mb-4">

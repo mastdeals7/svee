@@ -53,7 +53,7 @@ export default function About() {
     <div className="w-full overflow-x-hidden">
 
       {/* ── HERO ── */}
-      <section className="relative py-20 md:py-28 bg-[#0B2245] overflow-hidden">
+      <section className="relative py-20 md:py-28 bg-[#1A4A9E] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="absolute right-0 top-0 w-1/2 h-full overflow-hidden hidden lg:block opacity-20">
@@ -63,7 +63,7 @@ export default function About() {
           <div className="max-w-2xl animate-fade-in">
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6"
               data-testid="badge-since-2001">
-              <Award className="h-3.5 w-3.5 text-[#C8922A]" />
+              <Award className="h-3.5 w-3.5 text-[#E85E00]" />
               <span className="text-xs font-semibold text-white/90">
                 {language === 'en' ? 'Est. 2001 · Jakarta, Indonesia' : 'Berdiri 2001 · Jakarta, Indonesia'}
               </span>
@@ -98,7 +98,7 @@ export default function About() {
         <div className="site-container">
           <div className="text-center mb-12">
             <p className="eyebrow mb-3">{language === 'en' ? 'Who We Are' : 'Siapa Kami'}</p>
-            <h2 className="text-3xl md:text-4xl font-display text-[#0B2245]">
+            <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E]">
               {language === 'en' ? 'About PT Svee International' : 'Tentang PT Svee International'}
             </h2>
           </div>
@@ -114,7 +114,7 @@ export default function About() {
                   <div className={`inline-flex items-center justify-center h-12 w-12 rounded-xl mb-5 ${item.color}`}>
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="font-semibold text-[#0B2245] text-base mb-3">{item.title}</h3>
+                  <h3 className="font-semibold text-[#1A4A9E] text-base mb-3">{item.title}</h3>
                   <p className="text-[#6b7280] text-sm leading-relaxed">{item.content}</p>
                 </div>
               );
@@ -128,7 +128,7 @@ export default function About() {
         <div className="site-container">
           <div className="text-center mb-12">
             <p className="eyebrow mb-3">{language === 'en' ? 'Our Role' : 'Peran Kami'}</p>
-            <h2 className="text-3xl md:text-4xl font-display text-[#0B2245]">
+            <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E]">
               {language === 'en' ? 'What We Do for Indonesian Buyers' : 'Apa yang Kami Lakukan untuk Pembeli Indonesia'}
             </h2>
           </div>
@@ -140,7 +140,7 @@ export default function About() {
                   <div className={`inline-flex items-center justify-center h-11 w-11 rounded-xl ${item.color}`}>
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="font-semibold text-[#0B2245] text-sm">{item.title}</h3>
+                  <h3 className="font-semibold text-[#1A4A9E] text-sm">{item.title}</h3>
                   <p className="text-[#6b7280] text-xs leading-relaxed">{item.desc}</p>
                 </div>
               );
@@ -150,13 +150,13 @@ export default function About() {
       </section>
 
       {/* ── WHO WE SERVE — dark ── */}
-      <section className="py-20 md:py-24 bg-[#0B2245] relative overflow-hidden">
+      <section className="py-20 md:py-24 bg-[#1A4A9E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-5">
-              <p className="eyebrow text-[#C8922A]">{language === 'en' ? 'Our Buyers' : 'Pembeli Kami'}</p>
+              <p className="eyebrow text-[#E85E00]">{language === 'en' ? 'Our Buyers' : 'Pembeli Kami'}</p>
               <h2 className="text-3xl md:text-4xl font-display text-white">
                 {language === 'en' ? 'Who We Work With in Indonesia' : 'Siapa yang Kami Layani di Indonesia'}
               </h2>
@@ -168,7 +168,7 @@ export default function About() {
               <div className="grid grid-cols-2 gap-2.5 pt-2">
                 {buyerTypes.map((b, i) => (
                   <div key={i} className="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5">
-                    <div className="h-1.5 w-1.5 rounded-full bg-[#C8922A] flex-shrink-0" />
+                    <div className="h-1.5 w-1.5 rounded-full bg-[#E85E00] flex-shrink-0" />
                     <span className="text-white/70 text-xs">{b}</span>
                   </div>
                 ))}
@@ -177,7 +177,7 @@ export default function About() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
               <img src={contentImages.about} alt="Agro commodity sourcing for Indonesian buyers"
                 className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B2245]/70 via-[#0B2245]/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A4A9E]/70 via-[#1A4A9E]/10 to-transparent" />
             </div>
           </div>
         </div>
@@ -188,7 +188,7 @@ export default function About() {
         <div className="site-container">
           <div className="text-center mb-12">
             <p className="eyebrow mb-3">{language === 'en' ? 'Our History' : 'Sejarah Kami'}</p>
-            <h2 className="text-3xl md:text-4xl font-display text-[#0B2245]">
+            <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E]">
               {language === 'en' ? 'Over 24 Years in Agro Commodity Trade' : 'Lebih dari 24 Tahun dalam Perdagangan Komoditas Agro'}
             </h2>
           </div>
@@ -196,7 +196,7 @@ export default function About() {
             {timeline.map((item, i) => (
               <div key={i} className="relative flex gap-6 pb-8 last:pb-0">
                 <div className="flex flex-col items-center">
-                  <div className="h-12 w-12 rounded-full bg-[#0B2245] flex items-center justify-center text-white font-bold text-sm flex-shrink-0 shadow-md border-4 border-[#f9f6f1]">
+                  <div className="h-12 w-12 rounded-full bg-[#1A4A9E] flex items-center justify-center text-white font-bold text-sm flex-shrink-0 shadow-md border-4 border-[#f9f6f1]">
                     {item.year.slice(2)}
                   </div>
                   {i < timeline.length - 1 && (
@@ -204,7 +204,7 @@ export default function About() {
                   )}
                 </div>
                 <div className="bg-white rounded-xl border border-[#ede8e0] p-5 flex-1 shadow-sm">
-                  <div className="font-bold text-[#C8922A] text-sm mb-2">{item.year}</div>
+                  <div className="font-bold text-[#E85E00] text-sm mb-2">{item.year}</div>
                   <p className="text-[#4a5568] text-sm leading-relaxed">{item.event}</p>
                 </div>
               </div>
@@ -218,9 +218,9 @@ export default function About() {
         <div className="site-container max-w-3xl mx-auto text-center space-y-6">
           <div className="bg-[#f9f6f1] border border-[#ede8e0] rounded-2xl p-6 text-left">
             <div className="flex items-start gap-3">
-              <ShieldCheck className="h-5 w-5 text-[#0B2245] flex-shrink-0 mt-0.5" />
+              <ShieldCheck className="h-5 w-5 text-[#1A4A9E] flex-shrink-0 mt-0.5" />
               <div>
-                <h3 className="font-semibold text-[#0B2245] text-sm mb-2">
+                <h3 className="font-semibold text-[#1A4A9E] text-sm mb-2">
                   {language === 'en' ? 'Practical Disclaimer' : 'Pemberitahuan Praktis'}
                 </h3>
                 <p className="text-[#6b7280] text-sm leading-relaxed">
@@ -232,7 +232,7 @@ export default function About() {
             </div>
           </div>
           <div>
-            <h3 className="text-2xl font-display text-[#0B2245] mb-3">
+            <h3 className="text-2xl font-display text-[#1A4A9E] mb-3">
               {language === 'en' ? 'Ready to Discuss Your Sourcing Requirement?' : 'Siap Mendiskusikan Kebutuhan Sourcing Anda?'}
             </h3>
             <p className="text-[#6b7280] text-sm mb-6">

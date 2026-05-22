@@ -116,19 +116,19 @@ function CategoryOverviewCard({ category, language }: { category: ProductCategor
             alt={category.name[language]}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B2245]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1A4A9E]/40 to-transparent" />
           <div className="absolute top-3 right-3">
-            <span className="bg-white/90 text-[#0B2245] text-xs font-bold px-2.5 py-1 rounded-full">
+            <span className="bg-white/90 text-[#1A4A9E] text-xs font-bold px-2.5 py-1 rounded-full">
               {count} {language === 'en' ? 'products' : 'produk'}
             </span>
           </div>
         </div>
         <div className="p-5 space-y-3">
-          <h3 className="text-base font-semibold leading-snug text-[#0B2245]">{category.name[language]}</h3>
+          <h3 className="text-base font-semibold leading-snug text-[#1A4A9E]">{category.name[language]}</h3>
           <p className="text-xs text-[#6b7280] leading-relaxed line-clamp-3">
             {category.description[language]}
           </p>
-          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#C8922A] group-hover:gap-2.5 transition-all">
+          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#E85E00] group-hover:gap-2.5 transition-all">
             {language === 'en' ? 'View products' : 'Lihat produk'}
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
           </div>
@@ -158,7 +158,7 @@ export function ProductCatalogCard({ product, language }: { product: Product; la
         />
         {product.featured && (
           <div className="absolute top-3 left-3">
-            <span className="bg-[#C8922A] text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide">
+            <span className="bg-[#E85E00] text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide">
               {language === 'en' ? 'Priority' : 'Prioritas'}
             </span>
           </div>
@@ -166,21 +166,21 @@ export function ProductCatalogCard({ product, language }: { product: Product; la
       </div>
       <div className="p-5 space-y-4">
         <div className="space-y-1.5">
-          <span className="text-[10px] font-bold uppercase tracking-wider text-[#C8922A]">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-[#E85E00]">
             {category?.name[language] ?? product.categoryId}
           </span>
-          <h3 className="text-base font-semibold text-[#0B2245] leading-snug">
+          <h3 className="text-base font-semibold text-[#1A4A9E] leading-snug">
             {product.name[language]}
           </h3>
         </div>
 
         <div className="space-y-2.5 text-xs">
           <div>
-            <p className="font-bold uppercase text-[#0B2245]/50 mb-0.5">{language === 'en' ? 'Typical use' : 'Kegunaan tipikal'}</p>
+            <p className="font-bold uppercase text-[#1A4A9E]/50 mb-0.5">{language === 'en' ? 'Typical use' : 'Kegunaan tipikal'}</p>
             <p className="text-[#4a5568] leading-relaxed">{typicalUse(product, language)}</p>
           </div>
           <div>
-            <p className="font-bold uppercase text-[#0B2245]/50 mb-0.5">{language === 'en' ? 'Origin' : 'Asal'}</p>
+            <p className="font-bold uppercase text-[#1A4A9E]/50 mb-0.5">{language === 'en' ? 'Origin' : 'Asal'}</p>
             <p className="text-[#4a5568] leading-relaxed">{origin}</p>
           </div>
           {spec && (
@@ -192,7 +192,7 @@ export function ProductCatalogCard({ product, language }: { product: Product; la
 
         <div className="flex gap-2 pt-1">
           <Link href={productDetailPath(product)} className="flex-1">
-            <button className="w-full flex items-center justify-center gap-1.5 py-2 px-3 border border-[#0B2245] text-[#0B2245] hover:bg-[#0B2245] hover:text-white text-xs font-semibold rounded-lg transition-all">
+            <button className="w-full flex items-center justify-center gap-1.5 py-2 px-3 border border-[#1A4A9E] text-[#1A4A9E] hover:bg-[#1A4A9E] hover:text-white text-xs font-semibold rounded-lg transition-all">
               {language === 'en' ? 'Details' : 'Detail'}
               <ArrowRight className="h-3.5 w-3.5" />
             </button>
@@ -226,13 +226,13 @@ export default function Products() {
     <div className="w-full overflow-x-hidden">
 
       {/* Hero */}
-      <section className="relative py-20 md:py-28 bg-[#0B2245] overflow-hidden">
+      <section className="relative py-20 md:py-28 bg-[#1A4A9E] overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container z-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
-              <Package className="h-3.5 w-3.5 text-[#C8922A]" />
+              <Package className="h-3.5 w-3.5 text-[#E85E00]" />
               <span className="text-xs font-semibold text-white/90">
                 {language === 'en' ? 'Commodity Catalogue' : 'Katalog Komoditas'}
               </span>
@@ -265,7 +265,7 @@ export default function Products() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
             <div>
               <p className="eyebrow mb-3">{language === 'en' ? 'Product categories' : 'Kategori produk'}</p>
-              <h2 className="text-3xl md:text-4xl font-display text-[#0B2245]">
+              <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E]">
                 {language === 'en' ? 'Choose a Category' : 'Pilih Kategori'}
               </h2>
             </div>
@@ -283,10 +283,10 @@ export default function Products() {
         <div className="site-container">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center h-12 w-12 bg-[#f9f6f1] rounded-2xl mb-4">
-              <Wheat className="h-6 w-6 text-[#C8922A]" />
+              <Wheat className="h-6 w-6 text-[#E85E00]" />
             </div>
             <p className="eyebrow mb-3">{language === 'en' ? 'Priority products' : 'Produk prioritas'}</p>
-            <h2 className="text-3xl md:text-4xl font-display text-[#0B2245]">
+            <h2 className="text-3xl md:text-4xl font-display text-[#1A4A9E]">
               {language === 'en' ? 'Common Buyer Enquiries' : 'Produk yang Sering Ditanyakan'}
             </h2>
             <p className="text-[#6b7280] text-sm mt-2 max-w-md mx-auto">
@@ -304,11 +304,11 @@ export default function Products() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-20 bg-[#0B2245] relative overflow-hidden">
+      <section className="py-16 md:py-20 bg-[#1A4A9E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="relative site-container text-center max-w-2xl mx-auto z-10">
-          <p className="eyebrow text-[#C8922A] mb-3">{language === 'en' ? 'Send enquiry' : 'Kirim pertanyaan'}</p>
+          <p className="eyebrow text-[#E85E00] mb-3">{language === 'en' ? 'Send enquiry' : 'Kirim pertanyaan'}</p>
           <h2 className="text-3xl font-display text-white mb-4">
             {language === 'en' ? 'Need a Specific Product, Grade or Origin?' : 'Butuh Produk, Grade atau Asal Tertentu?'}
           </h2>
